@@ -6,10 +6,10 @@ import retrofit2.Response
 
 interface DefaultRepository {
 
-    suspend fun getComments(id: Int): Response<List<Post>>
+    /*suspend fun getComments(id: Int): Response<List<Post>>
 
     suspend fun getPosts(): Response<List<Post>>
 
-    suspend fun getPhotos() : Response<List<SamplePhotoEntity>>
+    suspend fun getPhotos() : Response<List<SamplePhotoEntity>>*/
 
 }

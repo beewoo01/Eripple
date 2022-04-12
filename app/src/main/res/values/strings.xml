@@ -15,5 +15,18 @@
     <string name="login">로그인</string>
     <string name="email">이메일</string>
     <string name="password">비밀번호</string>
+    <string name="password_check">비밀번호 확인</string>
     <string name="plz_input_email">이메일을 입력해주세요</string>
+    <string name="logo">logo</string>
+    <string name="back">back</string>
+    <string name="plz_agree">자연하리 서비스 이용약관에 \n동의해주세요</string>
+    <string name="allAgree">이용약관 전체 동의</string>
+    <string name="detail">detail</string>
+    <string name="termsOfUse">이용약관</string>
+    <string name="personal_information">개인정보처리방침</string>
+    <string name="gotoAuth">본인확인 하기</string>
+    <string name="check">확인</string>
+    <string name="just_name">이름</string>
+    <string name="phone">휴대폰 번호</string>
+
 </resources>

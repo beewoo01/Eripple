@@ -38,17 +38,11 @@ class SampleActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.wtf("SampleActivity", "onCreate")
         viewModel.postPhotos()
     }
 
     override fun initViews() = with(binding){
-        Log.wtf("SampleActivity", "initViews")
         sampleRe.adapter = adapter
-        /*sampleRe.apply {
-            layoutManager = LinearLayoutManager(this@SampleActivity)
-            adapter = adapter
-        }*/
     }
 
 

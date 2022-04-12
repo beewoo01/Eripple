@@ -3,7 +3,7 @@ package com.codebros.eripple.widget
 import android.app.Application
 import android.content.Context
 
-class BaseProjectApplication : Application() {
+class ErippleApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()

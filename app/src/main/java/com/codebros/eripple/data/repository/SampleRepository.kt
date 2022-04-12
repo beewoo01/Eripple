@@ -8,12 +8,12 @@ import retrofit2.Response
 
 class SampleRepository : ApiService {
 
-    private val apiService: ApiService = RetrofitGenerator.getApiService()
+    /*private val apiService: ApiService = RetrofitGenerator.getApiService()
 
     override suspend fun getPosts(): Response<List<Post>> = apiService.getPosts()
 
     override suspend fun getComments(id: Int): Response<List<Post>> = apiService.getComments(id = id)
 
-    override suspend fun getPhotos(): Response<List<SamplePhotoEntity>> = apiService.getPhotos()
+    override suspend fun getPhotos(): Response<List<SamplePhotoEntity>> = apiService.getPhotos()*/
 
 }
