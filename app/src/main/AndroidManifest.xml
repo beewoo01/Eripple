@@ -20,7 +20,7 @@
             android:name="com.codebros.eripple.screen.account.join.termsofuse.TermsOfUseActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".screen.main.MainActivity"
             android:exported="false"
             android:label="@string/title_activity_sample" />
         <activity

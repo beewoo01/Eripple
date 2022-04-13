@@ -8,11 +8,20 @@
         <entry key="../.gradle/caches/transforms-3/b07e2ea96ad9bd2cb8ab939ac9c3a895/transformed/appcompat-1.4.1/res/drawable/abc_edit_text_material.xml" value="0.204" />
         <entry key="../.gradle/caches/transforms-3/b07e2ea96ad9bd2cb8ab939ac9c3a895/transformed/appcompat-1.4.1/res/drawable/abc_ic_menu_paste_mtrl_am_alpha.xml" value="0.204" />
         <entry key="../.gradle/caches/transforms-3/b07e2ea96ad9bd2cb8ab939ac9c3a895/transformed/appcompat-1.4.1/res/drawable/tooltip_frame_dark.xml" value="0.204" />
+        <entry key="../eripple/app/src/main/res/drawable/bg_circle.xml" value="0.209" />
         <entry key="../eripple/app/src/main/res/drawable/bg_turms_of_use_checkbox.xml" value="0.4585" />
+        <entry key="../eripple/app/src/main/res/drawable/round_3dp_bg.xml" value="0.209" />
+        <entry key="../eripple/app/src/main/res/drawable/round_3dp_edit_bg.xml" value="0.268" />
         <entry key="../eripple/app/src/main/res/layout/activity_join.xml" value="0.375" />
         <entry key="../eripple/app/src/main/res/layout/activity_login.xml" value="0.335" />
+        <entry key="../eripple/app/src/main/res/layout/activity_main.xml" value="0.165" />
         <entry key="../eripple/app/src/main/res/layout/activity_terms_of_use.xml" value="0.5" />
         <entry key="../eripple/app/src/main/res/layout/activity_terms_of_use_detail.xml" value="0.45" />
+        <entry key="../eripple/app/src/main/res/layout/fragment_home.xml" value="0.375" />
+        <entry key="../eripple/app/src/main/res/layout/fragment_my_point.xml" value="0.23067279565399082" />
+        <entry key="../eripple/app/src/main/res/layout/fragment_setting.xml" value="0.23067279565399082" />
+        <entry key="../eripple/app/src/main/res/layout/viewholder_home_bookmark.xml" value="0.335" />
+        <entry key="../eripple/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/round_edit_bg.xml" value="0.4585" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_sample.xml" value="0.28351449275362317" />

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/home"
+        android:title="@string/home"
+        android:icon="@drawable/ic_sample_home"
+        />
+
+    <item android:id="@+id/history"
+        android:title="@string/history_ko"
+        android:icon="@drawable/ic_sample_home"
+        />
+
+    <item android:id="@+id/eripple_info"
+        android:title="@string/eripple_info"
+        android:icon="@drawable/ic_sample_home"
+        />
+
+    <item android:id="@+id/my_point"
+        android:title="@string/point_ko"
+        android:icon="@drawable/ic_sample_home"
+        />
+
+    <item android:id="@+id/setting"
+        android:title="@string/setting_ko"
+        android:icon="@drawable/ic_sample_home"
+        />
+
+</menu>

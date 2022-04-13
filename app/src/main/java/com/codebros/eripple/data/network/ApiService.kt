@@ -34,7 +34,7 @@ interface ApiService {
         @Field("phone") phone : String,
         @Field("password") password : String,
         @Field("email") email : String,
-    )
+    ) : Response<Int>
 
 
 }

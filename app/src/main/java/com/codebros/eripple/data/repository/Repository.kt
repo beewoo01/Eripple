@@ -14,8 +14,12 @@ class Repository() : ApiService {
         apiService.loginAccount(id, psw)
 
 
-    override suspend fun joinAccount(name: String, phone: String, password: String, email: String) =
-        apiService.joinAccount(name, phone, password, email)
+    override suspend fun joinAccount(
+        name: String,
+        phone: String,
+        password: String,
+        email: String
+    ): Response<Int> = apiService.joinAccount(name, phone, password, email)
 
 
 }
