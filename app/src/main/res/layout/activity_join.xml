@@ -30,18 +30,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/join"
+            android:textStyle="bold"
+            android:textSize="16sp"
             android:textColor="@color/black" />
 
     </androidx.appcompat.widget.Toolbar>
-
-    <View
-        android:id="@+id/toolbar_line"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:background="@color/default_gray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
 
     <androidx.core.widget.NestedScrollView
@@ -54,7 +47,7 @@
         app:layout_constraintBottom_toTopOf="@id/join_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_line">
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -67,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@string/just_name"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -96,6 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@string/phone"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/name_edt"
@@ -126,6 +121,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@string/password"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/phone_edt"
@@ -139,7 +135,7 @@
                 android:autofillHints="no"
                 android:background="@drawable/round_3dp_edit_bg"
                 android:hint="@string/password"
-                android:inputType="number"
+                android:inputType="textPassword"
                 android:paddingHorizontal="10dp"
                 android:textSize="14sp"
                 android:maxLines="1"
@@ -156,6 +152,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@string/password_check"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/password_edt"
@@ -169,7 +166,7 @@
                 android:autofillHints="no"
                 android:background="@drawable/round_3dp_edit_bg"
                 android:hint="@string/password_check"
-                android:inputType="number"
+                android:inputType="textPassword"
                 android:paddingHorizontal="10dp"
                 android:textSize="14sp"
                 android:maxLines="1"
@@ -186,6 +183,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@string/email"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/password_check_edt"
@@ -208,6 +206,50 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/email_txv"
                 tools:ignore="TextFields" />
+
+            <TextView
+                android:id="@+id/bankAccount_txv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/bank_account_number"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/email_edt"
+                />
+
+            <EditText
+                android:id="@+id/bankAccount_edt"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:autofillHints="no"
+                android:background="@drawable/round_3dp_edit_bg"
+                android:hint="@string/input_bank_account"
+                android:inputType="number"
+                android:paddingHorizontal="10dp"
+                android:textSize="14sp"
+                android:maxLines="1"
+                android:maxLength="30"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bankAccount_txv"
+                tools:ignore="TextFields" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/choose_bank"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bankAccount_edt"
+                app:drawableEndCompat="@drawable/ic_sample_right_arrow" />
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

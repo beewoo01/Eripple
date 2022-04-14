@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="UnusedAttribute,ResourceCycle">
+
+    <!--AppleSDGothicNeoB-->
+    <font
+        android:font="@font/applesdgothicneob"
+        android:fontStyle="normal"
+        android:fontWeight="300"
+        app:font="@font/applesdgothicneob"
+        app:fontStyle="normal"
+        app:fontWeight="300" />
+
+    <!--AppleSDGothicNeoEB-->
+    <font
+        android:font="@font/applesdgothicneoeb"
+        android:fontStyle="normal"
+        android:fontWeight="500"
+        app:font="@font/applesdgothicneoeb"
+        app:fontStyle="normal"
+        app:fontWeight="500" />
+
+    <!--AppleSDGothicNeoH-->
+    <font
+        android:font="@font/applesdgothicneoh"
+        android:fontStyle="normal"
+        android:fontWeight="1000"
+        app:font="@font/applesdgothicneoh"
+        app:fontStyle="normal"
+        app:fontWeight="500" />
+
+    <!--AppleSDGothicNeoL-->
+    <font
+        android:font="@font/applesdgothicneol"
+        android:fontStyle="normal"
+        android:fontWeight="500"
+        app:font="@font/applesdgothicneol"
+        app:fontStyle="normal"
+        app:fontWeight="500" />
+
+    <!--AppleSDGothicNeoM-->
+    <font
+        android:font="@font/applesdgothicneom"
+        android:fontStyle="normal"
+        android:fontWeight="500"
+        app:font="@font/applesdgothicneom"
+        app:fontStyle="normal"
+        app:fontWeight="500" />
+
+</font-family>

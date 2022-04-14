@@ -1,147 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
     tools:context=".screen.account.join.termsofuse.TermsOfUseActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        style="?attr/toolbarStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <ImageButton
-            android:id="@+id/back_imb"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="start"
-            android:background="@null"
-            android:contentDescription="@string/back"
-            android:scaleType="fitXY"
-            android:src="@mipmap/ic_launcher" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="?attr/toolbarStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/back_imb"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="start"
+                android:background="@null"
+                android:contentDescription="@string/back"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/title_txv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/join"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </androidx.appcompat.widget.Toolbar>
+
 
         <TextView
-            android:id="@+id/title_txv"
+            android:id="@+id/top_txv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/plz_agree"
+            android:textColor="@color/black"
+            app:drawableStartCompat="@mipmap/ic_launcher"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+
+        <View
+            android:id="@+id/allAgree_container"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_turms_of_use_checkbox"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_txv" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/allAgreeCheckBox"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:clickable="false"
+            app:layout_constraintBottom_toBottomOf="@id/allAgree_container"
+            app:layout_constraintEnd_toEndOf="@id/allAgree_container"
+            app:layout_constraintStart_toStartOf="@id/allAgree_container"
+            app:layout_constraintTop_toBottomOf="@id/top_txv"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:text="@string/allAgree"
             android:textColor="@color/black"
-            android:textSize="16sp"
             android:textStyle="bold"
-            android:text="@string/join"
+            app:layout_constraintTop_toTopOf="@id/allAgree_container"
+            app:layout_constraintBottom_toBottomOf="@id/allAgree_container"
+            app:layout_constraintStart_toStartOf="@id/allAgree_container"
+            app:layout_constraintEnd_toEndOf="@id/allAgree_container"
             />
 
-    </androidx.appcompat.widget.Toolbar>
+        <View
+            android:id="@+id/terms_of_use_container"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_gray_checkbox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/allAgree_container"
+            />
 
-    <View
-        android:id="@+id/toolbar_line"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:background="@color/default_gray"
-        app:layout_constraintStart_toStartOf="@id/toolbar"
-        app:layout_constraintEnd_toEndOf="@id/toolbar"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        />
-
-
-    <TextView
-        android:id="@+id/top_txv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/plz_agree"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_line" />
-
-    <androidx.appcompat.widget.AppCompatCheckBox
-        android:id="@+id/allAgreeCheckBox"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/bg_turms_of_use_checkbox"
-        android:layout_marginHorizontal="20dp"
-        android:text="@string/allAgree"
-        android:paddingStart="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/top_txv"
-        tools:ignore="RtlSymmetry" />
-
-    <androidx.appcompat.widget.AppCompatCheckBox
-        android:id="@+id/terms_of_use_checkbox"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/termsOfUse"
-        android:paddingStart="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/allAgreeCheckBox"
-        tools:ignore="RtlSymmetry" />
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/terms_of_use_checkbox"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingStart="20dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/termsOfUse"
+            app:layout_constraintEnd_toEndOf="@id/terms_of_use_container"
+            app:layout_constraintStart_toStartOf="@id/terms_of_use_container"
+            app:layout_constraintTop_toTopOf="@id/terms_of_use_container"
+            app:layout_constraintBottom_toBottomOf="@id/terms_of_use_container"
+            tools:ignore="RtlSymmetry" />
 
 
-    <ImageButton
-        android:id="@+id/detail_termsOfUse_imb"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:src="@drawable/ic_sample_right_arrow"
-        android:background="@null"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="@id/terms_of_use_checkbox"
-        app:layout_constraintTop_toTopOf="@id/terms_of_use_checkbox"
-        app:layout_constraintBottom_toBottomOf="@id/terms_of_use_checkbox"
-        android:contentDescription="@string/detail" />
+        <ImageButton
+            android:id="@+id/detail_termsOfUse_imb"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:contentDescription="@string/detail"
+            android:src="@drawable/ic_sample_right_arrow"
+            app:layout_constraintBottom_toBottomOf="@id/terms_of_use_checkbox"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@id/terms_of_use_checkbox"
+            app:layout_constraintTop_toTopOf="@id/terms_of_use_checkbox" />
 
 
-    <androidx.appcompat.widget.AppCompatCheckBox
-        android:id="@+id/personalInformation_checkbox"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/personal_information"
-        android:paddingStart="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/terms_of_use_checkbox"
-        tools:ignore="RtlSymmetry" />
+        <View
+            android:id="@+id/personalInformation_container"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_gray_checkbox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/terms_of_use_checkbox"
+            />
 
-    <ImageButton
-        android:id="@+id/detail_personalInfo_imb"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:src="@drawable/ic_sample_right_arrow"
-        android:background="@null"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="@id/personalInformation_checkbox"
-        app:layout_constraintTop_toTopOf="@id/personalInformation_checkbox"
-        app:layout_constraintBottom_toBottomOf="@id/personalInformation_checkbox"
-        android:contentDescription="@string/detail" />
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/personalInformation_checkbox"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:paddingStart="20dp"
+            android:text="@string/personal_information"
+            app:layout_constraintEnd_toEndOf="@id/personalInformation_container"
+            app:layout_constraintStart_toStartOf="@id/personalInformation_container"
+            app:layout_constraintTop_toTopOf="@id/personalInformation_container"
+            app:layout_constraintBottom_toBottomOf="@id/personalInformation_container"
+            tools:ignore="RtlSymmetry" />
 
-
-    <Button
-        android:id="@+id/gotoAuth_btn"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@color/black"
-        android:gravity="center"
-        android:enabled="false"
-        android:text="@string/gotoAuth"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <ImageButton
+            android:id="@+id/detail_personalInfo_imb"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:contentDescription="@string/detail"
+            android:src="@drawable/ic_sample_right_arrow"
+            app:layout_constraintBottom_toBottomOf="@id/personalInformation_checkbox"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@id/personalInformation_checkbox"
+            app:layout_constraintTop_toTopOf="@id/personalInformation_checkbox" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/gotoAuth_btn"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/black"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="@string/gotoAuth"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/personalInformation_checkbox" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

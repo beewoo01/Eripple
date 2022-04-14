@@ -25,9 +25,6 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
     }
 
     private fun initViews() = with(binding){
-        backImb.setOnClickListener {
-
-        }
 
         bottomNav.setOnItemSelectedListener(this@MainActivity)
         showFragment(HomeFragment.newInstance(), HomeFragment.TAG)

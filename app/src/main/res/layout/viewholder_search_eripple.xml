@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp">
+
+
+    <View
+        android:id="@+id/start_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/center_container"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <View
+        android:id="@+id/center_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/end_container"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toEndOf="@id/start_container"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/end_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/center_container"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/state_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_circle"
+        android:gravity="center"
+        android:paddingHorizontal="5dp"
+        android:paddingVertical="4dp"
+        android:text="사용가능"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/start_container"
+        app:layout_constraintStart_toStartOf="@id/start_container"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/eripple_name_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/center_container"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/eripple_address_txv"
+        tools:text="삼락공원 에리플 1" />
+
+    <TextView
+        android:id="@+id/eripple_address_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/center_container"
+        app:layout_constraintTop_toBottomOf="@id/eripple_name_txv"
+        tools:text="부산광역시 사상구 삼락동 686" />
+
+    <TextView
+        android:id="@+id/share_txv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="공유하기"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/end_container"
+        app:layout_constraintEnd_toEndOf="@id/end_container"
+        app:layout_constraintBottom_toTopOf="@id/bookmark_imb"
+        />
+
+    <ImageButton
+        android:id="@+id/bookmark_imb"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        android:background="@null"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@string/bookmark"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/end_container"
+        app:layout_constraintStart_toStartOf="@id/end_container"
+        app:layout_constraintTop_toBottomOf="@id/share_txv"
+        tools:ignore="TouchTargetSizeCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,4 +20,25 @@
     </style>
     <style name="Theme.Eripple.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.Eripple.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="Text.Default.Normal" parent="android:TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/default_gray</item>
+        <item name="android:fontFamily">@font/app_font</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+
+    <style name="Text.Default.NormalBlack" parent="android:TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/defaultBlackTextColor</item>
+        <item name="android:fontFamily">@font/app_font</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+
+
 </resources>
