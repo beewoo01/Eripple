@@ -1,234 +1,284 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".screen.main.home.HomeFragment">
 
-    <ImageView
-        android:id="@+id/logo_imv"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_gravity="start"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
-        android:contentDescription="@string/logo"
-        android:scaleType="fitXY"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@mipmap/ic_launcher" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="20dp"
-        android:text="@string/app_name"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@id/logo_imv"
-        app:layout_constraintStart_toEndOf="@id/logo_imv"
-        app:layout_constraintTop_toTopOf="@id/logo_imv" />
-
-
-    <ImageButton
-        android:id="@+id/alarm_imb"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_gravity="end"
-        android:layout_marginEnd="20dp"
-        android:background="@null"
-        android:contentDescription="@string/alarm"
-        android:scaleType="fitXY"
-        android:src="@mipmap/ic_launcher"
-        app:layout_constraintBottom_toBottomOf="@id/logo_imv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/logo_imv" />
-
-    <TextView
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_gravity="end"
-        android:background="@drawable/bg_circle"
-        android:gravity="center"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/alarm_imb"
-        app:layout_constraintEnd_toEndOf="@id/alarm_imb"
-        app:layout_constraintStart_toEndOf="@id/alarm_imb"
-        app:layout_constraintTop_toTopOf="@id/alarm_imb"
-        tools:text="1" />
-
-    <!--<androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
 
         <ImageView
+            android:id="@+id/logo_imv"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_gravity="start"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:contentDescription="@string/logo"
             android:scaleType="fitXY"
-            tools:src="@mipmap/ic_launcher"
-            android:contentDescription="@string/logo" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@mipmap/ic_launcher" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:text="에리플"
-            android:textSize="15sp"
-            android:textColor="@color/black"
             android:layout_marginStart="20dp"
-            />
+            android:fontFamily="@font/applesdgothicneom"
+            android:includeFontPadding="false"
+            android:text="@string/app_name"
+            android:textColor="@color/mainColor"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/logo_imv"
+            app:layout_constraintStart_toEndOf="@id/logo_imv"
+            app:layout_constraintTop_toTopOf="@id/logo_imv" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:background="@drawable/bg_circle"
-            />
 
         <ImageButton
             android:id="@+id/alarm_imb"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_gravity="end"
+            android:layout_marginEnd="20dp"
             android:background="@null"
+            android:contentDescription="@string/alarm"
             android:scaleType="fitXY"
             android:src="@mipmap/ic_launcher"
-            android:contentDescription="@string/alarm" />
+            app:layout_constraintBottom_toBottomOf="@id/logo_imv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/logo_imv" />
 
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="end"
+            android:background="@drawable/bg_circle"
+            android:gravity="center"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/alarm_imb"
+            app:layout_constraintEnd_toEndOf="@id/alarm_imb"
+            app:layout_constraintStart_toEndOf="@id/alarm_imb"
+            app:layout_constraintTop_toTopOf="@id/alarm_imb"
+            tools:text="1" />
 
+        <!--<androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
 
-    </androidx.appcompat.widget.Toolbar>-->
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/allPointContainer"
-        android:layout_width="0dp"
-        android:layout_height="75dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo_imv">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#A9E1C8">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:text="총 적립 포인트"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/more_point_imb"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="365P" />
-
-            <ImageButton
-                android:id="@+id/more_point_imb"
+            <ImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_marginEnd="10dp"
+                android:layout_gravity="start"
+                android:scaleType="fitXY"
+                tools:src="@mipmap/ic_launcher"
+                android:contentDescription="@string/logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:text="에리플"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:layout_marginStart="20dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:background="@drawable/bg_circle"
+                />
+
+            <ImageButton
+                android:id="@+id/alarm_imb"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end"
                 android:background="@null"
-                android:contentDescription="@string/more"
                 android:scaleType="fitXY"
                 android:src="@mipmap/ic_launcher"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:contentDescription="@string/alarm" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.Toolbar>-->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/allPointContainer"
+            android:layout_width="0dp"
+            android:layout_height="75dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logo_imv">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_8dp_maincolor">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/applesdgothicneoeb"
+                    android:includeFontPadding="false"
+                    android:text="총 적립 포인트"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/applesdgothicneob"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/more_point_imb"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="365P" />
+
+                <ImageButton
+                    android:id="@+id/more_point_imb"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@null"
+                    android:contentDescription="@string/more"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/ic_launcher"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
-    </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <TextView
-        android:id="@+id/bookmark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="즐겨찾기"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/allPointContainer" />
-
-    <TextView
-        android:id="@+id/mode_bookmark_txv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:text="더 보기"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@id/bookmark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/bookmark" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/bookmark_recyclerView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="15dp"
-        tools:itemCount="3"
-        tools:listitem="@layout/viewholder_home_bookmark"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bookmark"
-        />
-
-    <TextView
-        android:id="@+id/event_txv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/event"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bookmark_recyclerView" />
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/event_viewpager"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginHorizontal="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/event_txv"
-        />
+        </androidx.cardview.widget.CardView>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/bookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/applesdgothicneoeb"
+            android:includeFontPadding="false"
+            android:text="즐겨찾기"
+            android:textColor="@color/defaultBlackTextColor"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/allPointContainer" />
+
+        <TextView
+            android:id="@+id/mode_bookmark_txv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/applesdgothicneom"
+            android:includeFontPadding="false"
+            android:text="@string/more_view"
+            android:textColor="@color/defaultBlackTextColor"
+            app:layout_constraintBottom_toBottomOf="@id/bookmark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bookmark" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/bookmark_recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="15dp"
+            android:nestedScrollingEnabled="false"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bookmark"
+            tools:itemCount="3"
+            tools:listitem="@layout/viewholder_home_bookmark" />
+
+        <TextView
+            android:id="@+id/event_txv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/applesdgothicneob"
+            android:includeFontPadding="false"
+            android:text="@string/event"
+            android:textColor="@color/defaultBlackTextColor"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bookmark_recyclerView" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="140dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/event_txv"
+            app:layout_constraintVertical_bias="0">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/event_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                />
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/into_tab_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"
+            android:layout_marginTop="11.3dp"
+            android:scrollIndicators="none"
+            app:layout_constraintEnd_toEndOf="@id/cardView"
+            app:layout_constraintStart_toStartOf="@id/cardView"
+            app:layout_constraintTop_toBottomOf="@id/cardView"
+            app:tabBackground="@drawable/tab_pager_selector"
+            app:tabGravity="center"
+            app:tabIndicator="@null"
+            app:tabIndicatorHeight="0dp"
+            app:tabPaddingEnd="8dp"
+            app:tabPaddingStart="8dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/home"
-        android:title="@string/home"
-        android:icon="@drawable/ic_sample_home"
+        android:title="@string/home_ko"
+        android:icon="@drawable/bottom_nav_home_selector"
         />
 
     <item android:id="@+id/history"
         android:title="@string/history_ko"
-        android:icon="@drawable/ic_sample_home"
+        android:icon="@drawable/bottom_nav_history_selector"
         />
 
     <item android:id="@+id/eripple_info"
-        android:title="@string/eripple_info"
-        android:icon="@drawable/ic_sample_home"
+        android:title="@string/location"
+        android:icon="@drawable/bottom_nav_eripple_info_selector"
         />
 
     <item android:id="@+id/my_point"
         android:title="@string/point_ko"
-        android:icon="@drawable/ic_sample_home"
+        android:icon="@drawable/bottom_nav_my_point_selector"
         />
 
     <item android:id="@+id/setting"
         android:title="@string/setting_ko"
-        android:icon="@drawable/ic_sample_home"
+        android:icon="@drawable/bottom_nav_setting_selector"
         />
 
 </menu>

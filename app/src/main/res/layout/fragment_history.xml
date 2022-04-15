@@ -1,14 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".screen.main.history.HistoryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <ImageButton
+            android:id="@+id/back_imb"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="start"
+            android:background="@null"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_launcher_background"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="12dp" />
+
+        <TextView
+            style="@style/Widget.eripple.Toolbar.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/history_my_point"
+            android:textColor="@color/defaultBlackTextColor"
+            android:textSize="17sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:flexWrap="wrap"
+        app:alignItems="stretch"
+        app:alignContent="stretch"
+        app:justifyContent="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/today"
+            app:layout_flexBasisPercent="1"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/today"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/today"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/today"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/today"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/today"
+            />
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+    <!--<com.google.android.material.chip.ChipGroup
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:checkedChip="@id/chipToday"
+        app:chipSpacingHorizontal="9dp"
+        app:chipSpacingVertical="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:selectionRequired="true"
+        app:singleLine="true"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipToday"
+            style="@style/Widget.eripple.Chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/today"
+            app:chipIconEnabled="true"
+            app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipYesterday"
+            style="@style/Widget.eripple.Chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/yesterday"
+            app:chipIconEnabled="true"
+            app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
+
+
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipWeek"
+            style="@style/Widget.eripple.Chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/week"
+            app:chipBackgroundColor="@color/bg_filter_chip_state_list"
+            app:chipIconEnabled="true"
+            app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
+
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipMonth"
+            style="@style/Widget.eripple.Chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/month"
+            app:chipIconEnabled="true"
+            app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTotal"
+            style="@style/Widget.eripple.Chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total"
+            app:chipIconEnabled="true"
+            app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
+
+    </com.google.android.material.chip.ChipGroup>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

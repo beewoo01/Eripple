@@ -8,28 +8,53 @@
         <entry key="../.gradle/caches/transforms-3/b07e2ea96ad9bd2cb8ab939ac9c3a895/transformed/appcompat-1.4.1/res/drawable/abc_edit_text_material.xml" value="0.204" />
         <entry key="../.gradle/caches/transforms-3/b07e2ea96ad9bd2cb8ab939ac9c3a895/transformed/appcompat-1.4.1/res/drawable/abc_ic_menu_paste_mtrl_am_alpha.xml" value="0.204" />
         <entry key="../.gradle/caches/transforms-3/b07e2ea96ad9bd2cb8ab939ac9c3a895/transformed/appcompat-1.4.1/res/drawable/tooltip_frame_dark.xml" value="0.204" />
+        <entry key="../eripple/app/src/main/res/drawable/bg_8dp_maincolor.xml" value="0.1705" />
         <entry key="../eripple/app/src/main/res/drawable/bg_circle.xml" value="0.209" />
         <entry key="../eripple/app/src/main/res/drawable/bg_default_button.xml" value="0.208" />
+        <entry key="../eripple/app/src/main/res/drawable/bg_full_green.xml" value="0.1705" />
         <entry key="../eripple/app/src/main/res/drawable/bg_gray_checkbox.xml" value="0.2805" />
         <entry key="../eripple/app/src/main/res/drawable/bg_search_eripple_container.xml" value="0.208" />
+        <entry key="../eripple/app/src/main/res/drawable/bg_spinner.xml" value="0.1705" />
         <entry key="../eripple/app/src/main/res/drawable/bg_turms_of_use_checkbox.xml" value="0.4585" />
+        <entry key="../eripple/app/src/main/res/drawable/bottom_nav_color.xml" value="0.1725" />
+        <entry key="../eripple/app/src/main/res/drawable/bottom_nav_eripple_info_selected_item.xml" value="0.167" />
+        <entry key="../eripple/app/src/main/res/drawable/bottom_nav_eripple_info_selector.xml" value="0.167" />
+        <entry key="../eripple/app/src/main/res/drawable/bottom_nav_history_selected_item.xml" value="0.1725" />
+        <entry key="../eripple/app/src/main/res/drawable/bottom_nav_history_selector.xml" value="0.1725" />
+        <entry key="../eripple/app/src/main/res/drawable/bottom_nav_home_selector.xml" value="0.18" />
+        <entry key="../eripple/app/src/main/res/drawable/bottom_nav_home_unselected_item.xml" value="0.18" />
+        <entry key="../eripple/app/src/main/res/drawable/bottom_nav_item.xml" value="0.1725" />
+        <entry key="../eripple/app/src/main/res/drawable/bottom_nav_my_point_selected_item.xml" value="0.167" />
+        <entry key="../eripple/app/src/main/res/drawable/bottom_nav_my_point_selector.xml" value="0.167" />
+        <entry key="../eripple/app/src/main/res/drawable/bottom_nav_setting_selected_item.xml" value="0.167" />
+        <entry key="../eripple/app/src/main/res/drawable/bottom_nav_setting_selector.xml" value="0.167" />
         <entry key="../eripple/app/src/main/res/drawable/custom_check.xml" value="0.208" />
+        <entry key="../eripple/app/src/main/res/drawable/custom_checkbutton_unchecked.xml" value="0.208" />
+        <entry key="../eripple/app/src/main/res/drawable/custom_chekbutton_checked.xml" value="0.208" />
+        <entry key="../eripple/app/src/main/res/drawable/default_pager_dot.xml" value="0.1705" />
+        <entry key="../eripple/app/src/main/res/drawable/ic_sample_home.xml" value="0.1705" />
         <entry key="../eripple/app/src/main/res/drawable/round_3dp_bg.xml" value="0.209" />
         <entry key="../eripple/app/src/main/res/drawable/round_3dp_edit_bg.xml" value="0.268" />
+        <entry key="../eripple/app/src/main/res/drawable/selected_pager_dot.xml" value="0.1705" />
+        <entry key="../eripple/app/src/main/res/drawable/selector_bottom_item.xml" value="0.18" />
+        <entry key="../eripple/app/src/main/res/drawable/tab_pager_selector.xml" value="0.1705" />
         <entry key="../eripple/app/src/main/res/font/app_font.xml" value="0.3697868396663577" />
-        <entry key="../eripple/app/src/main/res/layout/activity_change_password.xml" value="0.25" />
-        <entry key="../eripple/app/src/main/res/layout/activity_join.xml" value="0.375" />
-        <entry key="../eripple/app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="../eripple/app/src/main/res/layout/activity_main.xml" value="0.165" />
+        <entry key="../eripple/app/src/main/res/layout/activity_change_password.xml" value="0.165" />
+        <entry key="../eripple/app/src/main/res/layout/activity_join.xml" value="0.25" />
+        <entry key="../eripple/app/src/main/res/layout/activity_login.xml" value="0.125" />
+        <entry key="../eripple/app/src/main/res/layout/activity_main.xml" value="0.335" />
         <entry key="../eripple/app/src/main/res/layout/activity_terms_of_use.xml" value="0.5" />
         <entry key="../eripple/app/src/main/res/layout/activity_terms_of_use_detail.xml" value="0.45" />
         <entry key="../eripple/app/src/main/res/layout/container_eripple_box.xml" value="0.165" />
         <entry key="../eripple/app/src/main/res/layout/fragment_eripple_info.xml" value="0.165" />
-        <entry key="../eripple/app/src/main/res/layout/fragment_home.xml" value="0.375" />
-        <entry key="../eripple/app/src/main/res/layout/fragment_my_point.xml" value="0.165" />
+        <entry key="../eripple/app/src/main/res/layout/fragment_find_password.xml" value="0.165" />
+        <entry key="../eripple/app/src/main/res/layout/fragment_history.xml" value="0.375" />
+        <entry key="../eripple/app/src/main/res/layout/fragment_home.xml" value="0.335" />
+        <entry key="../eripple/app/src/main/res/layout/fragment_my_point.xml" value="0.25" />
         <entry key="../eripple/app/src/main/res/layout/fragment_setting.xml" value="0.23067279565399082" />
-        <entry key="../eripple/app/src/main/res/layout/viewholder_home_bookmark.xml" value="0.335" />
-        <entry key="../eripple/app/src/main/res/layout/viewholder_search_eripple.xml" value="0.165" />
+        <entry key="../eripple/app/src/main/res/layout/viewholder_home_bookmark.xml" value="0.165" />
+        <entry key="../eripple/app/src/main/res/layout/viewholder_sample_photo.xml" value="0.1372753865440869" />
+        <entry key="../eripple/app/src/main/res/layout/viewholder_search_eripple.xml" value="0.25" />
         <entry key="../eripple/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.375" />
         <entry key="app/src/main/res/drawable/round_edit_bg.xml" value="0.4585" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.335" />
@@ -39,6 +64,7 @@
       </map>
     </option>
   </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

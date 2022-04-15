@@ -17,10 +17,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        style="@style/BottomNavigation"
         android:id="@+id/bottom_nav"
-        style="@style/Widget.MaterialComponents.BottomAppBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:itemRippleColor="@color/mainColor"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

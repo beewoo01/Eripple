@@ -2,6 +2,8 @@ package com.codebros.eripple.widget.adapter.viewholder.sample
 
 import android.util.Log
 import com.codebros.eripple.databinding.ViewholderSamplePhotoBinding
+import com.codebros.eripple.extention.clear
+import com.codebros.eripple.extention.load
 import com.codebros.eripple.model.sample.SamplePhoto
 import com.codebros.eripple.screen.base.BaseViewModel
 import com.codebros.eripple.util.provider.CustomResourcesProvider

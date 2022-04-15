@@ -26,7 +26,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
         android:autofillHints="no"
-        android:background="@drawable/round_3dp_edit_bg"
+        android:background="@drawable/round_8dp_edit_bg"
         android:hint="@string/search"
         android:inputType="text"
         android:paddingStart="20dp"

@@ -6,7 +6,8 @@ import androidx.activity.viewModels
 import com.codebros.eripple.databinding.ActivityLoginBinding
 import com.codebros.eripple.screen.base.BaseActivity
 
-class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
+class LoginActivity :
+    BaseActivity<LoginViewModel, ActivityLoginBinding>() {
 
     override fun getViewBinding(): ActivityLoginBinding =
         ActivityLoginBinding.inflate(layoutInflater)
@@ -22,7 +23,7 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
 
     override fun initViews() = with(binding) {
         loginTxv.setOnClickListener {
-            availability(emailEdt.text.toString(), pswTxv.text.toString())
+            availability(emailEdt.text.toString(), pwsEdt.text.toString())
         }
     }
 

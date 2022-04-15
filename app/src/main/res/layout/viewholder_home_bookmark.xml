@@ -1,54 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="55dp"
-    android:background="@drawable/round_3dp_edit_bg"
-    android:paddingVertical="10dp"
     android:layout_marginTop="10dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:background="@drawable/round_8dp_edit_bg"
+    android:paddingVertical="10dp">
 
 
     <TextView
         android:id="@+id/bookmark_txv"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/defaultBlackTextColor"
+        android:textSize="15sp"
+        android:gravity="start"
+        android:fontFamily="@font/applesdgothicneom"
+        android:includeFontPadding="false"
+        app:layout_constraintBottom_toBottomOf="@id/startViewPad"
+        app:layout_constraintStart_toStartOf="@id/startViewPad"
+        app:layout_constraintTop_toTopOf="@id/startViewPad"
+        app:layout_constraintEnd_toEndOf="@id/startViewPad"
+        tools:text="삼락공원 에리플1" />
+
+    <View
+        android:id="@+id/startViewPad"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHorizontal_weight="3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="삼락공원 에리플1" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/centerViewPad"
+        />
+
+    <View
+        android:id="@+id/centerViewPad"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/startViewPad"
+        app:layout_constraintEnd_toStartOf="@id/endViewPad"
+        />
+
+
+    <View
+        android:id="@+id/endViewPad"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/centerViewPad"
+        />
 
 
     <TextView
         android:id="@+id/bookmark_state_txv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_circle"
+        android:background="@drawable/bg_full_green"
         android:gravity="center"
-        android:paddingHorizontal="5dp"
+        android:paddingHorizontal="6dp"
         android:paddingVertical="4dp"
         android:text="사용가능"
         android:textColor="@color/white"
         android:textSize="12sp"
+        android:fontFamily="@font/applesdgothicneob"
+        android:includeFontPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/deap_imb"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toEndOf="@id/bookmark_txv"
+        app:layout_constraintStart_toStartOf="@id/centerViewPad"
+        app:layout_constraintEnd_toEndOf="@id/centerViewPad"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/deap_imb"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginEnd="20dp"
         android:background="@null"
         android:contentDescription="@string/bookmark"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/endViewPad"
+        app:layout_constraintEnd_toEndOf="@id/endViewPad"
+        app:layout_constraintStart_toStartOf="@id/endViewPad"
+        app:layout_constraintTop_toTopOf="@id/endViewPad"
+        tools:ignore="TouchTargetSizeCheck"
         tools:src="@drawable/ic_sample_home" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,7 +25,7 @@ class MyPointFragment : Fragment() {
     companion object {
 
         @JvmStatic
-        fun newInstance(param1: String, param2: String) = MyPointFragment()
+        fun newInstance() = MyPointFragment()
 
         const val TAG = "MyPointFragment"
     }
