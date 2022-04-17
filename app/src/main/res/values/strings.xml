@@ -68,5 +68,10 @@
     <string name="week">일주일</string>
     <string name="month">한달</string>
     <string name="total">전체</string>
+    <string name="collectAmount">수거량</string>
+    <string name="saving_point">적립포인트</string>
+    <string name="haveNoPoint">이런, 아직 포인트 적립을 하지 않으셨군요!</string>
+    <string name="share_ko">공유하기</string>
+    <string name="haveAGoodDay">오늘도 즐거운 하루 되세요!</string>
 
 </resources>

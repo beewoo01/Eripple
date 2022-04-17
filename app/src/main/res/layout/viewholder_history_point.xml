@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginVertical="5dp"
+    android:background="@drawable/round_8dp_graybox_bg"
+    >
+
+    <ImageButton
+        android:id="@+id/more_imb"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="11.49dp"
+        android:background="@null"
+        android:contentDescription="@string/more"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_sample_arrow_down"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/eripple_name_txv"
+        app:layout_constraintBottom_toBottomOf="@id/eripple_address_txv"
+        />
+
+    <TextView
+        android:id="@+id/eripple_name_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/applesdgothicneob"
+        android:includeFontPadding="false"
+        android:textColor="@color/defaultGrayTextColor"
+        android:textSize="13sp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintBottom_toTopOf="@id/eripple_address_txv"
+        app:layout_constraintStart_toEndOf="@id/more_imb"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="삼락공원 에리플 1" />
+
+    <TextView
+        android:id="@+id/eripple_address_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/applesdgothicneol"
+        android:includeFontPadding="false"
+        android:textColor="@color/defaultGrayTextColor"
+        android:textSize="11sp"
+        android:layout_marginTop="10dp"
+        app:layout_goneMarginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@id/line"
+        app:layout_constraintStart_toEndOf="@id/more_imb"
+        app:layout_constraintTop_toBottomOf="@id/eripple_name_txv"
+        tools:text="부산광역시 사상구 삼락동 686" />
+
+
+    <TextView
+        android:id="@+id/eripple_date_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/applesdgothicneol"
+        android:includeFontPadding="false"
+        android:textColor="@color/defaultGrayTextColor"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/eripple_name_txv"
+        app:layout_constraintBottom_toBottomOf="@id/eripple_address_txv"
+        tools:text="2022.00.00" />
+
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="12.5dp"
+        android:background="@color/defaultGrayTextColor"
+        app:layout_constraintBottom_toTopOf="@id/collect_amount"
+        app:layout_constraintEnd_toEndOf="@id/eripple_date_txv"
+        app:layout_constraintStart_toStartOf="@id/more_imb"
+        app:layout_constraintTop_toBottomOf="@id/eripple_address_txv" />
+
+
+    <TextView
+        android:id="@+id/collect_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/applesdgothicneol"
+        android:includeFontPadding="false"
+        android:text="@string/collectAmount"
+        android:textColor="@color/defaultGrayTextColor"
+        android:layout_marginTop="11.5dp"
+        android:textSize="13sp"
+        android:layout_marginBottom="11.5dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/collect_amount_txv"
+        app:layout_constraintTop_toBottomOf="@id/line" />
+
+
+    <TextView
+        android:id="@+id/collect_amount_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/applesdgothicneob"
+        android:includeFontPadding="false"
+        android:textSize="13sp"
+        tools:text="36g"
+        android:textColor="@color/subTextColor"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/collect_amount"
+        app:layout_constraintEnd_toStartOf="@id/bar"
+        app:layout_constraintBottom_toBottomOf="@id/collect_amount"
+        app:layout_constraintTop_toTopOf="@id/collect_amount" />
+
+    <View
+        android:id="@+id/bar"
+        android:layout_width="1dp"
+        android:layout_height="10dp"
+        android:background="@color/defaultGrayTextColor"
+        app:layout_constraintTop_toBottomOf="@id/line"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+    <TextView
+        android:id="@+id/saving_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/applesdgothicneol"
+        android:includeFontPadding="false"
+        android:text="@string/saving_point"
+        android:textSize="13sp"
+        android:textColor="@color/defaultGrayTextColor"
+        app:layout_constraintBottom_toBottomOf="@id/collect_amount"
+        app:layout_constraintEnd_toStartOf="@id/saving_point_txv"
+        app:layout_constraintStart_toEndOf="@id/bar"
+        app:layout_constraintTop_toTopOf="@id/collect_amount" />
+
+
+    <TextView
+        android:id="@+id/saving_point_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/applesdgothicneob"
+        android:includeFontPadding="false"
+        android:textColor="@color/subTextColor"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@id/saving_point"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/saving_point"
+        app:layout_constraintStart_toEndOf="@id/saving_point"
+        tools:text="36P" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/more_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="line, collect_amount, collect_amount_txv, bar,saving_point,saving_point_txv"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

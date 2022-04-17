@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import com.codebros.eripple.R
 import com.codebros.eripple.databinding.ActivityMainBinding
 import com.codebros.eripple.screen.base.BaseActivity
+import com.codebros.eripple.screen.main.eripple_info.ErippleInfoFragment
+import com.codebros.eripple.screen.main.history.HistoryFragment
 import com.codebros.eripple.screen.main.home.HomeFragment
 import com.google.android.material.navigation.NavigationBarView
 
@@ -34,9 +36,11 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
 
     private fun showFragment(fragment: Fragment, tag : String) {
         val findFragment = supportFragmentManager.findFragmentByTag(tag)
+
         supportFragmentManager.fragments.forEach { fm ->
             supportFragmentManager.beginTransaction().hide(fm).commit()
         }
+
         findFragment?.let {
             supportFragmentManager.beginTransaction().show(it).commit()
         } ?: kotlin.run {
@@ -56,12 +60,12 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
             }
 
             R.id.history -> {
-                showFragment(HomeFragment.newInstance(), HomeFragment.TAG)
+                showFragment(HistoryFragment.newInstance(), HistoryFragment.TAG)
                 true
             }
 
             R.id.eripple_info -> {
-                showFragment(HomeFragment.newInstance(), HomeFragment.TAG)
+                showFragment(ErippleInfoFragment.newInstance(), ErippleInfoFragment.TAG)
                 true
             }
 

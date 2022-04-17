@@ -103,15 +103,17 @@
         />-->
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
         android:contentDescription="@string/exchange"
-        app:fabCustomSize="64dp"
+        app:fabCustomSize="63dp"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:maxImageSize="56dp"
+        android:backgroundTint="@color/mainColor"
+        android:layout_marginBottom="32dp"
         tools:ignore="ImageContrastCheck" />
 
 

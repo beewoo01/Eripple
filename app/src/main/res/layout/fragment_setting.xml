@@ -1,14 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".screen.main.setting.SettingFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <ImageButton
+            android:id="@+id/back_imb"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="start"
+            android:background="@null"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_launcher_background"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="12dp" />
+
+        <TextView
+            style="@style/Widget.eripple.Toolbar.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/setting_ko"
+            android:textColor="@color/defaultBlackTextColor"
+            android:textSize="17sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/start_guid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/end_guid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+    <TextView
+        android:id="@+id/have_a_GoodDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/applesdgothicneol"
+        android:includeFontPadding="false"
+        android:text="@string/haveAGoodDay"
+        android:textColor="@color/defaultGrayTextColor"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@id/start_guid"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        tools:ignore="SmallSp" />
+
+
+    <TextView
+        android:id="@+id/name_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/applesdgothicneob"
+        android:includeFontPadding="false"
+        android:textColor="@color/defaultBlackTextColor"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/start_guid"
+        app:layout_constraintTop_toBottomOf="@id/have_a_GoodDay"
+        tools:text="홍길동 님" />
+
+
+    <TextView
+        android:id="@+id/phone_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/applesdgothicneob"
+        android:includeFontPadding="false"
+        android:textColor="@color/mainColor"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/end_guid"
+        app:layout_constraintTop_toTopOf="@id/have_a_GoodDay"
+        app:layout_constraintBottom_toBottomOf="@id/name_txv"
+        tools:text="010-0000-0000" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

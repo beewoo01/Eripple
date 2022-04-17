@@ -56,6 +56,14 @@
         <item name="chipIconSize">12dp</item>
         <item name="iconStartPadding">6dp</item>
         <item name="chipEndPadding">2dp</item>
+        <item name="chipIconVisible">false</item>
+        <item name="chipIconEnabled">false</item>
+        <item name="closeIconVisible">false</item>
+    </style>
+
+    <style name="Widget.eripple.Chip.TextView" parent="Widget.AppCompat.TextView">
+        <item name="background">@drawable/bg_circle</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <!--<style name="Widget.eripple.Toolbar.WithClose" parent="Widget.eripple.Toolbar">
