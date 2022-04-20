@@ -44,7 +44,9 @@ object ModelViewHolderMapper {
                 )
             }
 
-
+            else -> {
+                Log.wtf("ModelViewHolderMapper", "CellType.PHOTO_CELL")
+            }
         }
 
         return viewHolder as ModelViewHolder<M>

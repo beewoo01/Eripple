@@ -5,23 +5,29 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.codebros.eripple.R
+import com.codebros.eripple.databinding.FragmentHomeBinding
+import com.codebros.eripple.screen.base.BaseFragment
+
+class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
 
-class HomeFragment : Fragment() {
+    override val viewModel: HomeViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun getViewBinding(): FragmentHomeBinding =
+        FragmentHomeBinding.inflate(layoutInflater)
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun observeData() {
 
-        return inflater.inflate(R.layout.fragment_home, container, false)
     }
+
 
     companion object {
 
@@ -30,4 +36,7 @@ class HomeFragment : Fragment() {
 
         const val TAG = "HomeFragment"
     }
+
+
+
 }
