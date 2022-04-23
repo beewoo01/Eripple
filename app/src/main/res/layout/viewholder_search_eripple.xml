@@ -90,13 +90,14 @@
 
     <TextView
         android:id="@+id/share_txv"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/applesdgothicneob"
         android:gravity="center"
         android:includeFontPadding="false"
         android:text="@string/share_ko"
         android:textColor="@color/subTextColor"
+        android:textSize="13sp"
         app:layout_constraintTop_toTopOf="@id/eripple_name_txv"
         app:layout_constraintBottom_toBottomOf="@id/eripple_name_txv"
         app:layout_constraintEnd_toEndOf="@id/end_container"
@@ -105,12 +106,12 @@
 
     <ImageButton
         android:id="@+id/bookmark_imb"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@null"
         android:contentDescription="@string/bookmark"
         android:scaleType="fitXY"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/ic_empty_heart_location"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="@id/end_container"

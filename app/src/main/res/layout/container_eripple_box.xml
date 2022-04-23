@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_search_eripple_container"
     app:behavior_peekHeight="200dp"
-    app:layout_behavior="@string/bottom_sheet_behavior"
-    >
+    app:layout_behavior="@string/bottom_sheet_behavior">
 
     <View
         android:id="@+id/line"
@@ -27,12 +26,15 @@
         android:layout_marginTop="10dp"
         android:autofillHints="no"
         android:background="@drawable/round_8dp_edit_bg"
+        android:drawableEnd="@drawable/ic_search_icon"
+        android:fontFamily="@font/applesdgothicneom"
         android:hint="@string/search"
+        android:includeFontPadding="false"
         android:inputType="text"
         android:paddingStart="20dp"
-        android:paddingEnd="10dp"
+        android:paddingEnd="20dp"
         android:textSize="15sp"
-        android:drawableEnd="@mipmap/ic_launcher"
+        android:textColor="@color/defaultBlackTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/line"
@@ -43,12 +45,11 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
-        tools:listitem="@layout/viewholder_search_eripple"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search_edt"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_edt"
+        tools:listitem="@layout/viewholder_search_eripple" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

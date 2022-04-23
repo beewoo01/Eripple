@@ -18,10 +18,10 @@
             android:layout_height="150dp"
             app:layout_constraintEnd_toEndOf="@id/end_guidLine"
             app:layout_constraintStart_toStartOf="@id/start_guidLine"
-            app:layout_constraintBottom_toTopOf="@id/email_edt"
+            app:layout_constraintBottom_toTopOf="@id/center_guidLine"
             app:layout_constraintTop_toBottomOf="@id/top_guidLine"
             app:layout_constraintVertical_bias="0.7"
-            tools:src="@tools:sample/avatars"
+            android:src="@drawable/ic_login_logo_with_txt"
             android:contentDescription="@string/logo" />
 
 
@@ -110,7 +110,8 @@
             android:layout_width="1dp"
             android:layout_height="10dp"
             android:background="@color/defaultGrayTextColor"
-            app:layout_constraintVertical_bias="0.7"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintVertical_bias="0.8"
             app:layout_constraintTop_toBottomOf="@id/auto_login_rb"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/end_guidLine"

@@ -85,7 +85,6 @@
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="30dp"
-                android:text="@string/termsOfService"
                 android:textColor="@color/defaultBlackTextColor"
                 android:textSize="12sp" />
 

@@ -10,20 +10,10 @@
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        style="@style/Widget.eripple.Toolbar.WithArrow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <ImageButton
-            android:id="@+id/back_imb"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="start"
-            android:background="@null"
-            android:contentDescription="@string/back"
-            android:src="@drawable/ic_launcher_background"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="12dp" />
 
         <TextView
             style="@style/Widget.eripple.Toolbar.Text"
@@ -92,6 +82,123 @@
         app:layout_constraintTop_toTopOf="@id/have_a_GoodDay"
         app:layout_constraintBottom_toBottomOf="@id/name_txv"
         tools:text="010-0000-0000" />
+
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="have_a_GoodDay, name_txv, phone_txv"
+        />
+
+    <View
+        android:id="@+id/notice_view"
+        android:layout_width="0dp"
+        android:layout_height="132dp"
+        android:background="@drawable/bg_setting_item"
+        android:layout_marginTop="16dp"
+        app:layout_constraintDimensionRatio="1.5:1.2"
+        app:layout_constraintStart_toStartOf="@id/start_guid"
+        app:layout_constraintTop_toBottomOf="@id/barrier"
+        app:layout_constraintEnd_toStartOf="@id/faq_view"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/notice_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/notice"
+        android:drawablePadding="20dp"
+        app:layout_constraintDimensionRatio="1.5:1.2"
+        app:layout_constraintStart_toStartOf="@id/notice_view"
+        app:layout_constraintTop_toTopOf="@id/notice_view"
+        app:layout_constraintEnd_toEndOf="@id/notice_view"
+        app:layout_constraintBottom_toBottomOf="@id/notice_view"
+        app:drawableTopCompat="@drawable/ic_notice_icon" />
+
+
+    <View
+        android:id="@+id/faq_view"
+        android:layout_width="0dp"
+        android:layout_height="132dp"
+        android:background="@drawable/bg_setting_item"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@id/notice_view"
+        app:layout_constraintDimensionRatio="1.5:1.2"
+        app:layout_constraintEnd_toEndOf="@id/end_guid"
+        app:layout_constraintTop_toBottomOf="@id/barrier"
+        />
+
+    <TextView
+        android:id="@+id/faq_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/faq"
+        android:gravity="center"
+        android:textColor="@color/defaultBlackTextColor"
+        android:drawablePadding="20dp"
+        app:layout_constraintStart_toStartOf="@id/faq_view"
+        app:layout_constraintBottom_toBottomOf="@id/faq_view"
+        app:layout_constraintEnd_toEndOf="@id/faq_view"
+        app:layout_constraintTop_toTopOf="@id/faq_view"
+        app:drawableTopCompat="@drawable/ic_faq_icon" />
+
+
+    <View
+        android:id="@+id/account_setting_view"
+        android:layout_width="0dp"
+        android:layout_height="132dp"
+        android:background="@drawable/bg_setting_item"
+        android:layout_marginTop="16dp"
+        app:layout_constraintDimensionRatio="1.5:1.2"
+        app:layout_constraintStart_toStartOf="@id/start_guid"
+        app:layout_constraintTop_toBottomOf="@id/notice_view"
+        app:layout_constraintEnd_toStartOf="@id/bookmark_view"
+        />
+
+    <TextView
+        android:id="@+id/account_setting_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/setting_account"
+        android:gravity="center"
+        android:textColor="@color/defaultBlackTextColor"
+        android:drawablePadding="20dp"
+        app:layout_constraintStart_toStartOf="@id/account_setting_view"
+        app:layout_constraintEnd_toEndOf="@id/account_setting_view"
+        app:layout_constraintTop_toTopOf="@id/account_setting_view"
+        app:layout_constraintBottom_toBottomOf="@id/account_setting_view"
+        app:drawableTopCompat="@drawable/ic_account_setting_icon" />
+
+
+    <View
+        android:id="@+id/bookmark_view"
+        android:layout_width="0dp"
+        android:layout_height="132dp"
+        android:background="@drawable/bg_setting_item"
+        android:layout_marginTop="16dp"
+        app:layout_constraintDimensionRatio="1.5:1.2"
+        app:layout_constraintStart_toEndOf="@id/account_setting_view"
+        app:layout_constraintEnd_toEndOf="@id/end_guid"
+        app:layout_constraintTop_toBottomOf="@id/faq_view"
+        />
+
+    <TextView
+        android:id="@+id/bookmark_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/setting_account"
+        android:gravity="center"
+        android:textColor="@color/defaultBlackTextColor"
+        android:drawablePadding="20dp"
+        app:drawableTopCompat="@drawable/ic_bookmark_icon"
+        app:layout_constraintStart_toStartOf="@id/bookmark_view"
+        app:layout_constraintEnd_toEndOf="@id/bookmark_view"
+        app:layout_constraintTop_toTopOf="@id/bookmark_view"
+        app:layout_constraintBottom_toBottomOf="@id/bookmark_view"
+        />
 
 
 

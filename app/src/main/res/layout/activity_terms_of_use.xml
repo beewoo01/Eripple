@@ -15,7 +15,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            style="?attr/toolbarStyle"
+            style="?attr/toolbarWithArrowButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -23,25 +23,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageButton
-                android:id="@+id/back_imb"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="start"
-                android:background="@null"
-                android:contentDescription="@string/back"
-                android:scaleType="fitXY"
-                android:src="@mipmap/ic_launcher" />
-
             <TextView
                 android:id="@+id/title_txv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:fontFamily="@font/applesdgothicneob"
+                android:includeFontPadding="false"
                 android:text="@string/join"
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="17sp" />
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -53,10 +44,12 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
             android:drawablePadding="10dp"
+            android:fontFamily="@font/applesdgothicneol"
             android:gravity="center_vertical"
+            android:includeFontPadding="false"
             android:text="@string/plz_agree"
-            android:textColor="@color/black"
-            app:drawableStartCompat="@mipmap/ic_launcher"
+            android:textColor="@color/defaultBlackTextColor"
+            app:drawableStartCompat="@drawable/ic_join_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar" />
@@ -68,7 +61,6 @@
             android:layout_height="55dp"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/bg_turms_of_use_checkbox"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/top_txv" />
@@ -77,51 +69,61 @@
             android:id="@+id/allAgreeCheckBox"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginTop="20dp"
-            android:gravity="center"
+            android:background="@drawable/bg_turms_of_use_checkbox"
             android:clickable="false"
-            app:layout_constraintBottom_toBottomOf="@id/allAgree_container"
-            app:layout_constraintEnd_toEndOf="@id/allAgree_container"
-            app:layout_constraintStart_toStartOf="@id/allAgree_container"
+            android:drawableStart="@drawable/custom_check"
+            android:fontFamily="@font/applesdgothicneob"
+            android:gravity="center"
+            android:paddingStart="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/top_txv"
             tools:ignore="RtlSymmetry" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/applesdgothicneob"
+            android:includeFontPadding="false"
             android:text="@string/allAgree"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="@id/allAgree_container"
-            app:layout_constraintBottom_toBottomOf="@id/allAgree_container"
-            app:layout_constraintStart_toStartOf="@id/allAgree_container"
-            app:layout_constraintEnd_toEndOf="@id/allAgree_container"
-            />
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@id/allAgreeCheckBox"
+            app:layout_constraintEnd_toEndOf="@id/allAgreeCheckBox"
+            app:layout_constraintStart_toStartOf="@id/allAgreeCheckBox"
+            app:layout_constraintTop_toTopOf="@id/allAgreeCheckBox" />
 
-        <View
+        <!--<View
             android:id="@+id/terms_of_use_container"
             android:layout_width="0dp"
             android:layout_height="55dp"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/bg_gray_checkbox"
-            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/round_8dp_graybox_bg"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/allAgree_container"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/allAgree_container" />-->
 
         <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/terms_of_use_checkbox"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/round_8dp_graybox_bg"
+            android:drawableStart="@drawable/custom_check"
+            android:drawablePadding="20dp"
+            android:fontFamily="@font/applesdgothicneol"
+            android:includeFontPadding="false"
             android:paddingStart="20dp"
-            android:layout_marginStart="10dp"
             android:text="@string/termsOfUse"
-            app:layout_constraintEnd_toEndOf="@id/terms_of_use_container"
-            app:layout_constraintStart_toStartOf="@id/terms_of_use_container"
-            app:layout_constraintTop_toTopOf="@id/terms_of_use_container"
-            app:layout_constraintBottom_toBottomOf="@id/terms_of_use_container"
+            android:textColor="@color/defaultBlackTextColor"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/allAgreeCheckBox"
             tools:ignore="RtlSymmetry" />
 
 
@@ -131,36 +133,30 @@
             android:layout_height="0dp"
             android:background="@null"
             android:contentDescription="@string/detail"
-            android:src="@drawable/ic_sample_right_arrow"
+            android:src="@drawable/ic_right_icon"
             app:layout_constraintBottom_toBottomOf="@id/terms_of_use_checkbox"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="@id/terms_of_use_checkbox"
             app:layout_constraintTop_toTopOf="@id/terms_of_use_checkbox" />
 
-
-        <View
-            android:id="@+id/personalInformation_container"
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/personalInformation_checkbox"
             android:layout_width="0dp"
             android:layout_height="55dp"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/bg_gray_checkbox"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/terms_of_use_checkbox"
-            />
-
-        <androidx.appcompat.widget.AppCompatCheckBox
-            android:id="@+id/personalInformation_checkbox"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="10dp"
+            android:background="@drawable/round_8dp_graybox_bg"
+            android:drawableStart="@drawable/custom_check"
+            android:drawablePadding="20dp"
+            android:fontFamily="@font/applesdgothicneol"
+            android:includeFontPadding="false"
             android:paddingStart="20dp"
             android:text="@string/personal_information_title"
-            app:layout_constraintEnd_toEndOf="@id/personalInformation_container"
-            app:layout_constraintStart_toStartOf="@id/personalInformation_container"
-            app:layout_constraintTop_toTopOf="@id/personalInformation_container"
-            app:layout_constraintBottom_toBottomOf="@id/personalInformation_container"
+            android:textColor="@color/defaultBlackTextColor"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/terms_of_use_checkbox"
             tools:ignore="RtlSymmetry" />
 
         <ImageButton
@@ -169,7 +165,7 @@
             android:layout_height="0dp"
             android:background="@null"
             android:contentDescription="@string/detail"
-            android:src="@drawable/ic_sample_right_arrow"
+            android:src="@drawable/ic_right_icon"
             app:layout_constraintBottom_toBottomOf="@id/personalInformation_checkbox"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="@id/personalInformation_checkbox"
@@ -179,18 +175,19 @@
         <Button
             android:id="@+id/gotoAuth_btn"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="52dp"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="20dp"
-            android:background="@color/black"
             android:enabled="false"
             android:gravity="center"
             android:text="@string/gotoAuth"
             android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/personalInformation_checkbox" />
+            app:layout_constraintTop_toBottomOf="@id/personalInformation_checkbox"
+            app:layout_constraintVertical_bias="0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

@@ -38,7 +38,6 @@ class TermsOfUseActivity : AppCompatActivity() {
         }
 
 
-
         detailTermsOfUseImb.setOnClickListener {
             moveDetail(0)
         }
@@ -47,9 +46,11 @@ class TermsOfUseActivity : AppCompatActivity() {
             moveDetail(1)
         }
 
-        backImb.setOnClickListener {
-            finish()
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
         }
+
+
 
     }
 

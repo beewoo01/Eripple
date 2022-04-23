@@ -29,6 +29,10 @@ class JoinActivity : BaseActivity<JoinViewModel, ActivityJoinBinding>() {
             availability()
         }
 
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
+
     }
 
     private fun availability() = with(binding) {

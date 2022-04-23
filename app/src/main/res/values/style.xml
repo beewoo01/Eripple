@@ -7,12 +7,13 @@
     </style>
 
     <style name="Widget.eripple.Toolbar.WithArrow" parent="Widget.eripple.Toolbar">
-        <item name="android:navigationIcon">@drawable/ic_arrow_back</item>
-        <item name="android:title">@null</item>
+        <item name="navigationIcon">@drawable/ic_back_icon</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="Widget.eripple.CheckBox" parent="Widget.AppCompat.CompoundButton.CheckBox">
-        <item name="android:button">@drawable/custom_check</item>
+        <item name="android:button">@null</item>
+        <item name="drawableSize">@drawable/custom_check</item>
     </style>
 
     <style name="Widget.eripple.MediumText" parent="Widget.AppCompat.TextView">
@@ -41,6 +42,7 @@
         <item name="android:textColor">@color/defaultEditHintColor</item>
 
     </style>
+
 
     <style name="Widget.eripple.Chip" parent="Widget.MaterialComponents.Chip.Choice">
         <item name="chipStrokeColor">@color/stroke_filter_chip_state_list</item>

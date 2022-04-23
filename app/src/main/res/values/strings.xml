@@ -10,7 +10,7 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="change_psw">비밀번호 변경</string>
-    <string name="join">가입하기</string>
+    <string name="join">회원가입</string>
     <string name="AutoLogin">자동 로그인</string>
     <string name="login">로그인</string>
     <string name="email">이메일</string>
@@ -22,7 +22,7 @@
     <string name="plz_agree">에리플 서비스를 이용하기 위한 필수 이용약관에\n동의해주세요.</string>
     <string name="allAgree">이용약관 전체 동의</string>
     <string name="detail">detail</string>
-    <string name="termsOfUse">이용약관</string>
+    <string name="termsOfUse">이용약관(필수)</string>
     <string name="personal_information_title">개인정보처리방침</string>
     <string name="gotoAuth">본인 인증하기</string>
     <string name="check">확인</string>
@@ -179,9 +179,8 @@
 
     </string>
 
-
-
-    <string name="termsOfService">\n<b>제 1장. 총칙</b>\n\n제 1조. 목적\n\n본 약관은 자연하리(이하 “회사”라 함)이 제공하는 회원, 보상, 서비스 및 고객지원의 이용과 관련하여, 회사 및 회원의 제반 권리, 의무 및 정보보호, 관련 절차 등 기본적인 사항을 규정하는데 그 목적이 있습니다.
+    <string name="termsOfService1">
+        \n<b>제 1장. 총칙</b>\n\n제 1조. 목적\n\n본 약관은 자연하리(이하 “회사”라 함)이 제공하는 회원, 보상, 서비스 및 고객지원의 이용과 관련하여, 회사 및 회원의 제반 권리, 의무 및 정보보호, 관련 절차 등 기본적인 사항을 규정하는데 그 목적이 있습니다.
         \n\n제 2조. 용어의 정의
         \n본 약관에서 사용하는 용어의 정의는 다음과 같습니다.
         \n1) 회원 (Member) : “회원”이란, 본 약관에 따라 가입신청에 대한 회사의 승낙을 받아 회사가 제공하는 서비스를 이용하는 자를 말합니다. “회원”은 아래 “정회원”과 “준회원”, “학생회원”을 모두 포함해 통칭하는 의미이며, 그 외 회사의 서비스를 경험하지 않았거나 본 약관 &lt;제 7조&gt;의 이유로 회원자격이 상실된 非이용자는 “비회원”으로 정의합니다.
@@ -344,14 +343,10 @@
 
         \n\n4) 회사는 본 약관 &lt;제 16조 3)항&gt;에 의해 서비스 이용을 제한하거나 중지한 때에는 그 사유 및 기간 등을 홈페이지 및 모바일 앱, 공식 SNS 등에 게시하는 방법을 통해 회원에게 알려야 합니다.
 
+    </string>
 
 
-
-
-        ////여기
-
-
-        \n\n제 17조. 회원의 의무
+    <string name="termsOfService2">\n\n제 17조. 회원의 의무
         \n\n1) 회원은 관련 법령, 본 약관의 규정, 이용안내 및 서비스상에 공지한 주의사항, 회사가 통지하는 사항 등을 준수하여야 하며, 기타 회사의 업무에 방해되는 행위를 해서는 안됩니다.
         \n\n2) 회원은 회사의 서비스를 이용함에 있어 각 호의 행위를 해서는 안됩니다.
             \n\n① 본 약관 및 서비스 이용에 관련된 관계법령을 위반한 행위
@@ -501,6 +496,11 @@
         \n\n회사 명: 자연하리\n대표자 : 김종순\n등록번호 : 369-21-01562
 
     </string>
+    <string name="company_name">자연하리</string>
+    <string name="bookmark_ko">즐겨찾기</string>
+    <string name="notice">공지사항</string>
+    <string name="faq">FAQ</string>
+    <string name="setting_account">계정설정</string>
 
 
 </resources>

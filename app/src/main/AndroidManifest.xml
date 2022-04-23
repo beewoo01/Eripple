@@ -14,8 +14,28 @@
         android:theme="@style/Theme.Eripple"
         android:usesCleartextTraffic="true">
         <activity
-            android:name="com.codebros.eripple.screen.account.join.termsofuse.TermsOfUseDetailActivity"
-            android:exported="true" >
+            android:name=".screen.SplashActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screen.account.join.termsofuse.TermsOfUseDetailActivity"
+            android:exported="true">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+
+        <activity android:name=".screen.account.findpsw.FindPasswordActivity"/>
+
+        <activity
+            android:name=".screen.account.join.termsofuse.TermsOfUseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screen.main.MainActivity"
+            android:exported="true"
+            android:label="@string/title_activity_sample">
+
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,41 +43,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-        </activity>
-        <activity
-            android:name="com.codebros.eripple.screen.account.join.termsofuse.TermsOfUseActivity"
-            android:exported="false" />
-        <activity
-            android:name=".screen.main.MainActivity"
-            android:exported="true"
-            android:label="@string/title_activity_sample" >
-
-            <!--<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
 
         </activity>
         <activity
-            android:name="com.codebros.eripple.screen.account.login.LoginActivity"
-            android:exported="true" >
-
-            <!--<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
-
-        </activity>
-        <activity
-            android:name="com.codebros.eripple.screen.sample.SampleActivity"
+            android:name=".screen.account.login.LoginActivity"
             android:exported="true">
-            <!--<intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
+
+        </activity>
+        <activity
+            android:name=".screen.sample.SampleActivity"
+            android:exported="true">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
         </activity>
     </application>
 

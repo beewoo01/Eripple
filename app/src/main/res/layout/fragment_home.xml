@@ -14,113 +14,59 @@
 
         <ImageView
             android:id="@+id/logo_imv"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
             android:contentDescription="@string/logo"
             android:scaleType="fitXY"
+            android:src="@drawable/ic_home_logo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@mipmap/ic_launcher" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginStart="20dp"
-            android:fontFamily="@font/applesdgothicneom"
-            android:includeFontPadding="false"
-            android:text="@string/app_name"
-            android:textColor="@color/mainColor"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@id/logo_imv"
-            app:layout_constraintStart_toEndOf="@id/logo_imv"
-            app:layout_constraintTop_toTopOf="@id/logo_imv" />
+            />
 
 
         <ImageButton
             android:id="@+id/alarm_imb"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginEnd="20dp"
             android:background="@null"
             android:contentDescription="@string/alarm"
-            android:scaleType="fitXY"
-            android:src="@mipmap/ic_launcher"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+
+            android:src="@drawable/ic_bell_icon"
             app:layout_constraintBottom_toBottomOf="@id/logo_imv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/logo_imv" />
 
         <TextView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
             android:layout_gravity="end"
             android:background="@drawable/bg_circle"
+            android:fontFamily="@font/applesdgothicneom"
             android:gravity="center"
+            android:includeFontPadding="false"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@id/alarm_imb"
+            android:textSize="10sp"
+            app:layout_constraintCircle="@id/alarm_imb"
+            app:layout_constraintCircleAngle="45"
+            app:layout_constraintCircleRadius="11dp"
             app:layout_constraintEnd_toEndOf="@id/alarm_imb"
-            app:layout_constraintStart_toEndOf="@id/alarm_imb"
             app:layout_constraintTop_toTopOf="@id/alarm_imb"
+            tools:ignore="SmallSp,TextContrastCheck"
             tools:text="1" />
-
-        <!--<androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            >
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="start"
-                android:scaleType="fitXY"
-                tools:src="@mipmap/ic_launcher"
-                android:contentDescription="@string/logo" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:text="에리플"
-                android:textSize="15sp"
-                android:textColor="@color/black"
-                android:layout_marginStart="20dp"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:background="@drawable/bg_circle"
-                />
-
-            <ImageButton
-                android:id="@+id/alarm_imb"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="end"
-                android:background="@null"
-                android:scaleType="fitXY"
-                android:src="@mipmap/ic_launcher"
-                android:contentDescription="@string/alarm" />
-
-
-
-        </androidx.appcompat.widget.Toolbar>-->
 
         <androidx.cardview.widget.CardView
             android:id="@+id/allPointContainer"
             android:layout_width="0dp"
             android:layout_height="75dp"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             app:cardCornerRadius="10dp"
             app:cardElevation="0dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -130,7 +76,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/bg_8dp_maincolor">
+                android:background="@drawable/bg_8dp_maincolor"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -143,7 +90,8 @@
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="TextContrastCheck" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -153,24 +101,26 @@
                     android:includeFontPadding="false"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/more_point_imb"
                     app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="TextContrastCheck"
                     tools:text="365P" />
 
                 <ImageButton
                     android:id="@+id/more_point_imb"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:background="@null"
                     android:contentDescription="@string/more"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/ic_launcher"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:src="@drawable/ic_right_white_arrow"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ImageContrastCheck" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -185,9 +135,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/applesdgothicneoeb"
+            android:fontFamily="@font/applesdgothicneob"
             android:includeFontPadding="false"
-            android:text="즐겨찾기"
+            android:text="@string/bookmark_ko"
             android:textColor="@color/defaultBlackTextColor"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -201,6 +151,7 @@
             android:fontFamily="@font/applesdgothicneom"
             android:includeFontPadding="false"
             android:text="@string/more_view"
+            android:textSize="15sp"
             android:textColor="@color/defaultBlackTextColor"
             app:layout_constraintBottom_toBottomOf="@id/bookmark"
             app:layout_constraintEnd_toEndOf="parent"
@@ -233,7 +184,6 @@
             android:text="@string/event"
             android:textColor="@color/defaultBlackTextColor"
             android:textSize="18sp"
-            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bookmark_recyclerView" />
 

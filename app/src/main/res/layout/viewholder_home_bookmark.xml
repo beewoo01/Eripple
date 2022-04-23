@@ -80,8 +80,8 @@
 
     <ImageButton
         android:id="@+id/deap_imb"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@null"
         android:contentDescription="@string/bookmark"
         android:scaleType="fitXY"
@@ -90,6 +90,6 @@
         app:layout_constraintStart_toStartOf="@id/endViewPad"
         app:layout_constraintTop_toTopOf="@id/endViewPad"
         tools:ignore="TouchTargetSizeCheck"
-        tools:src="@drawable/ic_sample_home" />
+        tools:src="@drawable/ic_empty_heart" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

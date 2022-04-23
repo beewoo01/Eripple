@@ -7,23 +7,13 @@
     tools:context=".screen.account.join.JoinActivity">
 
     <androidx.appcompat.widget.Toolbar
+        style="@style/Widget.eripple.Toolbar.WithArrow"
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <ImageButton
-            android:id="@+id/back_imb"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="start"
-            android:background="@null"
-            android:contentDescription="@string/back"
-            android:src="@drawable/ic_launcher_background"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="12dp" />
 
         <TextView
             style="@style/Widget.eripple.Toolbar.Text"
