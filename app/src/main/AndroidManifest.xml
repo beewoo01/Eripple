@@ -37,11 +37,11 @@
             android:label="@string/title_activity_sample">
 
 
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
 
 
         </activity>
@@ -49,13 +49,11 @@
             android:name=".screen.account.login.LoginActivity"
             android:exported="true">
 
-            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            -->
 
         </activity>
         <activity

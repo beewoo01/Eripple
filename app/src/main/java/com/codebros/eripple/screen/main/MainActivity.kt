@@ -11,6 +11,8 @@ import com.codebros.eripple.screen.base.BaseActivity
 import com.codebros.eripple.screen.main.eripple_info.ErippleInfoFragment
 import com.codebros.eripple.screen.main.history.HistoryFragment
 import com.codebros.eripple.screen.main.home.HomeFragment
+import com.codebros.eripple.screen.main.my_point.MyPointFragment
+import com.codebros.eripple.screen.main.setting.SettingFragment
 import com.google.android.material.navigation.NavigationBarView
 
 class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener {
@@ -31,7 +33,6 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
         bottomNav.setOnItemSelectedListener(this@MainActivity)
         showFragment(HomeFragment.newInstance(), HomeFragment.TAG)
 
-       //binding.container.set
     }
 
     private fun showFragment(fragment: Fragment, tag : String) {
@@ -54,6 +55,7 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
+
             R.id.home -> {
                 showFragment(HomeFragment.newInstance(), HomeFragment.TAG)
                 true
@@ -70,12 +72,12 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
             }
 
             R.id.my_point -> {
-                showFragment(HomeFragment.newInstance(), HomeFragment.TAG)
+                showFragment(MyPointFragment.newInstance(), MyPointFragment.TAG)
                 true
             }
 
             R.id.setting -> {
-                showFragment(HomeFragment.newInstance(), HomeFragment.TAG)
+                showFragment(SettingFragment.newInstance(), SettingFragment.TAG)
                 true
             }
 

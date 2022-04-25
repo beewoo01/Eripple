@@ -23,8 +23,7 @@
             android:scaleType="fitXY"
             android:src="@drawable/ic_home_logo"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <ImageButton
@@ -37,13 +36,13 @@
             android:contentDescription="@string/alarm"
             android:minWidth="48dp"
             android:minHeight="48dp"
-
             android:src="@drawable/ic_bell_icon"
             app:layout_constraintBottom_toBottomOf="@id/logo_imv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/logo_imv" />
 
         <TextView
+            android:id="@+id/alarm_count_txv"
             android:layout_width="17dp"
             android:layout_height="17dp"
             android:layout_gravity="end"
@@ -53,13 +52,15 @@
             android:includeFontPadding="false"
             android:textColor="@color/white"
             android:textSize="10sp"
+            android:visibility="invisible"
             app:layout_constraintCircle="@id/alarm_imb"
             app:layout_constraintCircleAngle="45"
             app:layout_constraintCircleRadius="11dp"
             app:layout_constraintEnd_toEndOf="@id/alarm_imb"
             app:layout_constraintTop_toTopOf="@id/alarm_imb"
             tools:ignore="SmallSp,TextContrastCheck"
-            tools:text="1" />
+            tools:text="1"
+            tools:visibility="visible" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/allPointContainer"
@@ -76,8 +77,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/bg_8dp_maincolor"
-                >
+                android:background="@drawable/bg_8dp_maincolor">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -85,7 +85,7 @@
                     android:layout_marginStart="20dp"
                     android:fontFamily="@font/applesdgothicneoeb"
                     android:includeFontPadding="false"
-                    android:text="총 적립 포인트"
+                    android:text="@string/allSavePoint"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -94,6 +94,7 @@
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
+                    android:id="@+id/current_point_txv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
@@ -151,8 +152,8 @@
             android:fontFamily="@font/applesdgothicneom"
             android:includeFontPadding="false"
             android:text="@string/more_view"
-            android:textSize="15sp"
             android:textColor="@color/defaultBlackTextColor"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@id/bookmark"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/bookmark" />
@@ -166,10 +167,10 @@
             android:nestedScrollingEnabled="false"
             android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/event_txv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bookmark"
-            app:layout_constraintBottom_toTopOf="@id/event_txv"
             tools:itemCount="3"
             tools:listitem="@layout/viewholder_home_bookmark" />
 
@@ -206,7 +207,6 @@
                 android:id="@+id/event_viewpager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
                 />
 
 

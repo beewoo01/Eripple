@@ -1,10 +1,12 @@
 package com.codebros.eripple.screen.account.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.codebros.eripple.databinding.ActivityLoginBinding
 import com.codebros.eripple.screen.base.BaseActivity
+import com.codebros.eripple.screen.main.MainActivity
 
 class LoginActivity :
     BaseActivity<LoginViewModel, ActivityLoginBinding>() {
@@ -23,7 +25,9 @@ class LoginActivity :
 
     override fun initViews() = with(binding) {
         loginTxv.setOnClickListener {
-            availability(emailEdt.text.toString(), pwsEdt.text.toString())
+            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+            finish()
+            //availability(emailEdt.text.toString(), pwsEdt.text.toString())
         }
     }
 

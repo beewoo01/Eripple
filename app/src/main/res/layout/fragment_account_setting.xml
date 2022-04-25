@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screen.main.setting.account.AccountSettingFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/Widget.eripple.Toolbar.WithArrow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            style="@style/Widget.eripple.Toolbar.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/account_setting"
+            android:textColor="@color/defaultBlackTextColor"
+            android:textSize="17sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/changePsw_txv"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:text="@string/change_psw"
+        android:textColor="@color/subTextColor2"
+        android:gravity="center_vertical"
+        android:paddingStart="21dp"
+        android:paddingEnd="20dp"
+        android:background="@drawable/round_8dp_edit_bg"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        tools:ignore="RtlSymmetry"
+        app:drawableEndCompat="@drawable/ic_right_icon" />
+
+
+    <TextView
+        android:id="@+id/back_edit_txv"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:text="@string/bank_edit"
+        android:textColor="@color/subTextColor2"
+        android:gravity="center_vertical"
+        android:paddingStart="21dp"
+        android:paddingEnd="20dp"
+        android:background="@drawable/round_8dp_edit_bg"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/changePsw_txv"
+        tools:ignore="RtlSymmetry"
+        app:drawableEndCompat="@drawable/ic_right_icon" />
+
+    <TextView
+        android:id="@+id/logout_txv"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:text="@string/logout"
+        android:textColor="@color/subTextColor2"
+        android:gravity="center_vertical"
+        android:paddingStart="21dp"
+        android:paddingEnd="20dp"
+        android:background="@drawable/round_8dp_edit_bg"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back_edit_txv"
+        tools:ignore="RtlSymmetry"
+        app:drawableEndCompat="@drawable/ic_right_icon" />
+
+
+    <TextView
+        android:id="@+id/out_account_txv"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:text="@string/account_out"
+        android:textColor="@color/subTextColor2"
+        android:gravity="center_vertical"
+        android:paddingStart="21dp"
+        android:paddingEnd="20dp"
+        android:background="@drawable/round_8dp_edit_bg"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logout_txv"
+        tools:ignore="RtlSymmetry"
+        app:drawableEndCompat="@drawable/ic_right_icon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

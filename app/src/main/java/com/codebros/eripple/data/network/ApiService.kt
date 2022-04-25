@@ -1,12 +1,11 @@
 package com.codebros.eripple.data.network
 
+import com.codebros.eripple.data.entity.EventWithThumbnailEntity
 import com.codebros.eripple.data.entity.SamplePhotoEntity
+import com.codebros.eripple.data.entity.SimpleErippleInfoWithBookmarkEntity
 import com.codebros.eripple.model.sample.Post
 import retrofit2.Response
-import retrofit2.http.Field
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ApiService {
     /*@GET("todos/1/posts")
@@ -27,7 +26,7 @@ interface ApiService {
         @Query("psw") psw: String
     ): Response<Int>
 
-
+    @FormUrlEncoded
     @POST("joinAccount")
     suspend fun joinAccount(
         @Field("name") name :String,
@@ -35,6 +34,23 @@ interface ApiService {
         @Field("password") password : String,
         @Field("email") email : String,
     ) : Response<Int>
+
+    @FormUrlEncoded
+    @POST("getMyCurrentPoint")
+    suspend fun getMyCurrentPoint(
+        @Field("account_idx") account_idx : Int
+    ) : Response<Int>
+
+    @GET("getErippleInBookmark")
+    suspend fun getErippleInBookmark(
+        @Query("account_idx") account_idx : Int
+    ) : Response<List<SimpleErippleInfoWithBookmarkEntity>>
+
+    @GET("getEventForHomeFragment")
+    suspend fun getEventForHomeFragment() : Response<List<EventWithThumbnailEntity>>
+
+
+
 
 
 }

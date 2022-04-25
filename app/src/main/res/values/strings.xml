@@ -75,7 +75,7 @@
     <string name="haveAGoodDay">오늘도 즐거운 하루 되세요!</string>
 
 
-    <string name="personal_information"><b>1. 총칙\n\n</b>1) 자연하리(이하 “회사”)은 정보통신망 이용촉진 및 정보보호 등에 관한 법률(이하 “정보통신망법”), "개인정보보호법" 등 국내의 개인정보 관련 법률을 준수하며, 에리플 서비스 이용자(이하 “회원”)의 개인정보를 철저히 보호하고 있습니다.\n
+    <!--<string name="personal_information"><b>1. 총칙\n\n</b>1) 자연하리(이하 “회사”)은 정보통신망 이용촉진 및 정보보호 등에 관한 법률(이하 “정보통신망법”), "개인정보보호법" 등 국내의 개인정보 관련 법률을 준수하며, 에리플 서비스 이용자(이하 “회원”)의 개인정보를 철저히 보호하고 있습니다.\n
         \n2) 회사는 회원의 개인정보를 적극적으로 보호하기 위하여 개인정보처리방침을 제정하고 이를 준수하고 있습니다. 개인정보처리방침을 통해 회원의 개인정보가 어떤 목적으로 수집되고, 어떠한 방법으로 보호되는지 공개하고 있습니다.\n
         \n3) 회사의 개인정보처리방침은 관계 법령 및 지침, 시장 환경 및 변화, 회사 내부 운영방침의 변경에 따라 수정, 삭제 및 보완될 수 있습니다. 개인정보처리방침의 변동 사항이 발생할 경우, 관계 법령 및 지침이 정하는 방법에 의거, 고지 후 시행합니다.\n
 
@@ -495,12 +495,33 @@
 
         \n\n회사 명: 자연하리\n대표자 : 김종순\n등록번호 : 369-21-01562
 
-    </string>
+    </string>-->
     <string name="company_name">자연하리</string>
     <string name="bookmark_ko">즐겨찾기</string>
     <string name="notice">공지사항</string>
     <string name="faq">FAQ</string>
     <string name="setting_account">계정설정</string>
+    <string name="setting_alarm">알림설정</string>
+    <string name="phone_inquiry">전화 문의</string>
+    <string name="inquiry_time">Mon-Fri | AM 10 ~ PM 5</string>
+    <string name="inquiry_time_title">상담시간</string>
+    <string name="inquiry_kakao">카카오톡 문의</string>
+    <string name="image">image</string>
+    <string name="newImage">newImage</string>
+    <string name="event_img">event_img</string>
+    <string name="eripple_bookmark">에리플 즐겨찾기</string>
+    <string name="bank_edit">환전계좌 등록/수정</string>
+    <string name="logout">로그아웃</string>
+    <string name="account_out">회원탈퇴</string>
+    <string name="account_setting">계정설정</string>
+    <string name="bank_account_edit">환전 계좌 등록 / 수정</string>
+    <string name="registerAndEdit">등록 / 수정</string>
+    <string name="input_name_plz">이름을 입력해주세요</string>
+    <string name="allSavePoint">총 적립 포인트</string>
+    <string name="current_my_point">현재 보유 포인트</string>
+    <string name="possible_point">환전 가능한 포인트</string>
+    <string name="exchange_cancel_cause">환전취소사유:</string>
+    <string name="apply_exchange">환전신청</string>
 
 
 </resources>
