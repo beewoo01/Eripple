@@ -2,7 +2,9 @@ package com.codebros.eripple.util.provider
 
 import android.content.Context
 import android.content.res.ColorStateList
+import android.graphics.drawable.Drawable
 import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 
@@ -19,4 +21,7 @@ class DefaultCustomResourcesProvider(
 
     override fun getColorStateList(@ColorRes resId: Int): ColorStateList =
         context.getColorStateList(resId)
+
+    override fun getDrawable(@DrawableRes drawable: Int): Drawable? =
+        ContextCompat.getDrawable(context, drawable)
 }

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../.gradle/caches/transforms-3/aec237d7615e5b5f19aac02e97eeb357/transformed/core-1.7.0/res/drawable/notification_bg_low.xml" value="0.1325" />
         <entry key="../.gradle/caches/transforms-3/234a538a20b20407a3c9b7e7a53bb83d/transformed/core-1.7.0/res/drawable/notification_bg_low.xml" value="0.204" />
         <entry key="../.gradle/caches/transforms-3/b07e2ea96ad9bd2cb8ab939ac9c3a895/transformed/appcompat-1.4.1/res/drawable/abc_btn_check_material.xml" value="0.204" />
         <entry key="../.gradle/caches/transforms-3/b07e2ea96ad9bd2cb8ab939ac9c3a895/transformed/appcompat-1.4.1/res/drawable/abc_edit_text_material.xml" value="0.204" />
@@ -37,6 +38,7 @@
         <entry key="../eripple/app/src/main/res/drawable/custom_chekbutton_checked.xml" value="0.208" />
         <entry key="../eripple/app/src/main/res/drawable/default_pager_dot.xml" value="0.1705" />
         <entry key="../eripple/app/src/main/res/drawable/ic_bookmark_icon.xml" value="0.335" />
+        <entry key="../eripple/app/src/main/res/drawable/ic_full_heart.xml" value="0.1325" />
         <entry key="../eripple/app/src/main/res/drawable/ic_point_fab_icon.xml" value="0.335" />
         <entry key="../eripple/app/src/main/res/drawable/ic_sample_home.xml" value="0.1705" />
         <entry key="../eripple/app/src/main/res/drawable/round_3dp_bg.xml" value="0.209" />
@@ -82,7 +84,7 @@
         <entry key="../eripple/app/src/main/res/layout/viewholder_exchange_history.xml" value="0.375" />
         <entry key="../eripple/app/src/main/res/layout/viewholder_faq.xml" value="0.28131680205215903" />
         <entry key="../eripple/app/src/main/res/layout/viewholder_history_point.xml" value="0.375" />
-        <entry key="../eripple/app/src/main/res/layout/viewholder_home_bookmark.xml" value="0.45" />
+        <entry key="../eripple/app/src/main/res/layout/viewholder_home_bookmark.xml" value="0.335" />
         <entry key="../eripple/app/src/main/res/layout/viewholder_notice.xml" value="0.45" />
         <entry key="../eripple/app/src/main/res/layout/viewholder_sample_photo.xml" value="0.1372753865440869" />
         <entry key="../eripple/app/src/main/res/layout/viewholder_search_eripple.xml" value="0.375" />
