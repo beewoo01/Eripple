@@ -145,7 +145,7 @@
             app:layout_constraintTop_toBottomOf="@id/allPointContainer" />
 
         <TextView
-            android:id="@+id/mode_bookmark_txv"
+            android:id="@+id/more_bookmark_txv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
@@ -158,6 +158,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/bookmark" />
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/bookmark_recyclerView"
             android:layout_width="0dp"
@@ -166,12 +167,12 @@
             android:layout_marginTop="15dp"
             android:nestedScrollingEnabled="false"
             android:overScrollMode="never"
+            tools:itemCount="3"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@id/event_txv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bookmark"
-            tools:itemCount="3"
             tools:listitem="@layout/viewholder_home_bookmark" />
 
         <TextView
@@ -207,16 +208,16 @@
                 android:id="@+id/event_viewpager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                />
+                android:nestedScrollingEnabled="false" />
 
 
         </androidx.cardview.widget.CardView>
 
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/into_tab_layout"
+            android:id="@+id/tab_layout"
             android:layout_width="wrap_content"
-            android:layout_height="10dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="11.3dp"
             android:scrollIndicators="none"
             app:layout_constraintEnd_toEndOf="@id/cardView"
@@ -226,8 +227,8 @@
             app:tabGravity="center"
             app:tabIndicator="@null"
             app:tabIndicatorHeight="0dp"
-            app:tabPaddingEnd="8dp"
-            app:tabPaddingStart="8dp" />
+            app:tabPaddingEnd="6dp"
+            app:tabPaddingStart="6dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

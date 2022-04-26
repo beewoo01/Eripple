@@ -1,5 +1,6 @@
 package com.codebros.eripple.screen.main.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -24,6 +25,16 @@ class HomeViewModel : BaseViewModel() {
     private val _eventList = MutableLiveData<List<EventWithThumbnail>?>()
     val eventList: LiveData<List<EventWithThumbnail>?> = _eventList
 
+
+    fun getMyCurrentPoint(account_idx: Int): Job = viewModelScope.launch {
+
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        Log.wtf("HomeViewModel", "onCleared")
+    }
+
     fun postMyCurrentPoint(
         account_idx: Int
     ): Job = viewModelScope.launch {
@@ -43,12 +54,13 @@ class HomeViewModel : BaseViewModel() {
         account_idx: Int
     ): Job = viewModelScope.launch {
 
-        val response = repository.getErippleInBookmark(account_idx)
+        val response = repository.getSimpleErippleInBookmark(account_idx)
 
         if (response.isSuccessful) {
             val result = response.body()
 
             _myBookMarkEripple.value = result?.map { entity ->
+
                 SimpleErippleInfoWithBookmark(
                     uid = entity.hashCode().toLong(),
                     CellType.BOOKMARK_CELL,
@@ -57,11 +69,9 @@ class HomeViewModel : BaseViewModel() {
                     eripple_name = entity.eripple_name,
                     eripple_status = entity.eripple_status
                 )
-
             }
 
         } else {
-
             _myBookMarkEripple.value = null
         }
 
@@ -77,7 +87,7 @@ class HomeViewModel : BaseViewModel() {
             _eventList.value = result?.map {
                 EventWithThumbnail(
                     uid = it.hashCode().toLong(),
-                    event_idx =  it.event_idx,
+                    event_idx = it.event_idx,
                     event_title = it.event_title,
                     event_createTime = it.event_createtime,
                     event_updateTime = it.event_updatetime,

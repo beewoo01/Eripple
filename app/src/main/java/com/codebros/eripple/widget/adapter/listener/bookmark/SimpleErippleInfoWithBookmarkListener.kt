@@ -5,4 +5,6 @@ import com.codebros.eripple.widget.adapter.listener.AdapterListener
 
 interface SimpleErippleInfoWithBookmarkListener : AdapterListener {
     fun onClickItem(model : SimpleErippleInfoWithBookmark)
+
+    fun onHeartClick(model : SimpleErippleInfoWithBookmark)
 }

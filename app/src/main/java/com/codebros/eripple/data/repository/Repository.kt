@@ -26,6 +26,9 @@ class Repository : ApiService {
     override suspend fun getMyCurrentPoint(account_idx: Int): Response<Int> =
         apiService.getMyCurrentPoint(account_idx)
 
+    override suspend fun getSimpleErippleInBookmark(account_idx: Int): Response<List<SimpleErippleInfoWithBookmarkEntity>> =
+        apiService.getSimpleErippleInBookmark(account_idx)
+
     override suspend fun getErippleInBookmark(account_idx: Int): Response<List<SimpleErippleInfoWithBookmarkEntity>> =
         apiService.getErippleInBookmark(account_idx)
 

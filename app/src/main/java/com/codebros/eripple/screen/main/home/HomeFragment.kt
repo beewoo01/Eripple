@@ -7,16 +7,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.codebros.eripple.R
 import com.codebros.eripple.databinding.FragmentHomeBinding
 import com.codebros.eripple.model.event.EventWithThumbnail
 import com.codebros.eripple.model.event.SimpleErippleInfoWithBookmark
 import com.codebros.eripple.screen.base.BaseFragment
+import com.codebros.eripple.screen.main.event.EventViewModel
+import com.codebros.eripple.screen.main.my_point.MyPointFragment
 import com.codebros.eripple.util.provider.DefaultCustomResourcesProvider
 import com.codebros.eripple.widget.adapter.ModelRecyclerAdapter
 import com.codebros.eripple.widget.adapter.listener.bookmark.SimpleErippleInfoWithBookmarkListener
 import com.codebros.eripple.widget.adapter.listener.event.EventWithThumbnailListener
+import com.codebros.eripple.widget.adapter.viewpager.EventViewPagerInHomeFrag
+import com.google.android.material.tabs.TabLayoutMediator
 
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
@@ -36,23 +44,14 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
                 override fun onClickItem(model: SimpleErippleInfoWithBookmark) {
                     Log.wtf("adapter Click title", model.eripple_name)
                 }
+
+                override fun onHeartClick(model: SimpleErippleInfoWithBookmark) {
+                    Log.wtf("adapter onHeartClick Click title", model.eripple_name)
+                }
             }
         )
     }
 
-    /*private val eventAdapter by lazy {
-        ModelRecyclerAdapter<EventWithThumbnail, HomeViewModel>(
-            listOf(),
-            viewModel,
-            customResourcesProvider = resourcesProvider,
-            adapterListener = object : EventWithThumbnailListener {
-                override fun onClickItem(model: EventWithThumbnail) {
-                    Log.wtf("adapter Click title", model.event_title)
-                }
-
-            }
-        )
-    }*/
 
     override fun getViewBinding(): FragmentHomeBinding =
         FragmentHomeBinding.inflate(layoutInflater)
@@ -60,6 +59,12 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
     override fun initViews() {
         with(binding) {
             bookmarkRecyclerView.adapter = bookMarkAdapter
+
+            allPointContainer.setOnClickListener {
+                findNavController().navigate(R.id.my_point)
+
+            }
+
         }
 
     }
@@ -86,17 +91,33 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         viewModel.myBookMarkEripple.observe(this@HomeFragment) {
             it?.let { result ->
                 bookMarkAdapter.submitList(result.toMutableList())
-
+                moreBookmarkTxv.isVisible = result.count() >= 1
             } ?: kotlin.run {
+                moreBookmarkTxv.isVisible = false
                 //BookMark 한게 없거나 오류 발생
             }
         }
 
         viewModel.eventList.observe(this@HomeFragment) {
             it?.let { result ->
-                //eventAdapter.submitList(result.toMutableList())
-                Log.wtf("eventList Size", result.size.toString())
+
+                eventViewpager.adapter =
+                    EventViewPagerInHomeFrag(
+                        result.toMutableList(),
+                        listener = object : EventWithThumbnailListener {
+                            override fun onClickItem(model: EventWithThumbnail) {
+                                Log.wtf("onClickItem", "onClickItem")
+                            }
+
+                        })
+
+                TabLayoutMediator(tabLayout, eventViewpager)
+                { tab, _ ->
+                    tab.view.isClickable = false
+                }.attach()
+
             } ?: kotlin.run {
+                Log.wtf("eventList Size", "isNull")
                 //Event가 없거나 오류발생
             }
         }

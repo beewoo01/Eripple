@@ -27,6 +27,7 @@ class SampleActivity :
             listOf(),
             viewModel,
             resourcesProvider,
+
             adapterListener = object : SampleListener {
                 override fun onClickItem(model: SamplePhoto) {
                     Log.wtf("adapter Click title", model.title)

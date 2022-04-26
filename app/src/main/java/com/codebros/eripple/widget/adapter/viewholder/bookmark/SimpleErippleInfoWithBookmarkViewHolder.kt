@@ -35,6 +35,17 @@ class SimpleErippleInfoWithBookmarkViewHolder(
                 deapImb.localLoad(it)
             }
 
+            when (model.eripple_status) {
+
+                3, 4 -> {
+                    bookmarkStateTxv.text = "사용가능"
+                }
+
+                else -> {
+                    bookmarkStateTxv.text = "사용불가"
+                }
+            }
+
 
         }
     }
@@ -42,9 +53,15 @@ class SimpleErippleInfoWithBookmarkViewHolder(
     override fun bindViews(model: SimpleErippleInfoWithBookmark, adapterListener: AdapterListener) {
         with(binding) {
             if (adapterListener is SimpleErippleInfoWithBookmarkListener) {
+
                 root.setOnClickListener {
                     adapterListener.onClickItem(model)
                 }
+
+                deapImb.setOnClickListener {
+                    adapterListener.onHeartClick(model)
+                }
+
             }
         }
     }

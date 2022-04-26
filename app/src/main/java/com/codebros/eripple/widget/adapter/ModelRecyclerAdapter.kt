@@ -19,13 +19,14 @@ class ModelRecyclerAdapter<M : Model, VM : BaseViewModel>(
 
 ) : ListAdapter<Model, ModelViewHolder<M>>(Model.DIFF_CALLBACK) {
 
-    override fun getItemCount(): Int = modelList.size
+    override fun getItemCount(): Int {
+        return modelList.size
+
+    }
 
     override fun getItemViewType(position: Int): Int = modelList[position].type.ordinal
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ModelViewHolder<M> {
-        Log.wtf("ModelRecyclerAdapter", "onCreateViewHolder")
-        Log.wtf("ModelRecyclerAdapter", "viewType = $viewType")
         return ModelViewHolderMapper.map(
             parent,
             CellType.values()[viewType],
@@ -43,8 +44,6 @@ class ModelRecyclerAdapter<M : Model, VM : BaseViewModel>(
     }
 
     override fun submitList(list: MutableList<Model>?) {
-        Log.wtf("ModelRecyclerAdapter", "list size = ${list?.size}")
-        Log.wtf("ModelRecyclerAdapter", "list size = ${list?.size}")
         list?.let { modelList = it }
         super.submitList(list)
     }

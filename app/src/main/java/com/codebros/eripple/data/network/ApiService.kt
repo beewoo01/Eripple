@@ -41,6 +41,11 @@ interface ApiService {
         @Field("account_idx") account_idx : Int
     ) : Response<Int>
 
+    @GET("getSimpleErippleInBookmark")
+    suspend fun getSimpleErippleInBookmark(
+        @Query("account_idx") account_idx : Int
+    ) : Response<List<SimpleErippleInfoWithBookmarkEntity>>
+
     @GET("getErippleInBookmark")
     suspend fun getErippleInBookmark(
         @Query("account_idx") account_idx : Int

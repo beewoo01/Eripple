@@ -3,26 +3,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/home">
 
-    <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.codebros.eripple.screen.sample.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first" >
+    <keep_state_fragment android:id="@+id/home"
+        android:name="com.codebros.eripple.screen.main.home.HomeFragment"
+        tools:layout="@layout/fragment_home"
+        >
 
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.codebros.eripple.screen.sample.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second" >
+    </keep_state_fragment>
 
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
+    <keep_state_fragment android:id="@+id/history"
+        android:name="com.codebros.eripple.screen.main.history.HistoryFragment"
+        tools:layout="@layout/fragment_history"
+        >
+
+    </keep_state_fragment>
+
+    <keep_state_fragment android:id="@+id/eripple_info"
+        android:name="com.codebros.eripple.screen.main.eripple_info.ErippleInfoFragment"
+        tools:layout="@layout/fragment_eripple_info"
+        >
+
+    </keep_state_fragment>
+
+
+    <keep_state_fragment android:id="@+id/my_point"
+        android:name="com.codebros.eripple.screen.main.my_point.MyPointFragment"
+        tools:layout="@layout/fragment_my_point"
+        >
+
+    </keep_state_fragment>
+
+
+    <keep_state_fragment android:id="@+id/setting"
+        android:name="com.codebros.eripple.screen.main.setting.SettingFragment"
+        tools:layout="@layout/fragment_setting"
+        >
+
+    </keep_state_fragment>
+
+
 </navigation>
