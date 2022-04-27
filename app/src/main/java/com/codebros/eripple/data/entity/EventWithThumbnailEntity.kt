@@ -31,5 +31,5 @@ data class EventWithThumbnailEntity(
 
     @SerializedName("event_image_url")
     @Expose
-    val event_image_url: String,
+    val event_image_url: String
 ) : Parcelable

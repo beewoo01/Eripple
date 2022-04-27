@@ -522,6 +522,7 @@
     <string name="possible_point">환전 가능한 포인트</string>
     <string name="exchange_cancel_cause">환전취소사유:</string>
     <string name="apply_exchange">환전신청</string>
+    <string name="alarm_ko">알림</string>
 
 
 </resources>

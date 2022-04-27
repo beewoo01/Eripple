@@ -1,5 +1,6 @@
 package com.codebros.eripple.data.network
 
+import com.codebros.eripple.data.entity.ErippleEntity
 import com.codebros.eripple.data.entity.EventWithThumbnailEntity
 import com.codebros.eripple.data.entity.SamplePhotoEntity
 import com.codebros.eripple.data.entity.SimpleErippleInfoWithBookmarkEntity
@@ -29,33 +30,44 @@ interface ApiService {
     @FormUrlEncoded
     @POST("joinAccount")
     suspend fun joinAccount(
-        @Field("name") name :String,
-        @Field("phone") phone : String,
-        @Field("password") password : String,
-        @Field("email") email : String,
-    ) : Response<Int>
+        @Field("name") name: String,
+        @Field("phone") phone: String,
+        @Field("password") password: String,
+        @Field("email") email: String,
+    ): Response<Int>
 
     @FormUrlEncoded
     @POST("getMyCurrentPoint")
     suspend fun getMyCurrentPoint(
-        @Field("account_idx") account_idx : Int
-    ) : Response<Int>
+        @Field("account_idx") account_idx: Int
+    ): Response<Int>
 
     @GET("getSimpleErippleInBookmark")
     suspend fun getSimpleErippleInBookmark(
-        @Query("account_idx") account_idx : Int
-    ) : Response<List<SimpleErippleInfoWithBookmarkEntity>>
+        @Query("account_idx") account_idx: Int
+    ): Response<List<SimpleErippleInfoWithBookmarkEntity>>
 
     @GET("getErippleInBookmark")
     suspend fun getErippleInBookmark(
-        @Query("account_idx") account_idx : Int
-    ) : Response<List<SimpleErippleInfoWithBookmarkEntity>>
+        @Query("account_idx") account_idx: Int
+    ): Response<List<SimpleErippleInfoWithBookmarkEntity>>
 
     @GET("getEventForHomeFragment")
-    suspend fun getEventForHomeFragment() : Response<List<EventWithThumbnailEntity>>
+    suspend fun getEventForHomeFragment(): Response<List<EventWithThumbnailEntity>>
 
+    @GET("getAllErippleInfo")
+    suspend fun getAllEripple(@Query("account_idx") account_idx: Int): Response<List<ErippleEntity>>
 
+    @POST("addBookMark")
+    suspend fun addBookMark(
+        @Query("account_idx") account_idx: Int,
+        @Query("eripple_idx") eripple_idx: Int
+    ): Response<ErippleEntity>
 
+    @POST("removeBookMark")
+    suspend fun removeBookMark(
+        @Query("bookmark_idx") bookmark_idx : Int
+    ): Response<Int>
 
 
 }

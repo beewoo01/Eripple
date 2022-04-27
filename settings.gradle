@@ -5,7 +5,9 @@ pluginManagement {
         mavenCentral()
         jcenter()
     }
+
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -13,6 +15,7 @@ dependencyResolutionManagement {
         mavenCentral()
         jcenter()
     }
+
 }
 rootProject.name = "Eripple"
 include ':app'

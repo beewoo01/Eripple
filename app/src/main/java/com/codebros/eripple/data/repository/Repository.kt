@@ -1,5 +1,6 @@
 package com.codebros.eripple.data.repository
 
+import com.codebros.eripple.data.entity.ErippleEntity
 import com.codebros.eripple.data.entity.EventWithThumbnailEntity
 import com.codebros.eripple.data.entity.SamplePhotoEntity
 import com.codebros.eripple.data.entity.SimpleErippleInfoWithBookmarkEntity
@@ -34,6 +35,15 @@ class Repository : ApiService {
 
     override suspend fun getEventForHomeFragment(): Response<List<EventWithThumbnailEntity>> =
         apiService.getEventForHomeFragment()
+
+    override suspend fun getAllEripple(account_idx: Int): Response<List<ErippleEntity>> =
+        apiService.getAllEripple(account_idx)
+
+    override suspend fun addBookMark(account_idx: Int, eripple_idx: Int) : Response<ErippleEntity> =
+        apiService.addBookMark(account_idx, eripple_idx)
+
+    override suspend fun removeBookMark(bookmark_idx: Int) : Response<Int> =
+        apiService.removeBookMark(bookmark_idx)
 
 
 }

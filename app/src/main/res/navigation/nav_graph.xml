@@ -5,40 +5,69 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/home">
 
-    <keep_state_fragment android:id="@+id/home"
+    <keep_state_fragment
+        android:id="@+id/home"
         android:name="com.codebros.eripple.screen.main.home.HomeFragment"
-        tools:layout="@layout/fragment_home"
-        >
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_home_to_alarm"
+            app:destination="@id/alarm" />
+        <action
+            android:id="@+id/action_home_to_bookmark"
+            app:destination="@id/bookmark" />
+        <!--<action
+            android:id="@+id/action_home_to_eripple_info"
+            app:destination="@id/eripple_info" />-->
 
     </keep_state_fragment>
 
-    <keep_state_fragment android:id="@+id/history"
+    <keep_state_fragment
+        android:id="@+id/history"
         android:name="com.codebros.eripple.screen.main.history.HistoryFragment"
-        tools:layout="@layout/fragment_history"
-        >
+        tools:layout="@layout/fragment_history">
 
     </keep_state_fragment>
 
-    <keep_state_fragment android:id="@+id/eripple_info"
+    <keep_state_fragment
+        android:id="@+id/eripple_info"
         android:name="com.codebros.eripple.screen.main.eripple_info.ErippleInfoFragment"
-        tools:layout="@layout/fragment_eripple_info"
-        >
+        tools:layout="@layout/fragment_eripple_info">
+
+        <argument
+            android:name="selected_idx"
+            android:defaultValue="0"
+            app:nullable="false" />
 
     </keep_state_fragment>
 
 
-    <keep_state_fragment android:id="@+id/my_point"
+    <keep_state_fragment
+        android:id="@+id/my_point"
         android:name="com.codebros.eripple.screen.main.my_point.MyPointFragment"
-        tools:layout="@layout/fragment_my_point"
-        >
+        tools:layout="@layout/fragment_my_point">
 
     </keep_state_fragment>
 
 
-    <keep_state_fragment android:id="@+id/setting"
+    <keep_state_fragment
+        android:id="@+id/setting"
         android:name="com.codebros.eripple.screen.main.setting.SettingFragment"
-        tools:layout="@layout/fragment_setting"
-        >
+        tools:layout="@layout/fragment_setting">
+
+    </keep_state_fragment>
+
+    <keep_state_fragment
+        android:id="@+id/alarm"
+        android:name="com.codebros.eripple.screen.main.home.alarm.AlarmFragment"
+        tools:layout="@layout/fragment_alarm">
+
+    </keep_state_fragment>
+
+    <keep_state_fragment
+        android:id="@+id/bookmark"
+        android:name="com.codebros.eripple.screen.main.home.BookMarkFragment"
+        tools:layout="@layout/fragment_book_mark">
 
     </keep_state_fragment>
 

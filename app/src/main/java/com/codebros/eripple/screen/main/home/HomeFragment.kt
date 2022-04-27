@@ -17,6 +17,7 @@ import com.codebros.eripple.databinding.FragmentHomeBinding
 import com.codebros.eripple.model.event.EventWithThumbnail
 import com.codebros.eripple.model.event.SimpleErippleInfoWithBookmark
 import com.codebros.eripple.screen.base.BaseFragment
+import com.codebros.eripple.screen.main.eripple_info.ErippleInfoFragmentArgs
 import com.codebros.eripple.screen.main.event.EventViewModel
 import com.codebros.eripple.screen.main.my_point.MyPointFragment
 import com.codebros.eripple.util.provider.DefaultCustomResourcesProvider
@@ -43,6 +44,11 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
             adapterListener = object : SimpleErippleInfoWithBookmarkListener {
                 override fun onClickItem(model: SimpleErippleInfoWithBookmark) {
                     Log.wtf("adapter Click title", model.eripple_name)
+                    /*val action = HomeFragmentDirections.actionHomeToErippleInfo(model.eripple_idx)*/
+
+                    findNavController().navigate(R.id.eripple_info, Bundle().apply {
+                        putInt("eripple_idx", model.eripple_idx)
+                    })
                 }
 
                 override fun onHeartClick(model: SimpleErippleInfoWithBookmark) {
@@ -62,7 +68,14 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
             allPointContainer.setOnClickListener {
                 findNavController().navigate(R.id.my_point)
+            }
 
+            moreBookmarkTxv.setOnClickListener {
+                findNavController().navigate(R.id.action_home_to_bookmark)
+            }
+
+            alarmImb.setOnClickListener {
+                findNavController().navigate(R.id.action_home_to_alarm)
             }
 
         }

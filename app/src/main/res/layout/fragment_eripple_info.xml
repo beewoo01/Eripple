@@ -13,7 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <include layout="@layout/container_eripple_box"/>
+    <include
+        android:id="@+id/eripple_container"
+        layout="@layout/container_eripple_box"/>
 
 
 
