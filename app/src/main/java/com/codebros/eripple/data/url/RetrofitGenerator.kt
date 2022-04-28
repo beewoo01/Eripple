@@ -1,13 +1,17 @@
 package com.codebros.eripple.data.url
 
 import com.codebros.eripple.data.network.ApiService
+import com.codebros.eripple.data.network.NullOnEmptyConverterFactory
 import com.codebros.eripple.data.url.DefaultUrl.LOCAL_URL
 import com.codebros.eripple.data.url.DefaultUrl.SAMPLE_URL
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
+import okhttp3.ResponseBody
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.lang.reflect.Type
 import java.util.concurrent.TimeUnit
 
 object RetrofitGenerator {
@@ -16,6 +20,7 @@ object RetrofitGenerator {
         Retrofit.Builder()
             .baseUrl(LOCAL_URL)
             .client(buildOkHttpClient())
+            .addConverterFactory(NullOnEmptyConverterFactory())
             .addConverterFactory(provideGsonConvertFactory())
             .build()
 
@@ -26,7 +31,6 @@ object RetrofitGenerator {
                 .create()
         )
     }
-
 
     private fun buildOkHttpClient(): OkHttpClient {
 

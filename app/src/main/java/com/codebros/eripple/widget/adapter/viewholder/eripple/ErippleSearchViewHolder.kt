@@ -1,10 +1,8 @@
 package com.codebros.eripple.widget.adapter.viewholder.eripple
 
-import com.bumptech.glide.Glide
 import com.codebros.eripple.R
 import com.codebros.eripple.databinding.ViewholderSearchErippleBinding
 import com.codebros.eripple.extention.clear
-import com.codebros.eripple.extention.load
 import com.codebros.eripple.extention.localLoad
 import com.codebros.eripple.model.eripple.Eripple
 import com.codebros.eripple.screen.base.BaseViewModel
@@ -28,7 +26,7 @@ class ErippleSearchViewHolder(
         erippleNameTxv.text = model.eripple_name
         erippleAddressTxv.text =
             model.eripple_address_detail?.let {
-                "${model.eripple_address} ${it}"
+                "${model.eripple_address} $it"
 
             } ?: kotlin.run {
                 model.eripple_address
@@ -45,17 +43,24 @@ class ErippleSearchViewHolder(
             }
         }
 
-        if (model.bookmark_idx > 0) {
+        val drawable = if (model.bookmark_idx > 0) {
             customResourcesProvider.getDrawable(R.drawable.ic_full_heart_location)
-                ?.let { bookmarkImb.localLoad(it) }
+        } else {
+            customResourcesProvider.getDrawable(R.drawable.ic_empty_heart_location)
         }
+
+        bookmarkImb.localLoad(drawable)
 
     }
 
-    override fun bindViews(model: Eripple, adapterListener: AdapterListener) {
+    override fun bindViews(model: Eripple, adapterListener: AdapterListener?) {
         with(binding) {
 
             if (adapterListener is ErippleAdapterListener) {
+
+                root.setOnClickListener {
+                    adapterListener.onItemClick(model)
+                }
 
                 bookmarkImb.setOnClickListener {
                     adapterListener.onHeartClick(model)

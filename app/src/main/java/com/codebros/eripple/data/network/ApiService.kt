@@ -1,9 +1,6 @@
 package com.codebros.eripple.data.network
 
-import com.codebros.eripple.data.entity.ErippleEntity
-import com.codebros.eripple.data.entity.EventWithThumbnailEntity
-import com.codebros.eripple.data.entity.SamplePhotoEntity
-import com.codebros.eripple.data.entity.SimpleErippleInfoWithBookmarkEntity
+import com.codebros.eripple.data.entity.*
 import com.codebros.eripple.model.sample.Post
 import retrofit2.Response
 import retrofit2.http.*
@@ -68,6 +65,11 @@ interface ApiService {
     suspend fun removeBookMark(
         @Query("bookmark_idx") bookmark_idx : Int
     ): Response<Int>
+
+    @GET("getPointHistory")
+    suspend fun getPointHistory(
+        @Query("account_idx") account_idx: Int
+    ): Response<List<PointSavedEntity>>
 
 
 }

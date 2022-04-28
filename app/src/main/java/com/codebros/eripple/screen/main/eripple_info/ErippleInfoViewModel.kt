@@ -13,11 +13,11 @@ class ErippleInfoViewModel : BaseViewModel() {
     private val _erippleListLiveData = MutableLiveData<List<Eripple>?>()
     val erippleList: LiveData<List<Eripple>?> = _erippleListLiveData
 
-    private val _erippleAddedBookMarkState = MutableLiveData<Eripple?>()
-    val erippleAddedBookmarkState: LiveData<Eripple?> = _erippleAddedBookMarkState
+    private val _erippleAddedBookMarkState = MutableLiveData<Pair<Eripple, Eripple?>>()
+    val erippleAddedBookmarkState: LiveData<Pair<Eripple, Eripple?>> = _erippleAddedBookMarkState
 
-    private val _erippleRemovedState = MutableLiveData<Boolean>()
-    val erippleRemovedState : LiveData<Boolean> = _erippleRemovedState
+    private val _erippleRemovedState = MutableLiveData<Eripple?>()
+    val erippleRemovedState: LiveData<Eripple?> = _erippleRemovedState
 
 
     fun getErippleList(account_idx: Int) = viewModelScope.launch {
@@ -54,59 +54,64 @@ class ErippleInfoViewModel : BaseViewModel() {
         }
     }
 
-    fun addBookMark(account_idx: Int, eripple_idx: Int) = viewModelScope.launch {
-        val response = repository.addBookMark(account_idx, eripple_idx)
+    fun addBookMark(
+        paramModel: Eripple, account_idx: Int
+        /*account_idx: Int, eripple_idx: Int*/
+    ) = viewModelScope.launch {
+        val response = repository.addBookMark(account_idx, paramModel.eripple_idx)
 
         if (response.isSuccessful) {
 
             val result = response.body()
             result?.let { entity ->
-                _erippleAddedBookMarkState.value = Eripple(
-                    uid = entity.hashCode().toLong(),
-                    type = CellType.ERIPPLE,
-                    eripple_idx = entity.eripple_idx,
-                    eripple_name = entity.eripple_name,
-                    eripple_longitude = entity.eripple_longitude,
-                    eripple_latitude = entity.eripple_latitude,
-                    eripple_address = entity.eripple_address,
-                    eripple_address_detail = entity.eripple_address_detail,
-                    eripple_thumbnail = entity.eripple_thumbnail,
-                    eripple_status = entity.eripple_status,
-                    eripple_createtime = entity.eripple_createtime,
-                    eripple_updatetime = entity.eripple_updatetime,
-                    bookmark_idx = entity.bookmark_idx
+                _erippleAddedBookMarkState.value = Pair(
+                    paramModel, Eripple(
+                        uid = entity.hashCode().toLong(),
+                        type = CellType.ERIPPLE,
+                        eripple_idx = entity.eripple_idx,
+                        eripple_name = entity.eripple_name,
+                        eripple_longitude = entity.eripple_longitude,
+                        eripple_latitude = entity.eripple_latitude,
+                        eripple_address = entity.eripple_address,
+                        eripple_address_detail = entity.eripple_address_detail,
+                        eripple_thumbnail = entity.eripple_thumbnail,
+                        eripple_status = entity.eripple_status,
+                        eripple_createtime = entity.eripple_createtime,
+                        eripple_updatetime = entity.eripple_updatetime,
+                        bookmark_idx = entity.bookmark_idx
+                    )
                 )
 
 
             } ?: kotlin.run {
-                _erippleAddedBookMarkState.value = null
+                _erippleAddedBookMarkState.value = Pair(paramModel, null)
             }
 
 
         } else {
-            _erippleAddedBookMarkState.value = null
+            _erippleAddedBookMarkState.value = Pair(paramModel, null)
         }
 
 
     }
 
-    fun removeBookMark(bookmark_idx: Int) = viewModelScope.launch {
-        val response = repository.removeBookMark(bookmark_idx)
+    fun removeBookMark(model: Eripple) = viewModelScope.launch {
+        val response = repository.removeBookMark(model.bookmark_idx)
 
         if (response.isSuccessful) {
             val result = response.body()
             result?.let {
                 if (it > 0) {
-                    _erippleRemovedState.postValue(true)
+                    _erippleRemovedState.postValue(model)
                 } else {
-                    _erippleRemovedState.postValue(false)
+                    _erippleRemovedState.postValue(null)
                 }
             } ?: kotlin.run {
-                _erippleRemovedState.postValue(false)
+                _erippleRemovedState.postValue(null)
             }
 
         } else {
-            _erippleRemovedState.postValue(false)
+            _erippleRemovedState.postValue(null)
         }
     }
 

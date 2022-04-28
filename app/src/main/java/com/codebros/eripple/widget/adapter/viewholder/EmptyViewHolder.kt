@@ -14,5 +14,5 @@ class EmptyViewHolder(
 
     override fun reset() = Unit
 
-    override fun bindViews(model: Model, adapterListener: AdapterListener) = Unit
+    override fun bindViews(model: Model, adapterListener: AdapterListener?) = Unit
 }

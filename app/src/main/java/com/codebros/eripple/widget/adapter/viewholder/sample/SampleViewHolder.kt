@@ -32,7 +32,7 @@ class SampleViewHolder(
         }
     }
 
-    override fun bindViews(model: SamplePhoto, adapterListener: AdapterListener) {
+    override fun bindViews(model: SamplePhoto, adapterListener: AdapterListener?) {
         Log.wtf("SampleViewHolder", "bindViews")
         with(binding) {
             Log.wtf("SampleViewHolder", "bindViews with(binding)")

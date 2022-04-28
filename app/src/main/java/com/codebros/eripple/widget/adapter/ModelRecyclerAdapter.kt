@@ -15,7 +15,7 @@ class ModelRecyclerAdapter<M : Model, VM : BaseViewModel>(
     private var modelList: List<Model>,
     private var viewModel: VM,
     private val customResourcesProvider: CustomResourcesProvider,
-    private val adapterListener: AdapterListener
+    private val adapterListener: AdapterListener?
 
 ) : ListAdapter<Model, ModelViewHolder<M>>(Model.DIFF_CALLBACK) {
 

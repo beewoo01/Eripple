@@ -1,9 +1,6 @@
 package com.codebros.eripple.data.repository
 
-import com.codebros.eripple.data.entity.ErippleEntity
-import com.codebros.eripple.data.entity.EventWithThumbnailEntity
-import com.codebros.eripple.data.entity.SamplePhotoEntity
-import com.codebros.eripple.data.entity.SimpleErippleInfoWithBookmarkEntity
+import com.codebros.eripple.data.entity.*
 import com.codebros.eripple.data.network.ApiService
 import com.codebros.eripple.data.url.RetrofitGenerator
 import com.codebros.eripple.model.sample.Post
@@ -44,6 +41,9 @@ class Repository : ApiService {
 
     override suspend fun removeBookMark(bookmark_idx: Int) : Response<Int> =
         apiService.removeBookMark(bookmark_idx)
+
+    override suspend fun getPointHistory(account_idx: Int): Response<List<PointSavedEntity>> =
+        apiService.getPointHistory(account_idx)
 
 
 }

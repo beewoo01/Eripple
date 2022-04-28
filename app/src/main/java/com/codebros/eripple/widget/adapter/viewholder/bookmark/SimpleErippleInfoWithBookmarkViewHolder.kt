@@ -1,7 +1,5 @@
 package com.codebros.eripple.widget.adapter.viewholder.bookmark
 
-import android.content.Context
-import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.codebros.eripple.R
 import com.codebros.eripple.databinding.ViewholderHomeBookmarkBinding
@@ -50,7 +48,7 @@ class SimpleErippleInfoWithBookmarkViewHolder(
         }
     }
 
-    override fun bindViews(model: SimpleErippleInfoWithBookmark, adapterListener: AdapterListener) {
+    override fun bindViews(model: SimpleErippleInfoWithBookmark, adapterListener: AdapterListener?) {
         with(binding) {
             if (adapterListener is SimpleErippleInfoWithBookmarkListener) {
 

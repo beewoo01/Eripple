@@ -1,13 +1,15 @@
 package com.codebros.eripple.data.entity
 
-import android.os.Parcelable
-import androidx.annotation.Keep
+
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import android.os.Parcelable
+import androidx.annotation.Keep
 import kotlinx.parcelize.Parcelize
 
-@Parcelize
+
 @Keep
+@Parcelize
 data class ErippleEntity(
     @SerializedName("eripple_idx")
     @Expose

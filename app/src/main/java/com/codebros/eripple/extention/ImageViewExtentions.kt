@@ -57,11 +57,15 @@ fun ImageView.load(
 
 @SuppressLint("CheckResult")
 fun ImageView.localLoad(
-    url: Drawable
+    url: Drawable?
 ) {
 
-    Glide.with(this).load(url)
-        .skipMemoryCache(true)
-        .diskCacheStrategy(DiskCacheStrategy.NONE)
-        .into(this)
+    url?.let {
+        Glide.with(this).load(it)
+            .skipMemoryCache(true)
+            .diskCacheStrategy(DiskCacheStrategy.NONE)
+            .into(this)
+
+    }
+
 }

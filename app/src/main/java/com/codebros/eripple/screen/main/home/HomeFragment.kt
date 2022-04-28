@@ -1,6 +1,7 @@
 package com.codebros.eripple.screen.main.home
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -58,6 +59,56 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         )
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.wtf("HomeFragment", "onCreate")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.wtf("HomeFragment", "onResume")
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        Log.wtf("HomeFragment", "onCreateView")
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.wtf("HomeFragment", "onDestroy")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.wtf("HomeFragment", "onPause")
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        Log.wtf("HomeFragment", "onAttach")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.wtf("HomeFragment", "onDestroyView")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.wtf("HomeFragment", "onDestroyView")
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        Log.wtf("HomeFragment", "onStart")
+    }
+
 
     override fun getViewBinding(): FragmentHomeBinding =
         FragmentHomeBinding.inflate(layoutInflater)
@@ -85,6 +136,8 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.wtf("HomeFragment", "onViewCreated")
+
         viewModel.postMyCurrentPoint(1)
         viewModel.postMyBookMarkEripple(1)
         viewModel.postEvent()
@@ -103,6 +156,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
         viewModel.myBookMarkEripple.observe(this@HomeFragment) {
             it?.let { result ->
+
                 bookMarkAdapter.submitList(result.toMutableList())
                 moreBookmarkTxv.isVisible = result.count() >= 1
             } ?: kotlin.run {

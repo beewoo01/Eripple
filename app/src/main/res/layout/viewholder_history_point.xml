@@ -11,16 +11,15 @@
 
     <ImageButton
         android:id="@+id/more_imb"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginStart="11.49dp"
         android:background="@null"
         android:contentDescription="@string/more"
         android:src="@drawable/ic_bottom_icon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/eripple_name_txv"
         app:layout_constraintBottom_toBottomOf="@id/eripple_address_txv"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/eripple_name_txv" />
 
     <TextView
         android:id="@+id/eripple_name_txv"
@@ -160,6 +159,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
+        tools:visibility="visible"
         app:constraint_referenced_ids="line, collect_amount, collect_amount_txv, bar,saving_point,saving_point_txv"
         />
 

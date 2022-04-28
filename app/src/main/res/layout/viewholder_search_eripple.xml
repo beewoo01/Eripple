@@ -106,11 +106,10 @@
 
     <ImageButton
         android:id="@+id/bookmark_imb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@null"
         android:contentDescription="@string/bookmark"
-        android:scaleType="fitXY"
         tools:src="@drawable/ic_full_heart_location"
         android:src="@drawable/ic_empty_heart_location"
         app:layout_constraintBottom_toBottomOf="parent"
