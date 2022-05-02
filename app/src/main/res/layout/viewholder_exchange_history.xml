@@ -15,11 +15,12 @@
         android:background="@null"
         android:contentDescription="@string/more"
         android:src="@drawable/ic_bottom_icon"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@id/line"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/title_txv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,17 +32,21 @@
         app:layout_constraintBottom_toTopOf="@id/point_txv"
         app:layout_constraintStart_toEndOf="@id/more_imb"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="삼락공원 에리플1" />
+        tools:text="삼락공원 에리플1" />-->
 
     <TextView
         android:id="@+id/point_txv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/applesdgothicneob"
         android:layout_marginVertical="20dp"
+        android:layout_marginStart="10dp"
+        app:layout_goneMarginStart="58dp"
+        android:fontFamily="@font/applesdgothicneob"
+        android:includeFontPadding="false"
+        android:textColor="@color/defaultGrayTextColor"
         app:layout_constraintBottom_toTopOf="@id/line"
-        app:layout_constraintStart_toStartOf="@id/title_txv"
-        app:layout_constraintTop_toBottomOf="@id/title_txv"
+        app:layout_constraintStart_toEndOf="@id/more_imb"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="1000P" />
 
     <TextView
@@ -50,32 +55,38 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"
         android:fontFamily="@font/applesdgothicneom"
+        android:includeFontPadding="false"
         android:textColor="@color/defaultGrayTextColor"
-        app:layout_constraintBottom_toBottomOf="@id/title_txv"
+        app:layout_constraintBottom_toTopOf="@id/exchange_status_txv"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/title_txv"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
         tools:text="2022.00.00" />
 
     <TextView
         android:id="@+id/exchange_status_txv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/applesdgothicneom"
+        android:fontFamily="@font/applesdgothicneob"
+        android:includeFontPadding="false"
         android:textColor="@color/defaultGrayTextColor"
-        app:layout_constraintBottom_toBottomOf="@id/point_txv"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@id/line"
         app:layout_constraintEnd_toEndOf="@id/date_txv"
         app:layout_constraintStart_toStartOf="@id/date_txv"
-        app:layout_constraintTop_toTopOf="@id/point_txv"
-        tools:text="환전완료" />
+        app:layout_constraintTop_toBottomOf="@id/date_txv"
+        tools:text="환전취소" />
 
     <View
         android:id="@+id/line"
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:background="@color/default_gray"
         android:layout_marginHorizontal="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/default_gray"
         app:layout_constraintBottom_toTopOf="@id/exchange_cancel_cause"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/point_txv" />
 
@@ -83,39 +94,40 @@
         android:id="@+id/exchange_cancel_cause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/exchange_cancel_cause"
         android:layout_marginVertical="10sp"
-        app:layout_constraintStart_toStartOf="@id/title_txv"
-        app:layout_constraintTop_toBottomOf="@id/line"
+        android:text="@string/exchange_cancel_cause"
+        android:includeFontPadding="false"
+        android:textColor="@color/defaultGrayTextColor"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="@id/point_txv"
+        app:layout_constraintTop_toBottomOf="@id/line" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/center_guidLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.6"
-        />
+        app:layout_constraintGuide_percent="0.5" />
 
     <TextView
         android:id="@+id/cancel_cause_txv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="계좌번호 오류"
         android:fontFamily="@font/applesdgothicneob"
+        android:includeFontPadding="false"
+        android:textColor="@color/defaultGrayTextColor"
+        app:layout_constraintBottom_toBottomOf="@id/exchange_cancel_cause"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/center_guidLine"
-        app:layout_constraintBottom_toBottomOf="@id/exchange_cancel_cause"
         app:layout_constraintTop_toTopOf="@id/exchange_cancel_cause"
-        />
+        tools:text="계좌번호 오류" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/more_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:constraint_referenced_ids="more_imb ,line, exchange_cancel_cause, cancel_cause_txv"
+        app:constraint_referenced_ids="line, exchange_cancel_cause, cancel_cause_txv"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

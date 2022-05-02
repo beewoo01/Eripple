@@ -26,7 +26,7 @@ data class PointSavedEntity(
 
     @SerializedName("eripple_address_detail")
     @Expose
-    val eripple_address_detail : String,
+    val eripple_address_detail : String?,
 
     @SerializedName("waste_discharge_record_gram")
     @Expose

@@ -45,7 +45,7 @@
 
         <TextView
             android:id="@+id/current_point_txv"
-            android:fontFamily="@font/applesdgothicneom"
+            android:fontFamily="@font/applesdgothicneob"
             android:includeFontPadding="false"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -53,7 +53,7 @@
             android:text="@string/present_point"
             android:layout_gravity="center"
             android:gravity="center"
-            android:textColor="@color/defaultGrayTextColor"
+            android:textColor="@color/subTextColor"
             />
 
         <View
@@ -91,6 +91,7 @@
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_btn"
         android:layout_width="63dp"
         android:layout_height="63dp"
         android:layout_marginBottom="32dp"

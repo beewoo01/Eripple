@@ -21,7 +21,6 @@ class ModelRecyclerAdapter<M : Model, VM : BaseViewModel>(
 
     override fun getItemCount(): Int {
         return modelList.size
-
     }
 
     override fun getItemViewType(position: Int): Int = modelList[position].type.ordinal

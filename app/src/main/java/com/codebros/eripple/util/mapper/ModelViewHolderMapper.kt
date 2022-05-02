@@ -12,6 +12,7 @@ import com.codebros.eripple.widget.adapter.viewholder.EmptyViewHolder
 import com.codebros.eripple.widget.adapter.viewholder.ModelViewHolder
 import com.codebros.eripple.widget.adapter.viewholder.bookmark.SimpleErippleInfoWithBookmarkViewHolder
 import com.codebros.eripple.widget.adapter.viewholder.eripple.ErippleSearchViewHolder
+import com.codebros.eripple.widget.adapter.viewholder.exchange.ExchangeViewHolder
 import com.codebros.eripple.widget.adapter.viewholder.history.PointSavedHistoryViewHolder
 
 object ModelViewHolderMapper {
@@ -59,6 +60,14 @@ object ModelViewHolderMapper {
             CellType.POINT_SAVED -> {
                 PointSavedHistoryViewHolder(
                     binding = ViewholderHistoryPointBinding.inflate(inflater, parent, false),
+                    viewModel = viewModel,
+                    customResourcesProvider = customResourcesProvider
+                )
+            }
+
+            CellType.EXCHANGE_HISTORY -> {
+                ExchangeViewHolder(
+                    binding = ViewholderExchangeHistoryBinding.inflate(inflater, parent, false),
                     viewModel = viewModel,
                     customResourcesProvider = customResourcesProvider
                 )

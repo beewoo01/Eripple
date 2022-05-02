@@ -45,5 +45,11 @@ class Repository : ApiService {
     override suspend fun getPointHistory(account_idx: Int): Response<List<PointSavedEntity>> =
         apiService.getPointHistory(account_idx)
 
+    override suspend fun getPointSituation(account_idx: Int): Response<HashMap<String, Int>> =
+        apiService.getPointSituation(account_idx)
+
+    override suspend fun getExchangeHistory(account_idx: Int): Response<List<AccountExchangeHistoryEntity>> =
+        apiService.getExchangeHistory(account_idx)
+
 
 }

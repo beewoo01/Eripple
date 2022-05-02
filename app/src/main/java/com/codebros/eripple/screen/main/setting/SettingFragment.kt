@@ -5,27 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.codebros.eripple.R
+import com.codebros.eripple.databinding.FragmentSettingBinding
+import com.codebros.eripple.screen.base.BaseFragment
 
-class SettingFragment : Fragment() {
+class SettingFragment : BaseFragment<SettingViewModel, FragmentSettingBinding>() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override val viewModel: SettingViewModel by viewModels()
+
+    override fun getViewBinding(): FragmentSettingBinding =
+        FragmentSettingBinding.inflate(layoutInflater)
+
+    override fun observeData() {
+        
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_setting, container, false)
-    }
-
-    companion object {
-
-        @JvmStatic
-        fun newInstance() = SettingFragment()
-
-        const val TAG = "SettingFragment"
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 }

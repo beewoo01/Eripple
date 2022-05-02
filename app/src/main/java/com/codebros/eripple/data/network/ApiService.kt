@@ -63,7 +63,7 @@ interface ApiService {
 
     @POST("removeBookMark")
     suspend fun removeBookMark(
-        @Query("bookmark_idx") bookmark_idx : Int
+        @Query("bookmark_idx") bookmark_idx: Int
     ): Response<Int>
 
     @GET("getPointHistory")
@@ -71,5 +71,14 @@ interface ApiService {
         @Query("account_idx") account_idx: Int
     ): Response<List<PointSavedEntity>>
 
+    @GET("getPointSituation")
+    suspend fun getPointSituation(
+        @Query("account_idx") account_idx: Int
+    ): Response<HashMap<String, Int>>
+
+    @GET("getExchangeHistory")
+    suspend fun getExchangeHistory(
+        @Query("account_idx") account_idx: Int
+    ) : Response<List<AccountExchangeHistoryEntity>>
 
 }

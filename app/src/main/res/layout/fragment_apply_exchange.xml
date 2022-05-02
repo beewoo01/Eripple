@@ -99,6 +99,7 @@
         app:layout_constraintTop_toBottomOf="@id/possible_exchange_container">
 
         <TextView
+            android:id="@+id/possible_start_point"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/applesdgothicneob"
@@ -109,6 +110,7 @@
 
 
         <EditText
+            android:id="@+id/exchange_edt"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginHorizontal="10dp"

@@ -47,6 +47,18 @@
         android:name="com.codebros.eripple.screen.main.my_point.MyPointFragment"
         tools:layout="@layout/fragment_my_point">
 
+        <action
+            android:id="@+id/action_my_point_to_exchange_apply"
+            app:destination="@id/exchange_apply" />
+
+
+    </keep_state_fragment>
+
+    <keep_state_fragment
+        android:id="@+id/exchange_apply"
+        android:name="com.codebros.eripple.screen.main.my_point.appliyexchage.ApplyExchangeFragment"
+        tools:layout="@layout/fragment_apply_exchange">
+
     </keep_state_fragment>
 
 

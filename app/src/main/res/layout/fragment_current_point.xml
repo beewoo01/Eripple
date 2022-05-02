@@ -48,12 +48,12 @@
 
         <TextView
             android:id="@+id/current_point_txv"
-            android:fontFamily="@font/applesdgothicneom"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/current_point"
+            android:fontFamily="@font/applesdgothicneom"
             android:gravity="center_vertical|end"
             android:paddingStart="17dp"
             android:paddingEnd="23dp"
@@ -107,12 +107,12 @@
 
         <TextView
             android:id="@+id/possible_point_txv"
-            android:fontFamily="@font/applesdgothicneob"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/possible_exchange_txv"
+            android:fontFamily="@font/applesdgothicneob"
             android:gravity="center_vertical|end"
             android:paddingStart="17dp"
             android:paddingEnd="23dp"
@@ -125,6 +125,7 @@
     </RelativeLayout>
 
     <TextView
+        android:id="@+id/start_exchange_point_txv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"

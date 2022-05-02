@@ -17,7 +17,7 @@ import com.codebros.eripple.widget.adapter.viewholder.ModelViewHolder
 class PointSavedHistoryViewHolder(
     private val binding : ViewholderHistoryPointBinding,
     viewModel : BaseViewModel,
-    customResourcesProvider: CustomResourcesProvider,
+    customResourcesProvider: CustomResourcesProvider
 ) : ModelViewHolder<PointSavedHistory>(binding, viewModel, customResourcesProvider){
 
     override fun reset() {
