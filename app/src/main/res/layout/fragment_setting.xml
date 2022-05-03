@@ -313,7 +313,6 @@
                 android:text="@string/inquiry_time_title"
                 android:textColor="@color/defaultGrayTextColor"
                 android:textSize="13sp"
-
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/inquiry_phone" />

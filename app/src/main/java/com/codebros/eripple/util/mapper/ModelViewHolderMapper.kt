@@ -14,6 +14,7 @@ import com.codebros.eripple.widget.adapter.viewholder.bookmark.SimpleErippleInfo
 import com.codebros.eripple.widget.adapter.viewholder.eripple.ErippleSearchViewHolder
 import com.codebros.eripple.widget.adapter.viewholder.exchange.ExchangeViewHolder
 import com.codebros.eripple.widget.adapter.viewholder.history.PointSavedHistoryViewHolder
+import com.codebros.eripple.widget.adapter.viewholder.notice.NoticeViewHolder
 
 object ModelViewHolderMapper {
 
@@ -28,6 +29,7 @@ object ModelViewHolderMapper {
 
         @Suppress("IMPLICIT_CAST_TO_ANY")
         val viewHolder = when (type) {
+
             CellType.EMPTY_CELL -> {
                 EmptyViewHolder(
                     binding = ViewholderEmptyBinding.inflate(inflater, parent, false),
@@ -71,6 +73,16 @@ object ModelViewHolderMapper {
                     viewModel = viewModel,
                     customResourcesProvider = customResourcesProvider
                 )
+            }
+
+            CellType.NOTICE -> {
+
+                NoticeViewHolder(
+                    binding = ViewholderNoticeBinding.inflate(inflater, parent, false),
+                    viewModel = viewModel,
+                    customResourcesProvider = customResourcesProvider
+                )
+
             }
 
             else -> {

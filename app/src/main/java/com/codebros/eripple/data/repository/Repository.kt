@@ -51,5 +51,8 @@ class Repository : ApiService {
     override suspend fun getExchangeHistory(account_idx: Int): Response<List<AccountExchangeHistoryEntity>> =
         apiService.getExchangeHistory(account_idx)
 
+    override suspend fun getNotice(): Response<List<NoticeEntity>> =
+        apiService.getNotice()
+
 
 }

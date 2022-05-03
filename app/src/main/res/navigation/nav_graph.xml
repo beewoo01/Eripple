@@ -67,7 +67,77 @@
         android:name="com.codebros.eripple.screen.main.setting.SettingFragment"
         tools:layout="@layout/fragment_setting">
 
+        <action
+            android:id="@+id/action_setting_to_notice"
+            app:destination="@id/notice" />
+
+        <action
+            android:id="@+id/action_setting_to_faq"
+            app:destination="@id/faq" />
+
+        <action
+            android:id="@+id/action_setting_to_account_setting"
+            app:destination="@id/account_setting" />
+
+        <action
+            android:id="@+id/action_setting_to_bookmark"
+            app:destination="@id/bookmark" />
+
+        <action
+            android:id="@+id/action_setting_to_event"
+            app:destination="@id/event" />
+
     </keep_state_fragment>
+
+    <keep_state_fragment
+        android:id="@+id/notice"
+        android:name="com.codebros.eripple.screen.main.setting.notice.NoticeFragment"
+        tools:layout="@layout/fragment_notice"
+        >
+
+        <action
+            android:id="@+id/action_notice_to_notice_detail"
+            app:destination="@id/notice_detail" />
+    </keep_state_fragment>
+
+    <keep_state_fragment
+        android:id="@+id/notice_detail"
+        android:name="com.codebros.eripple.screen.main.setting.notice.detail.NoticeDetailFragment"
+        tools:layout="@layout/fragment_notice_detail"
+        >
+
+        <argument
+            android:name="model"
+            app:argType="com.codebros.eripple.model.notice.Notice"
+            />
+
+    </keep_state_fragment>
+
+    <keep_state_fragment
+        android:id="@+id/faq"
+        android:name="com.codebros.eripple.screen.main.setting.faq.FAQFragment"
+        tools:layout="@layout/fragment_f_a_q"
+        >
+
+    </keep_state_fragment>
+
+    <keep_state_fragment
+        android:id="@+id/account_setting"
+        android:name="com.codebros.eripple.screen.main.setting.account.AccountSettingFragment"
+        tools:layout="@layout/fragment_account_setting"
+        >
+
+    </keep_state_fragment>
+
+    <keep_state_fragment
+        android:id="@+id/event"
+        android:name="com.codebros.eripple.screen.main.event.EventFragment"
+        tools:layout="@layout/event_fragment"
+        >
+
+    </keep_state_fragment>
+
+
 
     <keep_state_fragment
         android:id="@+id/alarm"

@@ -81,4 +81,7 @@ interface ApiService {
         @Query("account_idx") account_idx: Int
     ) : Response<List<AccountExchangeHistoryEntity>>
 
+    @GET("getNotice")
+    suspend fun getNotice() : Response<List<NoticeEntity>>
+
 }
