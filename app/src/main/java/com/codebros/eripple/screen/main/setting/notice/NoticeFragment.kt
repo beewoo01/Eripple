@@ -44,7 +44,6 @@ class NoticeFragment : BaseFragment<NoticeViewModel, FragmentNoticeBinding>() {
             resourcesProvider,
             object : NoticeAdapterListener {
                 override fun onItemClick(model: Notice) {
-
                     Log.wtf("NoticeAdapterListener", "onItemClick")
                     findNavController().navigate(NoticeFragmentDirections.actionNoticeToNoticeDetail(model))
 

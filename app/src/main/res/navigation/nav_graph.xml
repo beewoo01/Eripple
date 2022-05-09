@@ -127,6 +127,28 @@
         tools:layout="@layout/fragment_account_setting"
         >
 
+        <action
+            android:id="@+id/action_account_setting_to_changePsw"
+            app:destination="@id/changePsw" />
+        <action
+            android:id="@+id/action_account_setting_to_bank_edit"
+            app:destination="@id/bank_edit" />
+    </keep_state_fragment>
+
+    <keep_state_fragment
+        android:id="@+id/changePsw"
+        android:name="com.codebros.eripple.screen.main.setting.account.changepsw.ChangePasswordFragment"
+        tools:layout="@layout/activity_change_password"
+        >
+
+    </keep_state_fragment>
+
+    <keep_state_fragment
+        android:id="@+id/bank_edit"
+        android:name="com.codebros.eripple.screen.main.setting.account.bank.BankEditFragment"
+        tools:layout="@layout/fragment_bank_edit"
+        >
+
     </keep_state_fragment>
 
     <keep_state_fragment
@@ -134,6 +156,23 @@
         android:name="com.codebros.eripple.screen.main.event.EventFragment"
         tools:layout="@layout/event_fragment"
         >
+
+        <action
+            android:id="@+id/action_event_to_event_detail"
+            app:destination="@id/event_detail" />
+    </keep_state_fragment>
+
+    <keep_state_fragment
+        android:id="@+id/event_detail"
+        android:name="com.codebros.eripple.screen.main.event.detail.EventDetailFragment"
+        tools:layout="@layout/fragment_event_detail"
+        >
+
+        <argument
+            android:name="model"
+            app:argType="com.codebros.eripple.model.event.EventWithThumbnail"
+            app:nullable="false"
+            />
 
     </keep_state_fragment>
 

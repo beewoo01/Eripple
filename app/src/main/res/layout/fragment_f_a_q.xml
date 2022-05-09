@@ -54,6 +54,7 @@
         android:layout_marginTop="10dp"
         tools:listitem="@layout/viewholder_faq"
         android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_edt"

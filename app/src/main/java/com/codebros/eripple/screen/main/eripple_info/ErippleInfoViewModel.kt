@@ -31,7 +31,7 @@ class ErippleInfoViewModel : BaseViewModel() {
 
                 Eripple(
                     uid = it.hashCode().toLong(),
-                    type = CellType.ERIPPLE,
+                    type = CellType.ERIPPLE_CELL,
                     eripple_idx = it.eripple_idx,
                     eripple_name = it.eripple_name,
                     eripple_longitude = it.eripple_longitude,
@@ -67,7 +67,7 @@ class ErippleInfoViewModel : BaseViewModel() {
                 _erippleAddedBookMarkState.value = Pair(
                     paramModel, Eripple(
                         uid = entity.hashCode().toLong(),
-                        type = CellType.ERIPPLE,
+                        type = CellType.ERIPPLE_CELL,
                         eripple_idx = entity.eripple_idx,
                         eripple_name = entity.eripple_name,
                         eripple_longitude = entity.eripple_longitude,

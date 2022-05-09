@@ -23,7 +23,7 @@ class NoticeViewModel : BaseViewModel() {
 
                 Notice(
                     uid = noticeEntity.hashCode().toLong(),
-                    type = CellType.NOTICE,
+                    type = CellType.NOTICE_CELL,
                     notice_idx = noticeEntity.notice_idx,
                     notice_title = noticeEntity.notice_title,
                     notice_contents = noticeEntity.notice_contents

@@ -6,16 +6,48 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.codebros.eripple.R
+import com.codebros.eripple.databinding.FragmentAccountSettingBinding
 
 
 class AccountSettingFragment : Fragment() {
 
+    private val binding by lazy {
+        FragmentAccountSettingBinding.inflate(layoutInflater)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account_setting, container, false)
+    ): View {
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initViews()
+    }
+
+    private fun initViews() = with(binding) {
+        toolbar.setNavigationOnClickListener {
+            requireActivity().onBackPressed()
+        }
+
+        changePswTxv.setOnClickListener {
+
+        }
+
+        bankEditTxv.setOnClickListener {
+
+        }
+
+        logoutTxv.setOnClickListener {
+
+        }
+
+        outAccountTxv.setOnClickListener {
+
+        }
+
     }
 
 

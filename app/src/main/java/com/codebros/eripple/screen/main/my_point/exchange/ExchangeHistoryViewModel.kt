@@ -22,7 +22,7 @@ class ExchangeHistoryViewModel : BaseViewModel() {
             _exChangeHistoryLiveData.value = result?.map {
                 AccountExchangeHistory(
                     uid = it.hashCode().toLong(),
-                    type = CellType.EXCHANGE_HISTORY,
+                    type = CellType.EXCHANGE_HISTORY_CELL,
                     exchange_history_idx = it.exchange_history_idx,
                     exchange_cancel_idx = it.exchange_cancel_idx,
                     exchange_history_applier_point = it.exchange_history_applier_point,

@@ -47,7 +47,7 @@
 
 
     <TextView
-        android:id="@+id/back_edit_txv"
+        android:id="@+id/bank_edit_txv"
         android:layout_width="0dp"
         android:layout_height="54dp"
         android:text="@string/bank_edit"
@@ -78,7 +78,7 @@
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/back_edit_txv"
+        app:layout_constraintTop_toBottomOf="@id/bank_edit_txv"
         tools:ignore="RtlSymmetry"
         app:drawableEndCompat="@drawable/ic_right_icon" />
 

@@ -12,9 +12,11 @@ import com.codebros.eripple.widget.adapter.viewholder.EmptyViewHolder
 import com.codebros.eripple.widget.adapter.viewholder.ModelViewHolder
 import com.codebros.eripple.widget.adapter.viewholder.bookmark.SimpleErippleInfoWithBookmarkViewHolder
 import com.codebros.eripple.widget.adapter.viewholder.eripple.ErippleSearchViewHolder
+import com.codebros.eripple.widget.adapter.viewholder.event.EventViewHolder
 import com.codebros.eripple.widget.adapter.viewholder.exchange.ExchangeViewHolder
 import com.codebros.eripple.widget.adapter.viewholder.history.PointSavedHistoryViewHolder
 import com.codebros.eripple.widget.adapter.viewholder.notice.NoticeViewHolder
+import com.codebros.eripple.widget.adapter.viewholder.question.FAQViewHolder
 
 object ModelViewHolderMapper {
 
@@ -47,11 +49,11 @@ object ModelViewHolderMapper {
                 )
             }
 
-            CellType.EVENT_CELL -> {
+            CellType.HOME_EVENT_CELL -> {
 
             }
 
-            CellType.ERIPPLE -> {
+            CellType.ERIPPLE_CELL -> {
                 ErippleSearchViewHolder(
                     binding = ViewholderSearchErippleBinding.inflate(inflater, parent, false),
                     viewModel = viewModel,
@@ -59,7 +61,7 @@ object ModelViewHolderMapper {
                 )
             }
 
-            CellType.POINT_SAVED -> {
+            CellType.POINT_SAVED_CELL -> {
                 PointSavedHistoryViewHolder(
                     binding = ViewholderHistoryPointBinding.inflate(inflater, parent, false),
                     viewModel = viewModel,
@@ -67,7 +69,7 @@ object ModelViewHolderMapper {
                 )
             }
 
-            CellType.EXCHANGE_HISTORY -> {
+            CellType.EXCHANGE_HISTORY_CELL -> {
                 ExchangeViewHolder(
                     binding = ViewholderExchangeHistoryBinding.inflate(inflater, parent, false),
                     viewModel = viewModel,
@@ -75,7 +77,7 @@ object ModelViewHolderMapper {
                 )
             }
 
-            CellType.NOTICE -> {
+            CellType.NOTICE_CELL -> {
 
                 NoticeViewHolder(
                     binding = ViewholderNoticeBinding.inflate(inflater, parent, false),
@@ -83,6 +85,22 @@ object ModelViewHolderMapper {
                     customResourcesProvider = customResourcesProvider
                 )
 
+            }
+
+            CellType.FAQ_CELL -> {
+                FAQViewHolder(
+                    binding = ViewholderFaqBinding.inflate(inflater, parent, false),
+                    viewModel = viewModel,
+                    customResourcesProvider = customResourcesProvider
+                )
+            }
+
+            CellType.EVENT_CELL -> {
+                EventViewHolder(
+                    binding = ViewholderEventBinding.inflate(inflater, parent, false),
+                    viewModel = viewModel,
+                    customResourcesProvider = customResourcesProvider
+                )
             }
 
             else -> {

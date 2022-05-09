@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".screen.main.setting.account.bank.BankEditFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -13,12 +15,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/change_psw"
+            android:text="@string/bank_account_edit"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -26,78 +27,64 @@
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
-        android:id="@+id/password_txv"
+        android:id="@+id/account_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:text="@string/newPassword"
-        android:textColor="@color/black"
-        android:textStyle="bold"
+        android:fontFamily="@font/applesdgothicneob"
+        android:text="@string/bank_account_number"
+        android:textColor="@color/defaultBlackTextColor"
+        android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <EditText
-        android:id="@+id/password_edt"
+        android:id="@+id/account_number_edit"
         android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_height="54dp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
         android:autofillHints="no"
         android:background="@drawable/round_8dp_edit_bg"
-        android:hint="@string/input_password"
-        android:inputType="textPassword"
-        android:maxLength="30"
-        android:maxLines="1"
-        android:paddingHorizontal="10dp"
-        android:textSize="14sp"
+        android:hint="@string/input_bank_account"
+        android:inputType="number"
+        android:paddingStart="17dp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/password_txv" />
-
+        app:layout_constraintTop_toBottomOf="@id/account_number"
+        tools:ignore="RtlSymmetry" />
 
     <TextView
-        android:id="@+id/confirm_password_txv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/newPasswordConfirm"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/password_edt" />
-
-    <EditText
-        android:id="@+id/confirm_password_edt"
+        android:id="@+id/select_bank_txv"
         android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_height="40dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
-        android:autofillHints="no"
-        android:background="@drawable/round_8dp_edit_bg"
-        android:hint="@string/input_password"
-        android:inputType="textPassword"
-        android:maxLength="30"
-        android:maxLines="1"
-        android:paddingHorizontal="10dp"
-        android:textSize="14sp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="44dp"
+        android:gravity="center_vertical"
+        android:text="@string/choose_bank"
+        android:textColor="@color/defaultBlackTextColor"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:drawableEndCompat="@drawable/ic_right_arrow_black_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/confirm_password_txv" />
-
+        app:layout_constraintTop_toBottomOf="@id/account_number_edit" />
 
     <Button
-        android:id="@+id/next_btn"
+        android:id="@+id/join_btn"
         android:layout_width="0dp"
         android:layout_height="52dp"
         android:layout_marginHorizontal="20dp"
-        android:text="@string/next_ko"
+        android:layout_marginBottom="38dp"
+        android:elevation="0dp"
+        android:gravity="center"
+        android:text="@string/registerAndEdit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/confirm_password_edt"
-        app:layout_constraintVertical_bias="0.85" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

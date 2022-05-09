@@ -1,6 +1,5 @@
 package com.codebros.eripple.widget.adapter
 
-import android.util.Log
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.codebros.eripple.model.CellType

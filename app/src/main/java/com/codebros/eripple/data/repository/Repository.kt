@@ -36,10 +36,10 @@ class Repository : ApiService {
     override suspend fun getAllEripple(account_idx: Int): Response<List<ErippleEntity>> =
         apiService.getAllEripple(account_idx)
 
-    override suspend fun addBookMark(account_idx: Int, eripple_idx: Int) : Response<ErippleEntity> =
+    override suspend fun addBookMark(account_idx: Int, eripple_idx: Int): Response<ErippleEntity> =
         apiService.addBookMark(account_idx, eripple_idx)
 
-    override suspend fun removeBookMark(bookmark_idx: Int) : Response<Int> =
+    override suspend fun removeBookMark(bookmark_idx: Int): Response<Int> =
         apiService.removeBookMark(bookmark_idx)
 
     override suspend fun getPointHistory(account_idx: Int): Response<List<PointSavedEntity>> =
@@ -53,6 +53,9 @@ class Repository : ApiService {
 
     override suspend fun getNotice(): Response<List<NoticeEntity>> =
         apiService.getNotice()
+
+    override suspend fun getFAQ(): Response<List<QuestionEntity>> =
+        apiService.getFAQ()
 
 
 }

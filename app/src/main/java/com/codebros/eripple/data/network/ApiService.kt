@@ -84,4 +84,14 @@ interface ApiService {
     @GET("getNotice")
     suspend fun getNotice() : Response<List<NoticeEntity>>
 
+    @GET("getFAQ")
+    suspend fun getFAQ() : Response<List<QuestionEntity>>
+
+    @FormUrlEncoded
+    @POST("updatePassword")
+    suspend fun updatePassword(
+        @Field("account_idx") account_idx: Int,
+        @Field("account_password") account_password : String
+    ) : Response<Int>
+
 }

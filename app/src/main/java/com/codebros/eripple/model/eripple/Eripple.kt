@@ -5,7 +5,7 @@ import com.codebros.eripple.model.Model
 
 data class Eripple(
     override val uid: Long,
-    override val type: CellType = CellType.ERIPPLE,
+    override val type: CellType = CellType.ERIPPLE_CELL,
     val eripple_idx : Int,
     val eripple_name : String,
     val eripple_longitude : String,
