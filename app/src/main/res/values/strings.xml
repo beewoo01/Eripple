@@ -523,6 +523,8 @@
     <string name="exchange_cancel_cause">환전취소사유:</string>
     <string name="apply_exchange">환전신청</string>
     <string name="alarm_ko">알림</string>
+    <string name="select_bank">은행선택</string>
+    <string name="bank_icon">bank icon</string>
 
 
 </resources>

@@ -74,7 +74,7 @@
         app:layout_constraintTop_toBottomOf="@id/account_number_edit" />
 
     <Button
-        android:id="@+id/join_btn"
+        android:id="@+id/edit_btn"
         android:layout_width="0dp"
         android:layout_height="52dp"
         android:layout_marginHorizontal="20dp"

@@ -3,5 +3,5 @@ package com.codebros.eripple.model
 enum class CellType {
     EMPTY_CELL, BOOKMARK_CELL, HOME_EVENT_CELL, ERIPPLE_CELL,
     POINT_SAVED_CELL, EXCHANGE_HISTORY_CELL, NOTICE_CELL, FAQ_CELL,
-    EVENT_CELL
+    EVENT_CELL, BANK
 }

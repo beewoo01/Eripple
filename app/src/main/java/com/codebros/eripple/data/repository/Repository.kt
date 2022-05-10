@@ -57,5 +57,21 @@ class Repository : ApiService {
     override suspend fun getFAQ(): Response<List<QuestionEntity>> =
         apiService.getFAQ()
 
+    override suspend fun updatePassword(account_idx: Int, account_password: String): Response<Int> =
+        apiService.updatePassword(account_idx, account_password)
+
+    override suspend fun getAccountBank(account_idx: Int): Response<String> =
+        apiService.getAccountBank(account_idx)
+
+    override suspend fun getBankList(): Response<List<BankEntity>> =
+        apiService.getBankList()
+
+    override suspend fun registerAccountBank(
+        account_idx: Int,
+        bank_idx: Int,
+        bank_account_number: String
+    ): Response<Int> =
+        apiService.registerAccountBank(account_idx, bank_idx, bank_account_number)
+
 
 }

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.codebros.eripple.R
 import com.codebros.eripple.databinding.FragmentAccountSettingBinding
 
@@ -33,11 +34,11 @@ class AccountSettingFragment : Fragment() {
         }
 
         changePswTxv.setOnClickListener {
-
+            findNavController().navigate(R.id.action_account_setting_to_changePsw)
         }
 
         bankEditTxv.setOnClickListener {
-
+            findNavController().navigate(R.id.action_account_setting_to_bank_edit)
         }
 
         logoutTxv.setOnClickListener {

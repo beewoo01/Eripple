@@ -37,22 +37,24 @@ class HomeViewModel : BaseViewModel() {
 
     fun postMyCurrentPoint(
         account_idx: Int
-    ): Job = viewModelScope.launch {
+    ): Job = viewModelScope.launch(exceptionhandler) {
+        Log.wtf("postMyCurrentPoint", "postMyCurrentPoint")
 
         val response = repository.getMyCurrentPoint(account_idx = account_idx)
-
         if (response.isSuccessful) {
             val result = response.body()
+            Log.wtf("postMyCurrentPoint", "isSuccessful")
             _myCurrentPoint.postValue(result)
 
         } else {
+            Log.wtf("postMyCurrentPoint", "isSuccessful false")
             _myCurrentPoint.postValue(0)
         }
     }
 
     fun postMyBookMarkEripple(
         account_idx: Int
-    ): Job = viewModelScope.launch {
+    ): Job = viewModelScope.launch(exceptionhandler) {
 
         val response = repository.getSimpleErippleInBookmark(account_idx)
 
@@ -77,7 +79,7 @@ class HomeViewModel : BaseViewModel() {
 
     }
 
-    fun postEvent(): Job = viewModelScope.launch {
+    fun postEvent(): Job = viewModelScope.launch(exceptionhandler) {
 
         val response = repository.getEventForHomeFragment()
 

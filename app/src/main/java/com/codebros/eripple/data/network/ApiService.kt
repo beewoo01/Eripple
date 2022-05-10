@@ -79,19 +79,35 @@ interface ApiService {
     @GET("getExchangeHistory")
     suspend fun getExchangeHistory(
         @Query("account_idx") account_idx: Int
-    ) : Response<List<AccountExchangeHistoryEntity>>
+    ): Response<List<AccountExchangeHistoryEntity>>
 
     @GET("getNotice")
-    suspend fun getNotice() : Response<List<NoticeEntity>>
+    suspend fun getNotice(): Response<List<NoticeEntity>>
 
     @GET("getFAQ")
-    suspend fun getFAQ() : Response<List<QuestionEntity>>
+    suspend fun getFAQ(): Response<List<QuestionEntity>>
 
     @FormUrlEncoded
     @POST("updatePassword")
     suspend fun updatePassword(
         @Field("account_idx") account_idx: Int,
-        @Field("account_password") account_password : String
+        @Field("account_password") account_password: String
+    ): Response<Int>
+
+    @GET("getAccountBank")
+    suspend fun getAccountBank(
+        @Query("account_idx") account_idx: Int
+    ): Response<String>
+
+    @GET("getBankList")
+    suspend fun getBankList() : Response<List<BankEntity>>
+
+    @FormUrlEncoded
+    @POST("getAccountBankExists")
+    suspend fun registerAccountBank(
+        @Field("account_idx") account_idx : Int,
+        @Field("bank_idx") bank_idx : Int,
+        @Field("bank_account_number") bank_account_number : String
     ) : Response<Int>
 
 }

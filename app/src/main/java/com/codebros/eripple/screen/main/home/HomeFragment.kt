@@ -78,37 +78,6 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.wtf("HomeFragment", "onDestroy")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.wtf("HomeFragment", "onPause")
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        Log.wtf("HomeFragment", "onAttach")
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        Log.wtf("HomeFragment", "onDestroyView")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.wtf("HomeFragment", "onDestroyView")
-    }
-
-    override fun onStart() {
-        super.onStart()
-
-        Log.wtf("HomeFragment", "onStart")
-    }
-
 
     override fun getViewBinding(): FragmentHomeBinding =
         FragmentHomeBinding.inflate(layoutInflater)

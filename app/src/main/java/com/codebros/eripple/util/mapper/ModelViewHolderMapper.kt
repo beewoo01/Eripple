@@ -10,6 +10,7 @@ import com.codebros.eripple.screen.base.BaseViewModel
 import com.codebros.eripple.util.provider.CustomResourcesProvider
 import com.codebros.eripple.widget.adapter.viewholder.EmptyViewHolder
 import com.codebros.eripple.widget.adapter.viewholder.ModelViewHolder
+import com.codebros.eripple.widget.adapter.viewholder.bank.BankViewHolder
 import com.codebros.eripple.widget.adapter.viewholder.bookmark.SimpleErippleInfoWithBookmarkViewHolder
 import com.codebros.eripple.widget.adapter.viewholder.eripple.ErippleSearchViewHolder
 import com.codebros.eripple.widget.adapter.viewholder.event.EventViewHolder
@@ -98,6 +99,14 @@ object ModelViewHolderMapper {
             CellType.EVENT_CELL -> {
                 EventViewHolder(
                     binding = ViewholderEventBinding.inflate(inflater, parent, false),
+                    viewModel = viewModel,
+                    customResourcesProvider = customResourcesProvider
+                )
+            }
+
+            CellType.BANK -> {
+                BankViewHolder(
+                    binding = ViewholderSelectBankBinding.inflate(inflater, parent, false),
                     viewModel = viewModel,
                     customResourcesProvider = customResourcesProvider
                 )
