@@ -11,7 +11,7 @@ class ChangePasswordFragmentViewModel: BaseViewModel() {
     private val _changePasswordLiveData = MutableLiveData<Int>()
     val changePasswordLiveData : LiveData<Int> = _changePasswordLiveData
 
-    fun changePassword(account_idx : Int, password : String) = viewModelScope.launch {
+    fun changePassword(account_idx : Int, password : String) = viewModelScope.launch(exceptionhandler) {
         val response = repository.updatePassword(account_idx, password)
 
         if (response.isSuccessful) {

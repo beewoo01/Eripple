@@ -20,7 +20,7 @@ class ErippleInfoViewModel : BaseViewModel() {
     val erippleRemovedState: LiveData<Eripple?> = _erippleRemovedState
 
 
-    fun getErippleList(account_idx: Int) = viewModelScope.launch {
+    fun getErippleList(account_idx: Int) = viewModelScope.launch(exceptionhandler) {
 
         val response = repository.getAllEripple(account_idx)
 
@@ -57,7 +57,7 @@ class ErippleInfoViewModel : BaseViewModel() {
     fun addBookMark(
         paramModel: Eripple, account_idx: Int
         /*account_idx: Int, eripple_idx: Int*/
-    ) = viewModelScope.launch {
+    ) = viewModelScope.launch(exceptionhandler) {
         val response = repository.addBookMark(account_idx, paramModel.eripple_idx)
 
         if (response.isSuccessful) {
@@ -95,7 +95,7 @@ class ErippleInfoViewModel : BaseViewModel() {
 
     }
 
-    fun removeBookMark(model: Eripple) = viewModelScope.launch {
+    fun removeBookMark(model: Eripple) = viewModelScope.launch(exceptionhandler) {
         val response = repository.removeBookMark(model.bookmark_idx)
 
         if (response.isSuccessful) {

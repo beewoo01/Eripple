@@ -13,7 +13,7 @@ class HistoryViewModel : BaseViewModel() {
     private val _pointSavedHistoryLiveData = MutableLiveData<List<PointSavedHistory>?>()
     val pointSavedHistoryLiveData: LiveData<List<PointSavedHistory>?> = _pointSavedHistoryLiveData
 
-    fun getPointSavedHistoryLiveData(account_idx: Int) = viewModelScope.launch {
+    fun getPointSavedHistoryLiveData(account_idx: Int) = viewModelScope.launch(exceptionhandler) {
         val response = repository.getPointHistory(account_idx)
 
         if (response.isSuccessful) {

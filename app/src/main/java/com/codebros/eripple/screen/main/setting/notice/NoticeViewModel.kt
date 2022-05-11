@@ -13,7 +13,7 @@ class NoticeViewModel : BaseViewModel() {
     private val _noticeListLiveData = MutableLiveData<List<Notice>?>()
     val noticeListLiveData: LiveData<List<Notice>?> = _noticeListLiveData
 
-    fun getNotice() = viewModelScope.launch {
+    fun getNotice() = viewModelScope.launch(exceptionhandler) {
 
         val response = repository.getNotice()
         if (response.isSuccessful) {

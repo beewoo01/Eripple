@@ -13,7 +13,7 @@ class EventViewModel : BaseViewModel() {
     private val _eventListLiveData = MutableLiveData<List<EventWithThumbnail>>()
     val eventListLiveData : LiveData<List<EventWithThumbnail>> = _eventListLiveData
 
-    fun getEvent() = viewModelScope.launch {
+    fun getEvent() = viewModelScope.launch(exceptionhandler) {
 
         val response = repository.getEventForHomeFragment()
 

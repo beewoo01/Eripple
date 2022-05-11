@@ -17,6 +17,7 @@ import androidx.fragment.app.viewModels
 import com.codebros.eripple.R
 import com.codebros.eripple.databinding.ActivitySelectBankBinding
 import com.codebros.eripple.databinding.FragmentBankEditBinding
+import com.codebros.eripple.model.bank.Bank
 import com.codebros.eripple.screen.account.bank.SelectBankActivity
 import com.codebros.eripple.screen.base.BaseFragment
 
@@ -31,15 +32,38 @@ class BankEditFragment : BaseFragment<BankEditViewModel, FragmentBankEditBinding
         viewModel.bankAccountNumberLiveData.observe(this@BankEditFragment) {
             binding.accountNumberEdit.setText(it ?: "")
         }
+
+        viewModel.registerAccountBank.observe(this@BankEditFragment) {
+            it?.let { result ->
+                when(result) {
+                    0 -> {
+                        showToast("계좌등록에 성공하였습니다.")
+                        requireActivity().onBackPressed()
+                    }
+
+                    1 -> {
+                        showToast("계좌수정에 성공하였습니다.")
+                        requireActivity().onBackPressed()
+                    }
+
+                    -1 -> {
+                        showToast("계좌정보 변경에 실패하였습니다.")
+                    }
+                }
+            }
+        }
     }
 
-    private var bankIdx: Int? = null
+    private var paramModel: Bank? = null
 
     private val startActivityResult: ActivityResultLauncher<Intent> = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
-    ) {
+    ) { it ->
         if (it.resultCode == RESULT_OK) {
-            bankIdx = it.data?.getIntExtra("bank_idx", 0)
+            paramModel = it.data?.getParcelableExtra("model")
+            paramModel?.let { model ->
+                showToast("${model.bank_name}을 선택하였습니다.")
+            }
         }
     }
 
@@ -68,14 +92,22 @@ class BankEditFragment : BaseFragment<BankEditViewModel, FragmentBankEditBinding
                     showToast("계좌번호를 정확히 입력해주세요.")
                 }
 
-                bankIdx == null || bankIdx == 0 -> {
-                    showToast("은행을 선택해주세요.")
-                }
-
                 else -> {
-                    // TODO: Change OR Insert Bank
-                    bankIdx?.let {
-                        viewModel.registerAccountBank(1, it, accountNumberEdit.text.toString())
+
+                    paramModel?.let {
+
+                        if (it.bank_idx < 1) {
+                            showToast("은행을 선택해주세요.")
+                            return@setOnClickListener
+                        }
+
+                        viewModel.registerAccountBank(
+                            1,
+                            it.bank_idx,
+                            accountNumberEdit.text.toString()
+                        )
+
+
                     } ?: kotlin.run {
                         showToast("은행을 선택해주세요.")
                     }

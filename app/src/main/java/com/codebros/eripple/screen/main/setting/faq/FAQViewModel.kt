@@ -13,7 +13,7 @@ class FAQViewModel : BaseViewModel(){
     private val _faqListLiveData = MutableLiveData<List<Question>?>()
     val faqListLiveData : LiveData<List<Question>?> = _faqListLiveData
 
-    fun getFAQ() = viewModelScope.launch {
+    fun getFAQ() = viewModelScope.launch(exceptionhandler) {
         val response = repository.getFAQ()
 
         if (response.isSuccessful) {

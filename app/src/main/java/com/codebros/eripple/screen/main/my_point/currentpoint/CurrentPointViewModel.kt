@@ -11,7 +11,7 @@ class CurrentPointViewModel : BaseViewModel() {
     private val _myPointLiveData = MutableLiveData<HashMap<String, Int>?>()
     val myPointLiveData: LiveData<HashMap<String, Int>?> = _myPointLiveData
 
-    fun getPointSituation(account_idx: Int) = viewModelScope.launch {
+    fun getPointSituation(account_idx: Int) = viewModelScope.launch(exceptionhandler) {
         val response = repository.getPointSituation(account_idx)
 
         if (response.isSuccessful) {

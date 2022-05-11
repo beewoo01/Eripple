@@ -37,7 +37,7 @@ class SelectBankActivity : BaseActivity<SelectBankViewModel, ActivitySelectBankB
                     setResult(
                         RESULT_OK,
                         Intent(this@SelectBankActivity, MainActivity::class.java)
-                            .putExtra("bank_idx", model.bank_idx)
+                            .putExtra("model", model)
                     )
 
                     finish()

@@ -12,7 +12,7 @@ class ApplyExchangeViewModel : BaseViewModel() {
     private val _applyExchangeLiveData = MutableLiveData<HashMap<String, Int>?>()
     val applyExchangeLiveData: LiveData<HashMap<String, Int>?> = _applyExchangeLiveData
 
-    fun getPointSituation(account_idx: Int) = viewModelScope.launch {
+    fun getPointSituation(account_idx: Int) = viewModelScope.launch(exceptionhandler) {
 
         val response = repository.getPointSituation(account_idx)
 

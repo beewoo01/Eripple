@@ -15,7 +15,7 @@ class JoinViewModel : BaseViewModel() {
 
     fun postJoinState(
         name: String, phone: String, password: String, email: String
-    ): Job = viewModelScope.launch {
+    ): Job = viewModelScope.launch(exceptionhandler) {
 
         val response = repository.joinAccount(name, phone, password, email)
 

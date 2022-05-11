@@ -13,7 +13,7 @@ class BankEditViewModel : BaseViewModel() {
     private val _registerAccountBank = MutableLiveData<Int?>()
     val registerAccountBank: LiveData<Int?> = _registerAccountBank
 
-    fun getAccountBank(account_idx: Int) = viewModelScope.launch {
+    fun getAccountBank(account_idx: Int) = viewModelScope.launch(exceptionhandler) {
         val response = repository.getAccountBank(account_idx)
         if (response.isSuccessful) {
             _bankAccountNumberLiveData.value = response.body()
@@ -24,7 +24,7 @@ class BankEditViewModel : BaseViewModel() {
     }
 
     fun registerAccountBank(account_idx: Int, bank_idx: Int, bank_account_number: String) =
-        viewModelScope.launch {
+        viewModelScope.launch(exceptionhandler) {
             val response =
                 repository.registerAccountBank(account_idx, bank_idx, bank_account_number)
 

@@ -14,7 +14,7 @@ class LoginViewModel : BaseViewModel() {
 
     val loginState : LiveData<Int> = _loginState
 
-    fun postLoginState(id : String, psw: String) : Job = viewModelScope.launch {
+    fun postLoginState(id : String, psw: String) : Job = viewModelScope.launch(exceptionhandler) {
 
         val response = repository.loginAccount(id, psw)
 

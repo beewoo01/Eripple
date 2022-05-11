@@ -27,7 +27,7 @@ class HomeViewModel : BaseViewModel() {
 
 
     fun getMyCurrentPoint(account_idx: Int): Job = viewModelScope.launch {
-
+        
     }
 
     override fun onCleared() {

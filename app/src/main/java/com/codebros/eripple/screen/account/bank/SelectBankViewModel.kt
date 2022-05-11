@@ -13,7 +13,7 @@ class SelectBankViewModel : BaseViewModel() {
     private val _bankListLiveData = MutableLiveData<List<Bank>?>()
     val bankListLiveData: LiveData<List<Bank>?> = _bankListLiveData
 
-    fun getBankList() = viewModelScope.launch {
+    fun getBankList() = viewModelScope.launch(exceptionhandler) {
         val response = repository.getBankList()
 
         if (response.isSuccessful) {
