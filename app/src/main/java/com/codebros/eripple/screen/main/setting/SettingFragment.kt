@@ -1,6 +1,8 @@
 package com.codebros.eripple.screen.main.setting
 
 import android.os.Bundle
+import android.telephony.PhoneNumberUtils
+import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +12,8 @@ import androidx.navigation.fragment.findNavController
 import com.codebros.eripple.R
 import com.codebros.eripple.databinding.FragmentSettingBinding
 import com.codebros.eripple.screen.base.BaseFragment
+import com.codebros.eripple.util.AccountInfoSingleton
+import java.util.*
 
 class SettingFragment : BaseFragment<SettingViewModel, FragmentSettingBinding>() {
 
@@ -18,20 +22,34 @@ class SettingFragment : BaseFragment<SettingViewModel, FragmentSettingBinding>()
     override fun getViewBinding(): FragmentSettingBinding =
         FragmentSettingBinding.inflate(layoutInflater)
 
-    override fun observeData() {
-        
+    override fun observeData() = with(binding) {
+        viewModel.accountInfo.observe(this@SettingFragment) { model ->
+            nameTxv.text = model.account_name
+            phoneTxv.text =
+                PhoneNumberUtils.formatNumber(model.account_phone, Locale.getDefault().country)
+
+        }
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        AccountInfoSingleton.account_idx?.let {
+            viewModel.getAccountInfo(it)
+        } ?: kotlin.run {
+
+        }
+
     }
 
-    override fun initViews() = with(binding){
+    override fun initViews() = with(binding) {
+
+        toolbar.setNavigationOnClickListener {
+            requireActivity().onBackPressed()
+        }
 
         noticeView.setOnClickListener {
-
             findNavController().navigate(R.id.action_setting_to_notice)
-
         }
 
         faqView.setOnClickListener {

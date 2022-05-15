@@ -20,6 +20,7 @@ import com.codebros.eripple.databinding.FragmentBankEditBinding
 import com.codebros.eripple.model.bank.Bank
 import com.codebros.eripple.screen.account.bank.SelectBankActivity
 import com.codebros.eripple.screen.base.BaseFragment
+import com.codebros.eripple.util.AccountInfoSingleton
 
 class BankEditFragment : BaseFragment<BankEditViewModel, FragmentBankEditBinding>() {
 
@@ -70,7 +71,7 @@ class BankEditFragment : BaseFragment<BankEditViewModel, FragmentBankEditBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getAccountBank(1)
+        AccountInfoSingleton.account_idx?.let { viewModel.getAccountBank(it) }
     }
 
     override fun initViews() = with(binding) {
@@ -101,11 +102,13 @@ class BankEditFragment : BaseFragment<BankEditViewModel, FragmentBankEditBinding
                             return@setOnClickListener
                         }
 
-                        viewModel.registerAccountBank(
-                            1,
-                            it.bank_idx,
-                            accountNumberEdit.text.toString()
-                        )
+                        AccountInfoSingleton.account_idx?.let { it1 ->
+                            viewModel.registerAccountBank(
+                                it1,
+                                it.bank_idx,
+                                accountNumberEdit.text.toString()
+                            )
+                        }
 
 
                     } ?: kotlin.run {

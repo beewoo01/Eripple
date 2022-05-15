@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import com.codebros.eripple.R
 import com.codebros.eripple.databinding.FragmentApplyExchangeBinding
 import com.codebros.eripple.screen.base.BaseFragment
+import com.codebros.eripple.util.AccountInfoSingleton
 
 class ApplyExchangeFragment : BaseFragment<ApplyExchangeViewModel, FragmentApplyExchangeBinding>() {
 
@@ -42,15 +43,19 @@ class ApplyExchangeFragment : BaseFragment<ApplyExchangeViewModel, FragmentApply
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getPointSituation(1)
+        AccountInfoSingleton.account_idx?.let { viewModel.getPointSituation(it) }
 
     }
 
-    override fun initViews() {
+    override fun initViews() = with(binding){
         super.initViews()
 
-        binding.accountOutBtn.setOnClickListener {
+        accountOutBtn.setOnClickListener {
             isAvailability()
+        }
+
+        toolbar.setNavigationOnClickListener {
+            requireActivity().onBackPressed()
         }
 
     }

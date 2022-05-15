@@ -21,6 +21,7 @@ import com.codebros.eripple.screen.base.BaseFragment
 import com.codebros.eripple.screen.main.eripple_info.ErippleInfoFragmentArgs
 import com.codebros.eripple.screen.main.event.EventViewModel
 import com.codebros.eripple.screen.main.my_point.MyPointFragment
+import com.codebros.eripple.util.AccountInfoSingleton
 import com.codebros.eripple.util.provider.DefaultCustomResourcesProvider
 import com.codebros.eripple.widget.adapter.ModelRecyclerAdapter
 import com.codebros.eripple.widget.adapter.listener.bookmark.SimpleErippleInfoWithBookmarkListener
@@ -59,25 +60,6 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         )
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Log.wtf("HomeFragment", "onCreate")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.wtf("HomeFragment", "onResume")
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        Log.wtf("HomeFragment", "onCreateView")
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
-
 
     override fun getViewBinding(): FragmentHomeBinding =
         FragmentHomeBinding.inflate(layoutInflater)
@@ -105,10 +87,12 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.wtf("HomeFragment", "onViewCreated")
 
-        viewModel.postMyCurrentPoint(1)
-        viewModel.postMyBookMarkEripple(1)
+        AccountInfoSingleton.account_idx?.let {
+            viewModel.postMyCurrentPoint(it)
+            viewModel.postMyBookMarkEripple(it)
+        }
+
         viewModel.postEvent()
     }
 

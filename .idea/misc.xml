@@ -42,6 +42,7 @@
         <entry key="../eripple/app/src/main/res/drawable/ic_faq_icon.xml" value="0.2235" />
         <entry key="../eripple/app/src/main/res/drawable/ic_full_heart.xml" value="0.1325" />
         <entry key="../eripple/app/src/main/res/drawable/ic_point_fab_icon.xml" value="0.335" />
+        <entry key="../eripple/app/src/main/res/drawable/ic_right_white_arrow.xml" value="0.222" />
         <entry key="../eripple/app/src/main/res/drawable/ic_sample_arrow_down.xml" value="0.1825" />
         <entry key="../eripple/app/src/main/res/drawable/ic_sample_home.xml" value="0.1705" />
         <entry key="../eripple/app/src/main/res/drawable/round_3dp_bg.xml" value="0.209" />
@@ -57,12 +58,13 @@
         <entry key="../eripple/app/src/main/res/drawable/tab_pager_selector.xml" value="0.1705" />
         <entry key="../eripple/app/src/main/res/font/app_font.xml" value="0.3697868396663577" />
         <entry key="../eripple/app/src/main/res/layout/activity_change_password.xml" value="0.165" />
+        <entry key="../eripple/app/src/main/res/layout/activity_find_password.xml" value="0.335" />
         <entry key="../eripple/app/src/main/res/layout/activity_join.xml" value="0.375" />
         <entry key="../eripple/app/src/main/res/layout/activity_login.xml" value="0.335" />
         <entry key="../eripple/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="../eripple/app/src/main/res/layout/activity_select_bank.xml" value="0.2365231926452152" />
         <entry key="../eripple/app/src/main/res/layout/activity_splash.xml" value="0.25" />
-        <entry key="../eripple/app/src/main/res/layout/activity_terms_of_use.xml" value="0.375" />
+        <entry key="../eripple/app/src/main/res/layout/activity_terms_of_use.xml" value="0.335" />
         <entry key="../eripple/app/src/main/res/layout/activity_terms_of_use_detail.xml" value="0.19804296958094023" />
         <entry key="../eripple/app/src/main/res/layout/container_eripple_box.xml" value="0.335" />
         <entry key="../eripple/app/src/main/res/layout/event_fragment.xml" value="0.335" />
@@ -71,7 +73,7 @@
         <entry key="../eripple/app/src/main/res/layout/fragment_apply_exchange.xml" value="0.25" />
         <entry key="../eripple/app/src/main/res/layout/fragment_back_edit.xml" value="0.28131680205215903" />
         <entry key="../eripple/app/src/main/res/layout/fragment_bank_edit.xml" value="0.25" />
-        <entry key="../eripple/app/src/main/res/layout/fragment_book_mark.xml" value="0.28131680205215903" />
+        <entry key="../eripple/app/src/main/res/layout/fragment_book_mark.xml" value="0.335" />
         <entry key="../eripple/app/src/main/res/layout/fragment_change_password.xml" value="0.23067279565399082" />
         <entry key="../eripple/app/src/main/res/layout/fragment_current_point.xml" value="0.28131680205215903" />
         <entry key="../eripple/app/src/main/res/layout/fragment_eripple_info.xml" value="0.25" />

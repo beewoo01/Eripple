@@ -1,5 +1,6 @@
 package com.codebros.eripple.screen.main.setting.account
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.codebros.eripple.R
 import com.codebros.eripple.databinding.FragmentAccountSettingBinding
+import com.codebros.eripple.screen.account.login.LoginActivity
 
 
 class AccountSettingFragment : Fragment() {
@@ -42,6 +44,10 @@ class AccountSettingFragment : Fragment() {
         }
 
         logoutTxv.setOnClickListener {
+            requireActivity().run{
+                startActivity(Intent(requireActivity(), LoginActivity::class.java))
+                finish()
+            }
 
         }
 

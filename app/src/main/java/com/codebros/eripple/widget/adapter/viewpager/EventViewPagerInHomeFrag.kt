@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.codebros.eripple.R
+import com.codebros.eripple.data.url.DefaultUrl
 import com.codebros.eripple.databinding.ViewholderImageBinding
 import com.codebros.eripple.extention.load
 import com.codebros.eripple.model.event.EventWithThumbnail
@@ -23,7 +24,7 @@ class EventViewPagerInHomeFrag(
 
             fun onBind(model : EventWithThumbnail) = with(binding){
                 //Glide.with(thumbnailImv.context).load("http://raon-soft.com/imagefile/nbiz/image/1634184234249.JPG").into(thumbnailImv)
-                thumbnailImv.load(model.event_image_url)
+                thumbnailImv.load(DefaultUrl.SAMPLE_IMAGE_URL + model.event_image_url)
                 root.setOnClickListener {
                     listener.onClickItem(model)
                 }

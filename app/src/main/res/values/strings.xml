@@ -57,7 +57,7 @@
     <string name="findPsw">비밀번호 찾기</string>
     <string name="forgotPsw">비밀번호를 잊어버리셨나요?</string>
     <string name="goto_auth">본인인증 하기</string>
-    <string name="info_auth_psw">본인 인증 후 비밃번호 변경이 가능합니다.</string>
+    <string name="info_auth_psw">본인 인증 후 비밀번호 변경이 가능합니다.</string>
     <string name="phoneHint">\'-\' 빼고 입력</string>
     <string name="more_view">더 보기</string>
     <string name="home_ko">홈</string>
@@ -73,6 +73,8 @@
     <string name="haveNoPoint">이런, 아직 포인트 적립을 하지 않으셨군요!</string>
     <string name="share_ko">공유하기</string>
     <string name="haveAGoodDay">오늘도 즐거운 하루 되세요!</string>
+
+    <string name="can_not_assigned_permission">권한을 받지 못했습니다.</string>
 
 
     <!--<string name="personal_information"><b>1. 총칙\n\n</b>1) 자연하리(이하 “회사”)은 정보통신망 이용촉진 및 정보보호 등에 관한 법률(이하 “정보통신망법”), "개인정보보호법" 등 국내의 개인정보 관련 법률을 준수하며, 에리플 서비스 이용자(이하 “회원”)의 개인정보를 철저히 보호하고 있습니다.\n
@@ -525,6 +527,8 @@
     <string name="alarm_ko">알림</string>
     <string name="select_bank">은행선택</string>
     <string name="bank_icon">bank icon</string>
+
+    <string name="kakaoAppKey">edd624c671b363606c7502a9d09ae6b7</string>
 
 
 </resources>

@@ -21,6 +21,13 @@ class AlarmFragment : BaseFragment<AlarmViewModel, FragmentAlarmBinding>() {
 
     }
 
+    override fun initViews() = with(binding){
+        super.initViews()
+        toolbar.setNavigationOnClickListener {
+            requireActivity().onBackPressed()
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

@@ -73,5 +73,8 @@ class Repository : ApiService {
     ): Response<Int> =
         apiService.registerAccountBank(account_idx, bank_idx, bank_account_number)
 
+    override suspend fun getAccountInfo(account_idx: Int): Response<AccountInfoEntity> =
+        apiService.getAccountInfo(account_idx)
+
 
 }

@@ -117,6 +117,7 @@
                     android:contentDescription="@string/more"
                     android:minWidth="48dp"
                     android:minHeight="48dp"
+                    android:clickable="false"
                     android:src="@drawable/ic_right_white_arrow"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

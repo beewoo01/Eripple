@@ -12,6 +12,7 @@ import com.codebros.eripple.R
 import com.codebros.eripple.databinding.FragmentCurrentPointBinding
 import com.codebros.eripple.screen.base.BaseFragment
 import com.codebros.eripple.screen.main.home.HomeFragment
+import com.codebros.eripple.util.AccountInfoSingleton
 
 class CurrentPointFragment : BaseFragment<CurrentPointViewModel, FragmentCurrentPointBinding>() {
 
@@ -54,7 +55,7 @@ class CurrentPointFragment : BaseFragment<CurrentPointViewModel, FragmentCurrent
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getPointSituation(1)
+        AccountInfoSingleton.account_idx?.let { viewModel.getPointSituation(it) }
     }
 
     companion object {

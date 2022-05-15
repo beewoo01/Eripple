@@ -34,7 +34,16 @@ class MyPointFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         showFragment(CurrentPointFragment.newInstance(), CurrentPointFragment.TAG)
 
+        initViews()
+
+    }
+
+    private fun initViews() {
         binding?.apply {
+
+            toolbar.setNavigationOnClickListener {
+                requireActivity().onBackPressed()
+            }
 
             currentPointTxv.setOnClickListener {
                 currentPointTxv.setTextColor(
@@ -83,7 +92,6 @@ class MyPointFragment : Fragment() {
             }
 
         }
-
     }
 
     private fun showFragment(fragment: Fragment, tag: String) {

@@ -2,6 +2,10 @@ package com.codebros.eripple.screen.account.join
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.codebros.eripple.R
@@ -17,11 +21,7 @@ class JoinActivity : BaseActivity<JoinViewModel, ActivityJoinBinding>() {
 
     private val pattern = android.util.Patterns.EMAIL_ADDRESS
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    private val spinnerItems = arrayOf("gmail.com", "naver.com", "daum.net", "nate.com")
 
     override fun initViews() = with(binding) {
 
@@ -33,10 +33,26 @@ class JoinActivity : BaseActivity<JoinViewModel, ActivityJoinBinding>() {
             onBackPressed()
         }
 
+        selectBankTxv.setOnClickListener {
+
+        }
+
+        val adapter = ArrayAdapter(
+            this@JoinActivity, android.R.layout.simple_spinner_item, spinnerItems
+        )
+        adapter.setDropDownViewResource(
+            android.R.layout.simple_spinner_dropdown_item
+        )
+
+        mailSubSpn.adapter = adapter
+
     }
 
     private fun availability() = with(binding) {
-        if (passwordEdt.text.toString().isEmpty()
+        if (nameEdt.text.toString().isEmpty()) {
+            showToast("이름을 입력해주세요.")
+
+        } else if (passwordEdt.text.toString().isEmpty()
             || passwordEdt.text.toString().length < 8
         ) {
 
@@ -47,7 +63,7 @@ class JoinActivity : BaseActivity<JoinViewModel, ActivityJoinBinding>() {
             showToast("비밀번호가 일치하지 않습니다.")
 
         } else if (emailEdt.text.toString().isEmpty()
-            || !pattern.matcher(emailEdt.text.toString()).matches()
+            || !pattern.matcher(emailEdt.text.toString() + "@${mailSubSpn.selectedItem}").matches()
         ) {
 
             showToast("이메일을 정확히 입력해주세요.")
@@ -57,8 +73,8 @@ class JoinActivity : BaseActivity<JoinViewModel, ActivityJoinBinding>() {
             viewModel.postJoinState(
                 nameEdt.text.toString(),
                 phoneEdt.text.toString(),
-                passwordCheckEdt.text.toString(),
-                emailEdt.text.toString()
+                passwordEdt.text.toString(),
+                emailEdt.text.toString() + "@${mailSubSpn.selectedItem}"
             )
         }
 

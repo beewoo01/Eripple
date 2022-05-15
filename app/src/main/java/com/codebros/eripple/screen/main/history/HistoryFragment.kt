@@ -13,6 +13,7 @@ import com.codebros.eripple.databinding.FragmentHistoryBinding
 import com.codebros.eripple.model.Model
 import com.codebros.eripple.model.pointsavedhistory.PointSavedHistory
 import com.codebros.eripple.screen.base.BaseFragment
+import com.codebros.eripple.util.AccountInfoSingleton
 import com.codebros.eripple.util.DateType
 import com.codebros.eripple.util.provider.DefaultCustomResourcesProvider
 import com.codebros.eripple.widget.adapter.ModelRecyclerAdapter
@@ -48,7 +49,7 @@ class HistoryFragment : BaseFragment<HistoryViewModel, FragmentHistoryBinding>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getPointSavedHistoryLiveData(1)
+        AccountInfoSingleton.account_idx?.let { viewModel.getPointSavedHistoryLiveData(it) }
     }
 
     @SuppressLint("SimpleDateFormat")
@@ -176,6 +177,10 @@ class HistoryFragment : BaseFragment<HistoryViewModel, FragmentHistoryBinding>()
 
             chipTotal.setOnClickListener {
                 chipClick(it.id)
+            }
+
+            toolbar.setNavigationOnClickListener {
+                requireActivity().onBackPressed()
             }
 
         }

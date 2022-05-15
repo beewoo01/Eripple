@@ -1,5 +1,12 @@
 package com.codebros.eripple.screen.main.eripple_info
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,19 +15,25 @@ import android.view.KeyEvent
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import com.codebros.eripple.R
 import com.codebros.eripple.databinding.FragmentErippleInfoBinding
 import com.codebros.eripple.model.Model
 import com.codebros.eripple.model.eripple.Eripple
 import com.codebros.eripple.screen.base.BaseFragment
+import com.codebros.eripple.util.AccountInfoSingleton
 import com.codebros.eripple.util.observeOnce
 import com.codebros.eripple.util.provider.DefaultCustomResourcesProvider
 import com.codebros.eripple.widget.adapter.ModelRecyclerAdapter
 import com.codebros.eripple.widget.adapter.listener.eripple.ErippleAdapterListener
+import net.daum.mf.map.api.MapView
 import java.util.*
 
 class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleInfoBinding>() {
@@ -33,6 +46,14 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
     private val resourcesProvider: DefaultCustomResourcesProvider by lazy {
         DefaultCustomResourcesProvider(requireContext())
     }
+
+    private val mapView by lazy {
+        MapView(requireActivity())
+    }
+
+    private lateinit var locationManager: LocationManager
+
+    private lateinit var myLocationListener: LocationListener
 
     private val adapter by lazy {
         ModelRecyclerAdapter<Eripple, ErippleInfoViewModel>(
@@ -53,7 +74,7 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
                     if (model.bookmark_idx > 0) {
                         viewModel.removeBookMark(model)
                     } else {
-                        viewModel.addBookMark(model, 1)
+                        AccountInfoSingleton.account_idx?.let { viewModel.addBookMark(model, it) }
                     }
 
                 }
@@ -68,6 +89,8 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
 
     override fun initViews() {
         with(binding) {
+            checkPermission()
+            initMapView()
             erippleContainer.erippleRecyclerView.adapter = adapter
             erippleContainer.searchEdt.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) = Unit
@@ -91,6 +114,96 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
 
             })
         }
+    }
+
+    private fun checkPermission() {
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
+        }
+    }
+
+    private val locationPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
+            val responsePermissions = permissions.entries.filter {
+                (it.key == Manifest.permission.ACCESS_FINE_LOCATION)
+                        || (it.key == Manifest.permission.ACCESS_COARSE_LOCATION)
+            }
+            if (responsePermissions.filter { it.value == true }.size == locationPermissions.size) {
+                setMyLocationListener()
+            } else {
+                /*with(binding.erippleContainer) {
+                    setText(R.string.please_setUp_your_location_permission)
+                    setOnClickListener {
+                        getMyLocation()
+                    }
+                }*/
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.can_not_assigned_permission),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+
+    @SuppressLint("MissingPermission")
+    private fun setMyLocationListener() {
+        val minTime = 1500L
+        val minDistance = 100f
+        if (::myLocationListener.isInitialized.not()) {
+            myLocationListener = MyLocationListener()
+        }
+
+        with(locationManager) {
+            requestLocationUpdates(
+                android.location.LocationManager.GPS_PROVIDER,
+                minTime,
+                minDistance,
+                myLocationListener
+            )
+
+            requestLocationUpdates(
+                android.location.LocationManager.NETWORK_PROVIDER,
+                minTime,
+                minDistance,
+                myLocationListener
+            )
+        }
+    }
+
+    private fun getMyLocation() {
+        if (::locationManager.isInitialized.not()) {
+            locationManager =
+                requireContext().getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        }
+        val isGpsUnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+        if (isGpsUnabled) {
+            locationPermissionLauncher.launch(locationPermissions)
+        }
+    }
+
+    inner class MyLocationListener : LocationListener {
+        override fun onLocationChanged(location: Location) {
+            //binding.locationTitleText.text = "${location.latitude}, ${location.longitude}"
+            /*viewModel.loadReverseGeoInformation(
+                LocationLatLngEntity(
+                    location.latitude,
+                    location.longitude
+                )
+            )*/
+            removeLocationListener()
+        }
+    }
+
+    private fun removeLocationListener() {
+        if (::locationManager.isInitialized && ::myLocationListener.isInitialized) {
+            locationManager.removeUpdates(myLocationListener)
+        }
+    }
+    
+    private fun initMapView() {
+        binding.mapContainer.addView(mapView)
     }
 
     private fun search(text: String) {
@@ -202,7 +315,14 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getErippleList(1)
+        AccountInfoSingleton.account_idx?.let { viewModel.getErippleList(it) }
+    }
+
+    companion object {
+        val locationPermissions = arrayOf(
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION
+        )
     }
 
 }

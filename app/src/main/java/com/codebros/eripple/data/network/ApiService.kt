@@ -17,20 +17,20 @@ interface ApiService {
     @GET("photos")
     suspend fun getPhotos() : Response<List<SamplePhotoEntity>>*/
 
-
-    @GET("loginAccount")
+    @FormUrlEncoded
+    @POST("loginAccount")
     suspend fun loginAccount(
-        @Query("email") id: String,
-        @Query("psw") psw: String
+        @Field("account_email") id: String,
+        @Field("account_password") psw: String
     ): Response<Int>
 
     @FormUrlEncoded
     @POST("joinAccount")
     suspend fun joinAccount(
-        @Field("name") name: String,
-        @Field("phone") phone: String,
-        @Field("password") password: String,
-        @Field("email") email: String,
+        @Field("account_name") name: String,
+        @Field("account_phone") phone: String,
+        @Field("account_password") password: String,
+        @Field("account_email") email: String,
     ): Response<Int>
 
     @FormUrlEncoded
@@ -109,5 +109,11 @@ interface ApiService {
         @Field("bank_idx") bank_idx : Int,
         @Field("bank_account_number") bank_account_number : String
     ) : Response<Int>
+
+    @FormUrlEncoded
+    @POST("getAccountInfo")
+    suspend fun getAccountInfo(
+        @Field("account_idx") account_idx : Int
+    ) : Response<AccountInfoEntity>
 
 }

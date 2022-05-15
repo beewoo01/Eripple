@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import com.codebros.eripple.databinding.FragmentExchangeHistoryBinding
 import com.codebros.eripple.model.exchange.AccountExchangeHistory
 import com.codebros.eripple.screen.base.BaseFragment
+import com.codebros.eripple.util.AccountInfoSingleton
 import com.codebros.eripple.util.provider.DefaultCustomResourcesProvider
 import com.codebros.eripple.widget.adapter.ModelRecyclerAdapter
 
@@ -50,7 +51,7 @@ class ExchangeHistoryFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getExchangeHistory(1)
+        AccountInfoSingleton.account_idx?.let { viewModel.getExchangeHistory(it) }
         binding.exchangeHistoryRecyclerView.adapter = adapter
     }
 

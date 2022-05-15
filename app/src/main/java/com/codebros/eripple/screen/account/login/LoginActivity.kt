@@ -2,14 +2,19 @@ package com.codebros.eripple.screen.account.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.codebros.eripple.databinding.ActivityLoginBinding
+import com.codebros.eripple.screen.account.findpsw.FindPasswordActivity
+import com.codebros.eripple.screen.account.join.JoinActivity
+import com.codebros.eripple.screen.account.join.termsofuse.TermsOfUseActivity
 import com.codebros.eripple.screen.base.BaseActivity
 import com.codebros.eripple.screen.main.MainActivity
+import com.codebros.eripple.util.AccountInfoSingleton
 
-class LoginActivity :
-    BaseActivity<LoginViewModel, ActivityLoginBinding>() {
+class LoginActivity
+    : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
 
     override fun getViewBinding(): ActivityLoginBinding =
         ActivityLoginBinding.inflate(layoutInflater)
@@ -25,10 +30,19 @@ class LoginActivity :
 
     override fun initViews() = with(binding) {
         loginTxv.setOnClickListener {
-            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-            finish()
-            //availability(emailEdt.text.toString(), pwsEdt.text.toString())
+            /*startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+            finish()*/
+            availability(emailEdt.text.toString(), pwsEdt.text.toString())
         }
+
+        changePswTxv.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, FindPasswordActivity::class.java))
+        }
+
+        joinTxv.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, TermsOfUseActivity::class.java))
+        }
+
     }
 
     private fun availability(email: String, psw: String) {
@@ -53,7 +67,22 @@ class LoginActivity :
     override fun observeData() {
         viewModel.loginState.observe(this@LoginActivity) { state ->
             state?.let {
+                when {
+                    it == 0 -> {
+                        showToast("아이디 또는 비밀번호가 잘못되었습니다.")
+                    }
 
+                    it > 0 -> {
+                        showToast("로그인에 성공하였습니다.")
+                        AccountInfoSingleton.getInstance(account_idx = it)
+                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                        finish()
+                    }
+
+                    else -> {
+                        showToast("네트워크에 오류가 있습니다.")
+                    }
+                }
             }
         }
     }

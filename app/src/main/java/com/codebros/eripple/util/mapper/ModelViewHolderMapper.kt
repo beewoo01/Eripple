@@ -11,6 +11,7 @@ import com.codebros.eripple.util.provider.CustomResourcesProvider
 import com.codebros.eripple.widget.adapter.viewholder.EmptyViewHolder
 import com.codebros.eripple.widget.adapter.viewholder.ModelViewHolder
 import com.codebros.eripple.widget.adapter.viewholder.bank.BankViewHolder
+import com.codebros.eripple.widget.adapter.viewholder.bookmark.BookMarkViewHolder
 import com.codebros.eripple.widget.adapter.viewholder.bookmark.SimpleErippleInfoWithBookmarkViewHolder
 import com.codebros.eripple.widget.adapter.viewholder.eripple.ErippleSearchViewHolder
 import com.codebros.eripple.widget.adapter.viewholder.event.EventViewHolder
@@ -107,6 +108,14 @@ object ModelViewHolderMapper {
             CellType.BANK -> {
                 BankViewHolder(
                     binding = ViewholderSelectBankBinding.inflate(inflater, parent, false),
+                    viewModel = viewModel,
+                    customResourcesProvider = customResourcesProvider
+                )
+            }
+
+            CellType.BOOKMARK_ACTIVITY_CELL -> {
+                BookMarkViewHolder(
+                    binding = ViewholderBookmarkBinding.inflate(inflater, parent, false),
                     viewModel = viewModel,
                     customResourcesProvider = customResourcesProvider
                 )

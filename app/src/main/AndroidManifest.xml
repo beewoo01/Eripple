@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.codebros.eripple">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
+        tools:ignore="CoarseFineLocation" />
 
     <application
         android:name=".widget.ErippleApplication"
@@ -15,7 +18,7 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".screen.account.bank.SelectBankActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
         <activity
             android:name=".screen.SplashActivity"
@@ -39,17 +42,8 @@
         <activity
             android:name=".screen.main.MainActivity"
             android:exported="true"
-            android:label="@string/title_activity_sample">
+            android:label="@string/title_activity_sample" />
 
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-
-        </activity>
         <activity
             android:name=".screen.account.login.LoginActivity"
             android:exported="true">
@@ -63,14 +57,14 @@
             android:name=".screen.sample.SampleActivity"
             android:exported="true">
 
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
         </activity>
+
+        <activity android:name=".screen.account.join.JoinActivity" />
+
+        <meta-data
+            android:name="com.kakao.sdk.Appkey"
+            android:value="@string/kakaoAppKey" />
+
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@ import androidx.fragment.app.viewModels
 import com.codebros.eripple.databinding.FragmentChangePasswordBinding
 import com.codebros.eripple.screen.account.chagepsw.ChangePasswordViewModel
 import com.codebros.eripple.screen.base.BaseFragment
+import com.codebros.eripple.util.AccountInfoSingleton
 
 class ChangePasswordFragment
     : BaseFragment<ChangePasswordFragmentViewModel, FragmentChangePasswordBinding>() {
@@ -44,7 +45,7 @@ class ChangePasswordFragment
         } else if (confirmPasswordEdt.text.toString() != passwordEdt.text.toString()) {
             showToast("비밀번호가 일치하지 않습니다.")
         } else {
-            viewModel.changePassword(1, passwordEdt.text.toString())
+            AccountInfoSingleton.account_idx?.let { viewModel.changePassword(it, passwordEdt.text.toString()) }
         }
     }
 
