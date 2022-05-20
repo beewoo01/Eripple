@@ -30,12 +30,10 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintBottom_toBottomOf="parent"
-        >
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -98,7 +96,6 @@
                 app:layout_constraintTop_toTopOf="@id/have_a_GoodDay"
                 tools:text="010-0000-0000" />
 
-
             <androidx.constraintlayout.widget.Barrier
                 android:id="@+id/barrier"
                 android:layout_width="wrap_content"
@@ -117,7 +114,7 @@
                 app:layout_constraintStart_toStartOf="@id/start_guid"
                 app:layout_constraintTop_toBottomOf="@id/barrier" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <TextView
                 android:id="@+id/notice_txv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -182,7 +179,6 @@
                 app:layout_constraintEnd_toEndOf="@id/account_setting_view"
                 app:layout_constraintStart_toStartOf="@id/account_setting_view"
                 app:layout_constraintTop_toTopOf="@id/account_setting_view" />
-
 
             <View
                 android:id="@+id/bookmark_view"
@@ -262,11 +258,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawablePadding="8dp"
+                android:fontFamily="@font/applesdgothicneom"
+                android:includeFontPadding="false"
                 android:text="@string/phone_inquiry"
                 android:textColor="@color/defaultGrayTextColor"
                 android:textSize="15sp"
-                android:fontFamily="@font/applesdgothicneom"
-                android:includeFontPadding="false"
                 app:drawableStartCompat="@drawable/ic_phone_icon"
                 app:layout_constraintBottom_toBottomOf="@id/line"
                 app:layout_constraintEnd_toStartOf="@id/line"
@@ -278,11 +274,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawablePadding="8dp"
+                android:fontFamily="@font/applesdgothicneom"
+                android:includeFontPadding="false"
                 android:text="@string/inquiry_kakao"
                 android:textColor="@color/defaultGrayTextColor"
                 android:textSize="15sp"
-                android:fontFamily="@font/applesdgothicneom"
-                android:includeFontPadding="false"
                 app:drawableStartCompat="@drawable/ic_phone_icon"
                 app:layout_constraintBottom_toBottomOf="@id/line"
                 app:layout_constraintEnd_toEndOf="@id/end_guid"
@@ -295,12 +291,11 @@
                 android:layout_height="19dp"
                 android:layout_marginTop="30dp"
                 android:background="@color/checkbox_unselected"
-                app:layout_constraintVertical_bias="0"
+                app:layout_constraintBottom_toTopOf="@id/inquiry_time"
                 app:layout_constraintEnd_toEndOf="@id/end_guid"
                 app:layout_constraintStart_toStartOf="@id/start_guid"
                 app:layout_constraintTop_toBottomOf="@id/setting_alarm_swc"
-                app:layout_constraintBottom_toTopOf="@id/inquiry_time"
-                />
+                app:layout_constraintVertical_bias="0" />
 
             <TextView
                 android:id="@+id/inquiry_time"
@@ -322,24 +317,22 @@
                 android:id="@+id/inquiry_time_txv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:fontFamily="@font/applesdgothicneom"
                 android:includeFontPadding="false"
                 android:text="@string/inquiry_time"
                 android:textColor="@color/defaultGrayTextColor"
                 android:textSize="13sp"
-                android:layout_marginTop="4dp"
-                app:layout_constraintVertical_bias="0"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/inquiry_time" />
+                app:layout_constraintTop_toBottomOf="@id/inquiry_time"
+                app:layout_constraintVertical_bias="0" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

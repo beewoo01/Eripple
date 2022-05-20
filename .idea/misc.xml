@@ -62,6 +62,7 @@
         <entry key="../eripple/app/src/main/res/layout/activity_join.xml" value="0.375" />
         <entry key="../eripple/app/src/main/res/layout/activity_login.xml" value="0.335" />
         <entry key="../eripple/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="../eripple/app/src/main/res/layout/activity_sample.xml" value="0.4719965797349295" />
         <entry key="../eripple/app/src/main/res/layout/activity_select_bank.xml" value="0.2365231926452152" />
         <entry key="../eripple/app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="../eripple/app/src/main/res/layout/activity_terms_of_use.xml" value="0.335" />
@@ -70,7 +71,7 @@
         <entry key="../eripple/app/src/main/res/layout/event_fragment.xml" value="0.335" />
         <entry key="../eripple/app/src/main/res/layout/fragment_account_setting.xml" value="0.335" />
         <entry key="../eripple/app/src/main/res/layout/fragment_alarm.xml" value="0.18999073215940684" />
-        <entry key="../eripple/app/src/main/res/layout/fragment_apply_exchange.xml" value="0.25" />
+        <entry key="../eripple/app/src/main/res/layout/fragment_apply_exchange.xml" value="0.45" />
         <entry key="../eripple/app/src/main/res/layout/fragment_back_edit.xml" value="0.28131680205215903" />
         <entry key="../eripple/app/src/main/res/layout/fragment_bank_edit.xml" value="0.25" />
         <entry key="../eripple/app/src/main/res/layout/fragment_book_mark.xml" value="0.335" />
@@ -87,7 +88,7 @@
         <entry key="../eripple/app/src/main/res/layout/fragment_notice.xml" value="0.28131680205215903" />
         <entry key="../eripple/app/src/main/res/layout/fragment_notice_detail.xml" value="0.165" />
         <entry key="../eripple/app/src/main/res/layout/fragment_out_account.xml" value="0.28131680205215903" />
-        <entry key="../eripple/app/src/main/res/layout/fragment_setting.xml" value="0.25" />
+        <entry key="../eripple/app/src/main/res/layout/fragment_setting.xml" value="0.375" />
         <entry key="../eripple/app/src/main/res/layout/viewholder_bookmark.xml" value="0.28131680205215903" />
         <entry key="../eripple/app/src/main/res/layout/viewholder_eripple.xml" value="0.375" />
         <entry key="../eripple/app/src/main/res/layout/viewholder_event.xml" value="0.375" />

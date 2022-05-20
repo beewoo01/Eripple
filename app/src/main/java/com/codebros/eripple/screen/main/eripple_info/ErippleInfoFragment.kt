@@ -89,8 +89,8 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
 
     override fun initViews() {
         with(binding) {
-            checkPermission()
-            initMapView()
+            getMyLocation()
+             initMapView()
             erippleContainer.erippleRecyclerView.adapter = adapter
             erippleContainer.searchEdt.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) = Unit
@@ -177,6 +177,7 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
             locationManager =
                 requireContext().getSystemService(Context.LOCATION_SERVICE) as LocationManager
         }
+
         val isGpsUnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
         if (isGpsUnabled) {
             locationPermissionLauncher.launch(locationPermissions)
