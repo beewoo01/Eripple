@@ -4,7 +4,7 @@ class AccountInfoSingleton private constructor(val account_idx: Int) {
     companion object {
         @Volatile
         private var INSTANCE: AccountInfoSingleton? = null
-        var account_idx : Int? = null
+        var account_idx: Int? = null
 
 
         fun getInstance(account_idx: Int): AccountInfoSingleton =

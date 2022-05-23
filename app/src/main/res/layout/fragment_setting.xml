@@ -121,13 +121,13 @@
                 android:drawablePadding="20dp"
                 android:gravity="center"
                 android:text="@string/notice"
+                android:textColor="@color/defaultBlackTextColor"
                 app:drawableTopCompat="@drawable/ic_notice_icon"
                 app:layout_constraintBottom_toBottomOf="@id/notice_view"
                 app:layout_constraintDimensionRatio="1.5:1.2"
                 app:layout_constraintEnd_toEndOf="@id/notice_view"
                 app:layout_constraintStart_toStartOf="@id/notice_view"
                 app:layout_constraintTop_toTopOf="@id/notice_view" />
-
 
             <View
                 android:id="@+id/faq_view"
@@ -279,11 +279,13 @@
                 android:text="@string/inquiry_kakao"
                 android:textColor="@color/defaultGrayTextColor"
                 android:textSize="15sp"
-                app:drawableStartCompat="@drawable/ic_phone_icon"
+                app:drawableStartCompat="@drawable/kakao_talk_channel_logo_simplified"
                 app:layout_constraintBottom_toBottomOf="@id/line"
                 app:layout_constraintEnd_toEndOf="@id/end_guid"
+                app:layout_constraintHorizontal_bias="0.513"
                 app:layout_constraintStart_toEndOf="@id/line"
-                app:layout_constraintTop_toTopOf="@id/line" />
+                app:layout_constraintTop_toTopOf="@id/line"
+                app:layout_constraintVertical_bias="0.0" />
 
             <View
                 android:id="@+id/line"

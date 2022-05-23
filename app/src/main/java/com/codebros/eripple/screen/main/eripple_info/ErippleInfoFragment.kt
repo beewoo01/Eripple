@@ -90,7 +90,7 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
     override fun initViews() {
         with(binding) {
             getMyLocation()
-             initMapView()
+            //initMapView()
             erippleContainer.erippleRecyclerView.adapter = adapter
             erippleContainer.searchEdt.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) = Unit
@@ -130,7 +130,9 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
                 (it.key == Manifest.permission.ACCESS_FINE_LOCATION)
                         || (it.key == Manifest.permission.ACCESS_COARSE_LOCATION)
             }
+
             if (responsePermissions.filter { it.value == true }.size == locationPermissions.size) {
+                initMapView()
                 setMyLocationListener()
             } else {
                 /*with(binding.erippleContainer) {

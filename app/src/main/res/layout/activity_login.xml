@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <ImageView
             android:id="@+id/logo_imv"
             android:layout_width="150dp"
@@ -39,7 +38,7 @@
             android:paddingHorizontal="17dp"
             android:fontFamily="@font/app_font"
             android:textSize="15sp"
-
+            android:text="test@test.com"
             app:layout_constraintEnd_toEndOf="@id/end_guidLine"
             app:layout_constraintStart_toStartOf="@id/start_guidLine"
             app:layout_constraintTop_toBottomOf="@id/center_guidLine" />
@@ -57,7 +56,7 @@
             android:maxLines="1"
             android:paddingHorizontal="17dp"
             android:textSize="15sp"
-
+            android:text="12345678"
             app:layout_constraintEnd_toEndOf="@id/end_guidLine"
             app:layout_constraintStart_toStartOf="@id/start_guidLine"
             app:layout_constraintTop_toBottomOf="@id/email_edt" />

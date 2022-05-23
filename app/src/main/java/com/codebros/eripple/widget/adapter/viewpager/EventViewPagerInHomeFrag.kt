@@ -22,7 +22,7 @@ class EventViewPagerInHomeFrag(
     inner class ViewHolder(private val binding: ViewholderImageBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-            fun onBind(model : EventWithThumbnail) = with(binding){
+            fun onBind(model : EventWithThumbnail) = with(binding) {
                 //Glide.with(thumbnailImv.context).load("http://raon-soft.com/imagefile/nbiz/image/1634184234249.JPG").into(thumbnailImv)
                 thumbnailImv.load(DefaultUrl.SAMPLE_IMAGE_URL + model.event_image_url)
                 root.setOnClickListener {

@@ -2,17 +2,15 @@ package com.codebros.eripple.screen.main.setting
 
 import android.os.Bundle
 import android.telephony.PhoneNumberUtils
-import android.text.Editable
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.codebros.eripple.R
 import com.codebros.eripple.databinding.FragmentSettingBinding
 import com.codebros.eripple.screen.base.BaseFragment
 import com.codebros.eripple.util.AccountInfoSingleton
+import com.kakao.sdk.common.util.KakaoCustomTabsClient
+import com.kakao.sdk.talk.TalkApiClient
 import java.util.*
 
 class SettingFragment : BaseFragment<SettingViewModel, FragmentSettingBinding>() {
@@ -73,11 +71,14 @@ class SettingFragment : BaseFragment<SettingViewModel, FragmentSettingBinding>()
         }
 
         inquiryKakao.setOnClickListener {
-
+            initKakaoPlusChannel()
         }
+    }
 
+    private fun initKakaoPlusChannel(){
 
-
+        val url = TalkApiClient.instance.channelChatUrl(getString(R.string.kakaoChatId))
+        KakaoCustomTabsClient.open(requireContext(), url)
 
     }
 }
