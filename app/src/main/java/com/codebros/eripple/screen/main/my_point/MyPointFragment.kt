@@ -66,12 +66,14 @@ class MyPointFragment : Fragment() {
             }
 
             exchangeTxv.setOnClickListener {
+
                 exchangeTxv.setTextColor(
                     ContextCompat.getColor(
                         requireContext(),
                         R.color.subTextColor
                     )
                 )
+
                 currentPointTxv.setTextColor(
                     ContextCompat.getColor(
                         requireContext(),

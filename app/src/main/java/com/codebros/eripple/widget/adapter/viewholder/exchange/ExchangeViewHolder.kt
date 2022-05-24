@@ -5,6 +5,7 @@ import android.view.View
 import androidx.core.view.isVisible
 import com.codebros.eripple.R
 import com.codebros.eripple.databinding.ViewholderExchangeHistoryBinding
+import com.codebros.eripple.extention.localLoad
 import com.codebros.eripple.model.exchange.AccountExchangeHistory
 import com.codebros.eripple.screen.base.BaseViewModel
 import com.codebros.eripple.util.provider.CustomResourcesProvider
@@ -53,6 +54,11 @@ class ExchangeViewHolder(
 
         moreImb.setOnClickListener {
             moreGroup.isVisible = !moreGroup.isVisible
+            if (moreGroup.isVisible) {
+                moreImb.localLoad(customResourcesProvider.getDrawable(R.drawable.ic_arrow_up))
+            } else {
+                moreImb.localLoad(customResourcesProvider.getDrawable(R.drawable.ic_bottom_icon))
+            }
         }
 
     }

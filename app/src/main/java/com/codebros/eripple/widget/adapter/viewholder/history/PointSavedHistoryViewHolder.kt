@@ -50,7 +50,7 @@ class PointSavedHistoryViewHolder(
 
             if (model.viewStatus) {
                 moreView.isVisible = true
-                moreImb.localLoad(customResourcesProvider.getDrawable(R.drawable.ic_bottom_icon))
+                moreImb.localLoad(customResourcesProvider.getDrawable(R.drawable.ic_arrow_up))
             } else {
                 moreView.isVisible = false
                 moreImb.localLoad(customResourcesProvider.getDrawable(R.drawable.ic_bottom_icon))
@@ -61,7 +61,7 @@ class PointSavedHistoryViewHolder(
 
         if (model.viewStatus) {
             moreView.isVisible = true
-            moreImb.localLoad(customResourcesProvider.getDrawable(R.drawable.ic_bottom_icon))
+            moreImb.localLoad(customResourcesProvider.getDrawable(R.drawable.ic_arrow_up))
         } else {
             moreView.isVisible = false
             moreImb.localLoad(customResourcesProvider.getDrawable(R.drawable.ic_bottom_icon))

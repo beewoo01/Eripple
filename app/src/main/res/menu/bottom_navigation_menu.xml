@@ -25,4 +25,9 @@
         android:icon="@drawable/bottom_nav_setting_selector"
         />
 
+    <!--<item android:id="@+id/test"
+        android:title="TEST"
+        android:icon="@drawable/bottom_nav_setting_selector"
+        />-->
+
 </menu>

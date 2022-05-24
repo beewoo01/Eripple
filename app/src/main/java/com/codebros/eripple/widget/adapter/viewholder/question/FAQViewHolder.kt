@@ -1,7 +1,12 @@
 package com.codebros.eripple.widget.adapter.viewholder.question
 
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import com.bumptech.glide.Glide
+import com.codebros.eripple.R
 import com.codebros.eripple.databinding.ViewholderFaqBinding
+import com.codebros.eripple.extention.load
+import com.codebros.eripple.extention.localLoad
 import com.codebros.eripple.model.question.Question
 import com.codebros.eripple.screen.base.BaseViewModel
 import com.codebros.eripple.util.provider.CustomResourcesProvider
@@ -24,6 +29,11 @@ class FAQViewHolder(
 
         moreImb.setOnClickListener {
             contentGroup.isVisible = !contentGroup.isVisible
+            if (contentGroup.isVisible) {
+                moreImb.localLoad(customResourcesProvider.getDrawable(R.drawable.ic_arrow_up))
+            } else {
+                moreImb.localLoad(customResourcesProvider.getDrawable(R.drawable.ic_bottom_icon))
+            }
         }
 
     }
@@ -33,7 +43,6 @@ class FAQViewHolder(
 
         titleTxv.text = model.question_title
         contentTxv.text = model.question_contents
-
 
     }
 }

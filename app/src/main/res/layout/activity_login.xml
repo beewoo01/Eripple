@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -22,7 +23,6 @@
             app:layout_constraintVertical_bias="0.7"
             android:src="@drawable/ic_login_logo_with_txt"
             android:contentDescription="@string/logo" />
-
 
         <EditText
             android:id="@+id/email_edt"

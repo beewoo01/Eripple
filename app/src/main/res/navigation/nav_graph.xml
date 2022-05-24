@@ -17,7 +17,7 @@
             android:id="@+id/action_home_to_bookmark"
             app:destination="@id/bookmark" />
         <!--<action
-            android:id="@+id/action_home_to_eripple_info"
+            android:id="@+id/action_home_to_eripple_info."
             app:destination="@id/eripple_info" />-->
 
     </keep_state_fragment>
@@ -192,5 +192,12 @@
 
     </keep_state_fragment>
 
+    <!--<keep_state_fragment
+        android:id="@+id/test"
+        android:name="com.codebros.eripple.screen.main.TestFragment"
+        tools:layout="@layout/fragment_test"
+        >
+
+    </keep_state_fragment>-->
 
 </navigation>

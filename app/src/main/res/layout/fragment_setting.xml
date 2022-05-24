@@ -279,7 +279,7 @@
                 android:text="@string/inquiry_kakao"
                 android:textColor="@color/defaultGrayTextColor"
                 android:textSize="15sp"
-                app:drawableStartCompat="@drawable/kakao_talk_channel_logo_simplified"
+                app:drawableStartCompat="@drawable/ic_kakaochat_logo"
                 app:layout_constraintBottom_toBottomOf="@id/line"
                 app:layout_constraintEnd_toEndOf="@id/end_guid"
                 app:layout_constraintHorizontal_bias="0.513"

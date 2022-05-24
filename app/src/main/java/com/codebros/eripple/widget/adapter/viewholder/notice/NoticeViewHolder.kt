@@ -1,7 +1,9 @@
 package com.codebros.eripple.widget.adapter.viewholder.notice
 
 import androidx.core.view.isVisible
+import com.codebros.eripple.R
 import com.codebros.eripple.databinding.ViewholderNoticeBinding
+import com.codebros.eripple.extention.localLoad
 import com.codebros.eripple.model.notice.Notice
 import com.codebros.eripple.screen.base.BaseViewModel
 import com.codebros.eripple.util.provider.CustomResourcesProvider
@@ -20,6 +22,11 @@ class NoticeViewHolder(
     override fun bindViews(model: Notice, adapterListener: AdapterListener?) = with(binding) {
         moreImb.setOnClickListener {
             contentGroup.isVisible = !contentGroup.isVisible
+            if (contentGroup.isVisible) {
+                moreImb.localLoad(customResourcesProvider.getDrawable(R.drawable.ic_arrow_up))
+            } else {
+                moreImb.localLoad(customResourcesProvider.getDrawable(R.drawable.ic_bottom_icon))
+            }
         }
 
         root.setOnClickListener {

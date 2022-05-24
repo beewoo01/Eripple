@@ -35,14 +35,23 @@ class BookMarkViewHolder(
             deapImb.localLoad(it)
         }
 
+        //default_gray
+
         when (model.eripple_status) {
 
             3, 4 -> {
-                bookmarkStateTxv.text = "사용가능"
+                bookmarkStateTxv.run {
+                    text = "사용가능"
+                    background = customResourcesProvider.getDrawable(R.drawable.bg_full_green)
+                }
             }
 
             else -> {
-                bookmarkStateTxv.text = "사용불가"
+                bookmarkStateTxv.run {
+                    text = "사용불가"
+                    background = customResourcesProvider.getDrawable(R.drawable.bg_full_gray)
+                }
+
             }
         }
 

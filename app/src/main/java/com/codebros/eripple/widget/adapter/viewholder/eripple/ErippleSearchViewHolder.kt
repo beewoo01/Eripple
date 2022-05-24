@@ -32,14 +32,19 @@ class ErippleSearchViewHolder(
                 model.eripple_address
             }
 
-        stateTxv.text = when (model.eripple_status) {
-
+        when(model.eripple_status) {
             3, 4 -> {
-                "사용 가능"
+                stateTxv.run {
+                    background = customResourcesProvider.getDrawable(R.drawable.bg_full_green)
+                    text = "사용 가능"
+                }
             }
 
             else -> {
-                "사용 불가"
+                stateTxv.run {
+                    background = customResourcesProvider.getDrawable(R.drawable.bg_full_gray)
+                    text = "사용 불가"
+                }
             }
         }
 
