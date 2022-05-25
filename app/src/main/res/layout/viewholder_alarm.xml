@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/round_8dp_graybox_bg">
+
+    <TextView
+        android:id="@+id/eripple_name_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/applesdgothicneom"
+        android:includeFontPadding="false"
+        android:textColor="@color/defaultGrayTextColor"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@id/content_txv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="삼락공원 에리플 1" />
+
+    <TextView
+        android:id="@+id/content_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/applesdgothicneob"
+        android:includeFontPadding="false"
+        android:textColor="@color/defaultGrayTextColor"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/eripple_name_txv"
+        app:layout_constraintTop_toBottomOf="@id/eripple_name_txv"
+        tools:text="3P" />
+
+    <TextView
+        android:id="@+id/type_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:fontFamily="@font/applesdgothicneob"
+        android:includeFontPadding="false"
+        android:textColor="@color/subTextColor"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@id/content_txv"
+        app:layout_constraintStart_toEndOf="@id/content_txv"
+        app:layout_constraintTop_toTopOf="@id/content_txv"
+        tools:text="적립" />
+
+    <TextView
+        android:id="@+id/date_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/applesdgothicneom"
+        android:includeFontPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="2022.00.00" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

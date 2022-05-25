@@ -18,12 +18,14 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import com.codebros.eripple.R
 import com.codebros.eripple.databinding.FragmentErippleInfoBinding
 import com.codebros.eripple.model.Model
 import com.codebros.eripple.model.eripple.Eripple
 import com.codebros.eripple.screen.base.BaseFragment
 import com.codebros.eripple.util.AccountInfoSingleton
+import com.codebros.eripple.util.GpsTracker
 import com.codebros.eripple.util.provider.DefaultCustomResourcesProvider
 import com.codebros.eripple.widget.adapter.ModelRecyclerAdapter
 import com.codebros.eripple.widget.adapter.listener.eripple.ErippleAdapterListener
@@ -35,6 +37,8 @@ import java.util.*
 class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleInfoBinding>() {
 
     override val viewModel: ErippleInfoViewModel by viewModels()
+
+    private val args: ErippleInfoFragmentArgs by navArgs()
 
     override fun getViewBinding(): FragmentErippleInfoBinding =
         FragmentErippleInfoBinding.inflate(layoutInflater)
@@ -49,7 +53,7 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
     private var preLoc: Location? = null
     private lateinit var bestProvider: String
 
-    private lateinit var myLocationListener: LocationListener
+    //private lateinit var myLocationListener: LocationListener
 
     private var longitude: Double = 0.0
     private var latitude: Double = 0.0
@@ -141,27 +145,23 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
 
     @SuppressLint("MissingPermission")
     private fun setMyLocationListener() {
-        val minTime = 1500L
-        val minDistance = 100f
-        if (::myLocationListener.isInitialized.not()) {
-            myLocationListener = MyLocationListener()
+
+        val gpsTracker = GpsTracker(requireContext(), locationManager)
+
+        gpsTracker.getLatitude()?.let {
+            latitude = it
         }
 
-        with(locationManager) {
-            requestLocationUpdates(
-                android.location.LocationManager.GPS_PROVIDER,
-                minTime,
-                minDistance,
-                myLocationListener
-            )
-
-            requestLocationUpdates(
-                android.location.LocationManager.NETWORK_PROVIDER,
-                minTime,
-                minDistance,
-                myLocationListener
-            )
+        gpsTracker.getLongitude()?.let {
+            longitude = it
         }
+
+        if (latitude == 0.0 || longitude == 0.0) {
+            mapView?.setZoomLevel(12, true)
+        } else {
+            mapView?.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(latitude, longitude), true)
+        }
+
     }
 
     private fun getMyLocation() {
@@ -178,99 +178,24 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
 
     override fun onResume() {
         super.onResume()
-        if (ActivityCompat.checkSelfPermission(
-                requireContext(),
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                requireContext(),
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                requireActivity(),
-                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-                0
-            )
-            return
-        }
-
-        bestProvider = locationManager.getBestProvider(getCrireia(), true).toString()
-        removeLocationListener()
-        myLocationListener = MyLocationListener()
-        locationManager.requestLocationUpdates(bestProvider, 3000L, 10.0f, myLocationListener)
         getMyLocation()
 
     }
 
     override fun onPause() {
         super.onPause()
-        locationManager.removeUpdates(myLocationListener)
+        //locationManager.removeUpdates(myLocationListener)
         binding.mapContainer.removeAllViews()
-    }
-
-    inner class MyLocationListener : LocationListener {
-        override fun onLocationChanged(location: Location) {
-            //binding.locationTitleText.text = "${location.latitude}, ${location.longitude}"
-            /*viewModel.loadReverseGeoInformation(
-                LocationLatLngEntity(
-                    location.latitude,
-                    location.longitude
-                )
-            )*/
-            //removeLocationListener()
-            if (context != null) {
-                if (ActivityCompat.checkSelfPermission(
-                        requireContext(),
-                        Manifest.permission.ACCESS_FINE_LOCATION
-                    ) != PackageManager.PERMISSION_GRANTED
-                    && ActivityCompat.checkSelfPermission(
-                        requireContext(),
-                        Manifest.permission.ACCESS_COARSE_LOCATION
-                    ) != PackageManager.PERMISSION_GRANTED
-                ) {
-                    ActivityCompat.requestPermissions(
-                        requireActivity(),
-                        arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
-                        0
-                    )
-
-                } else {
-                    locationManager.getLastKnownLocation(bestProvider)?.let {
-                        preLoc = it
-                        preLoc?.let { location ->
-                            longitude = location.longitude
-                            latitude = location.latitude
-                        }
-
-                    }
-                }
-            }
-
-        }
-    }
-
-    private fun removeLocationListener() {
-        if (::locationManager.isInitialized && ::myLocationListener.isInitialized) {
-            locationManager.removeUpdates(myLocationListener)
-        }
     }
 
 
     private fun initLocationManager() {
         locationManager = requireActivity().getSystemService(LOCATION_SERVICE) as LocationManager
-
     }
 
     private fun initMapView() {
-        //mapView.setMapCenterPointAndZoomLevel(MapPoint.mapPointWithGeoCoord(latitude, longitude), 1, true)
-        Log.wtf("initMapView", "initMapView")
         mapView = MapView(requireActivity())
-        mapView?.setMapCenterPoint(
-            MapPoint.mapPointWithGeoCoord(
-                latitude,
-                longitude
-            ), true
-        )
+
         mapView?.zoomIn(true)
         mapView?.zoomOut(true)
         binding.mapContainer.addView(mapView)
@@ -278,9 +203,6 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
     }
 
     private fun search(text: String) {
-        Log.wtf("ErippleInfoFragment", "search ")
-        Log.wtf("ErippleInfoFragment", "search $text")
-
         val list = mutableListOf<Model>()
 
         viewModel.erippleList.value?.let {
@@ -292,7 +214,6 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
 
                 val currentList = mutableListOf<Model>()
                 currentList.addAll(it)
-                Log.wtf("ErippleInfoFragment", "list size ${currentList.size}")
 
                 currentList.forEach { model ->
                     if (model is Eripple) {
@@ -318,11 +239,10 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
         }
 
         adapter.submitList(list)
-        //resetMarkers()
 
     }
 
-    private fun getCrireia(): Criteria {
+    /*private fun getCrireia(): Criteria {
         val criteria = Criteria()
         criteria.accuracy = Criteria.ACCURACY_COARSE
         criteria.powerRequirement = Criteria.POWER_LOW
@@ -330,9 +250,10 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
         criteria.isBearingRequired = false
         criteria.isCostAllowed = false
         return criteria
-    }
+    }*/
 
     private fun resetMarkers() {
+        val selectedErippleIdx = args.selectedIdx
         mapView?.let {
             it.removePOIItems(it.poiItems)
             viewModel.erippleList.value.let { list ->
@@ -352,8 +273,25 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
                         }
                     }
                     it.addPOIItems(markers)
+                    if (selectedErippleIdx > 0) {
+                        erippleList.filter { filterEripple ->
+                            filterEripple.eripple_idx == selectedErippleIdx
+                        }.run {
+                            longitude = last().eripple_longitude.toDouble()
+                            latitude = last().eripple_latitude.toDouble()
+                            Log.wtf("last longi", last().eripple_longitude)
+                            Log.wtf("last latit", last().eripple_latitude)
+                            mapView?.setMapCenterPoint(
+                                MapPoint.mapPointWithGeoCoord(
+                                    latitude,
+                                    longitude
+                                ), true
+                            )
+                        }
+                    }
                 }
             }
+
         }
     }
 

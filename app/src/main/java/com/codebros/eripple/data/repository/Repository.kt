@@ -10,8 +10,8 @@ class Repository : ApiService {
 
     private val apiService: ApiService = RetrofitGenerator.getApiService()
 
-    override suspend fun loginAccount(id: String, psw: String): Response<Int> =
-        apiService.loginAccount(id, psw)
+    override suspend fun loginAccount(id: String, psw: String, token: String?): Response<Int> =
+        apiService.loginAccount(id, psw, token)
 
 
     override suspend fun joinAccount(
@@ -75,6 +75,15 @@ class Repository : ApiService {
 
     override suspend fun getAccountInfo(account_idx: Int): Response<AccountInfoEntity> =
         apiService.getAccountInfo(account_idx)
+
+    override suspend fun getAlarm(account_idx: Int): Response<List<AlarmEntity>> =
+        apiService.getAlarm(account_idx)
+
+    override suspend fun updateAlarmState(paramJson: String): Response<Int> =
+        apiService.updateAlarmState(paramJson)
+
+    override suspend fun applyExchangePoint(account_idx: Int, applier_point: Int, setting_point : Int): Response<Int> =
+        apiService.applyExchangePoint(account_idx, applier_point, setting_point)
 
 
 }

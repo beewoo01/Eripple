@@ -1,4 +1,4 @@
-package com.codebros.eripple.screen.account.login
+package com.codebros.eripple.screen.splash
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,14 +7,13 @@ import com.codebros.eripple.screen.base.BaseViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class LoginViewModel : BaseViewModel() {
+class SplashViewModel : BaseViewModel() {
 
     private val _loginState = MutableLiveData<Int>()
-    //private val repository : DefaultRepository = DefaultRepository()
 
     val loginState: LiveData<Int> = _loginState
 
-    fun postLoginState(id: String, psw: String, token: String?): Job =
+    fun autoLogin(id: String, psw: String, token: String?): Job =
         viewModelScope.launch(exceptionhandler) {
 
             val response = repository.loginAccount(id, psw, token)

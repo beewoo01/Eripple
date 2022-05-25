@@ -12,6 +12,9 @@ class ApplyExchangeViewModel : BaseViewModel() {
     private val _applyExchangeLiveData = MutableLiveData<HashMap<String, Int>?>()
     val applyExchangeLiveData: LiveData<HashMap<String, Int>?> = _applyExchangeLiveData
 
+    private val _applyExchangePointLiveData = MutableLiveData<Int?>()
+    val applyExchangePointLiveData: LiveData<Int?> = _applyExchangePointLiveData
+
     fun getPointSituation(account_idx: Int) = viewModelScope.launch(exceptionhandler) {
 
         val response = repository.getPointSituation(account_idx)
@@ -27,5 +30,21 @@ class ApplyExchangeViewModel : BaseViewModel() {
         }
 
     }
+
+    fun applyExchangePoint(account_idx: Int, applier_point: Int, setting_point: Int) =
+        viewModelScope.launch {
+
+            val response = repository.applyExchangePoint(account_idx, applier_point, setting_point)
+
+            if (response.isSuccessful) {
+
+                val result = response.body()
+                _applyExchangePointLiveData.value = result
+
+            } else {
+                _applyExchangePointLiveData.value = null
+            }
+
+        }
 
 }

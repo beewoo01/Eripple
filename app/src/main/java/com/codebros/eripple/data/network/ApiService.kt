@@ -1,6 +1,7 @@
 package com.codebros.eripple.data.network
 
 import com.codebros.eripple.data.entity.*
+import com.codebros.eripple.model.alarm.AlarmModel
 import com.codebros.eripple.model.sample.Post
 import retrofit2.Response
 import retrofit2.http.*
@@ -21,7 +22,8 @@ interface ApiService {
     @POST("loginAccount")
     suspend fun loginAccount(
         @Field("account_email") id: String,
-        @Field("account_password") psw: String
+        @Field("account_password") psw: String,
+        @Field("account_token") token : String?
     ): Response<Int>
 
     @FormUrlEncoded
@@ -115,5 +117,24 @@ interface ApiService {
     suspend fun getAccountInfo(
         @Field("account_idx") account_idx : Int
     ) : Response<AccountInfoEntity>
+
+    @GET("getAlarm")
+    suspend fun getAlarm(
+        @Query("account_idx") account_idx : Int
+    ) : Response<List<AlarmEntity>>
+
+    @FormUrlEncoded
+    @POST("updateAlarmState")
+    suspend fun updateAlarmState(
+        @Field("paramJson") paramJson : String
+    ) : Response<Int>
+
+    @FormUrlEncoded
+    @POST("applyExchangePoint")
+    suspend fun applyExchangePoint(
+        @Field("account_idx") account_idx : Int,
+        @Field("applier_point") applier_point : Int,
+        @Field("setting_point") setting_point : Int
+    ) : Response<Int>
 
 }

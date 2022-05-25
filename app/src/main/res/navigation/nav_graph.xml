@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_home_to_bookmark"
             app:destination="@id/bookmark" />
+        <action
+            android:id="@+id/action_home_to_eripple_info"
+            app:destination="@id/eripple_info" />
         <!--<action
             android:id="@+id/action_home_to_eripple_info."
             app:destination="@id/eripple_info" />-->

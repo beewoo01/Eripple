@@ -25,6 +25,11 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="Theme.Eripple.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/mainColor</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
 
     <style name="Text.Default.Normal" parent="android:TextAppearance">
         <item name="android:textStyle">normal</item>

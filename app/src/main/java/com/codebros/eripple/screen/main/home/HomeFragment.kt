@@ -1,26 +1,18 @@
 package com.codebros.eripple.screen.main.home
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.codebros.eripple.R
 import com.codebros.eripple.databinding.FragmentHomeBinding
 import com.codebros.eripple.model.event.EventWithThumbnail
 import com.codebros.eripple.model.event.SimpleErippleInfoWithBookmark
 import com.codebros.eripple.screen.base.BaseFragment
-import com.codebros.eripple.screen.main.eripple_info.ErippleInfoFragmentArgs
-import com.codebros.eripple.screen.main.event.EventViewModel
-import com.codebros.eripple.screen.main.my_point.MyPointFragment
+import com.codebros.eripple.screen.main.setting.notice.NoticeFragmentDirections
 import com.codebros.eripple.util.AccountInfoSingleton
 import com.codebros.eripple.util.provider.DefaultCustomResourcesProvider
 import com.codebros.eripple.widget.adapter.ModelRecyclerAdapter
@@ -48,9 +40,12 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
                     Log.wtf("adapter Click title", model.eripple_name)
                     /*val action = HomeFragmentDirections.actionHomeToErippleInfo(model.eripple_idx)*/
 
-                    findNavController().navigate(R.id.eripple_info, Bundle().apply {
-                        putInt("eripple_idx", model.eripple_idx)
-                    })
+                    /*findNavController().navigate(R.id.eripple_info,
+                        HomeFragmentDirections.actionHomeToErippleInfo(model.eripple_idx)
+                    })*/
+
+                    findNavController().navigate(HomeFragmentDirections.actionHomeToErippleInfo(model.eripple_idx))
+                    //findNavController().navigate(NoticeFragmentDirections.actionNoticeToNoticeDetail(model))
                 }
 
                 override fun onHeartClick(model: SimpleErippleInfoWithBookmark) {
@@ -91,9 +86,11 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         AccountInfoSingleton.account_idx?.let {
             viewModel.postMyCurrentPoint(it)
             viewModel.postMyBookMarkEripple(it)
+            viewModel.getAlarmList(it)
         }
 
         viewModel.postEvent()
+
     }
 
     @SuppressLint("SetTextI18n")
@@ -139,6 +136,19 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
             } ?: kotlin.run {
                 Log.wtf("eventList Size", "isNull")
                 //Event가 없거나 오류발생
+            }
+        }
+
+        viewModel.alarmList.observe(this@HomeFragment) {
+            it?.let { alramList ->
+                with(binding.alarmCountTxv) {
+                    if (alramList.count() > 0) {
+                        isVisible = true
+                        text = alramList.size.toString()
+                    } else {
+                        isVisible = false
+                    }
+                }
             }
         }
     }
