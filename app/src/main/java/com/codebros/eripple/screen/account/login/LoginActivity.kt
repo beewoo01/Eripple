@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.codebros.eripple.databinding.ActivityLoginBinding
+import com.codebros.eripple.screen.account.chagepsw.ChangePasswordActivity
 import com.codebros.eripple.screen.account.findpsw.FindPasswordActivity
 import com.codebros.eripple.screen.account.join.JoinActivity
 import com.codebros.eripple.screen.account.join.termsofuse.TermsOfUseActivity
@@ -26,15 +27,17 @@ class LoginActivity
 
     //private var fcmToken : String? = null
 
-    private val fcmToken by lazy {
-        intent.getStringExtra("fcmToken")
-    }
+    private var fcmToken : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        /*FirebaseMessaging.getInstance().token.addOnSuccessListener {
-            fcmToken = it
-        }*/
+        fcmToken = intent.getStringExtra("fcmToken")
+        if (fcmToken.isNullOrEmpty()) {
+            FirebaseMessaging.getInstance().token.addOnSuccessListener {
+                fcmToken = it
+            }
+        }
+
 
 
         //Log.wtf("deviceToken", )
@@ -50,6 +53,10 @@ class LoginActivity
         }
 
         changePswTxv.setOnClickListener {
+            /*startActivity(Intent(this@LoginActivity, ChangePasswordActivity::class.java).apply {
+                putExtra("name", "신현우")
+                putExtra("phone", "01024584516")
+            })*/
             startActivity(Intent(this@LoginActivity, FindPasswordActivity::class.java))
         }
 

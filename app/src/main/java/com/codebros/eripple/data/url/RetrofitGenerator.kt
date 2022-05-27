@@ -2,7 +2,6 @@ package com.codebros.eripple.data.url
 
 import com.codebros.eripple.data.network.ApiService
 import com.codebros.eripple.data.network.NullOnEmptyConverterFactory
-import com.codebros.eripple.data.url.DefaultUrl.LOCAL_URL
 import com.codebros.eripple.data.url.DefaultUrl.SAMPLE_URL
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
@@ -19,7 +18,7 @@ object RetrofitGenerator {
 
     private fun getClient(): Retrofit =
         Retrofit.Builder()
-            .baseUrl(LOCAL_URL)
+            .baseUrl(SAMPLE_URL)
             .client(buildOkHttpClient())
             .addConverterFactory(NullOnEmptyConverterFactory())
             .addConverterFactory(ScalarsConverterFactory.create())

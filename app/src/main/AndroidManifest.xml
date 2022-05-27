@@ -4,7 +4,8 @@
     package="com.codebros.eripple">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"
         tools:ignore="CoarseFineLocation" />
 
     <application
@@ -17,20 +18,27 @@
         android:theme="@style/Theme.Eripple"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".screen.account.join.niceapi.NiceApiActivity"
+            android:exported="false" />
+        <activity
             android:name=".screen.account.bank.SelectBankActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screen.account.bank.SelectBankActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".screen.account.chagepsw.ChangePasswordActivity"
             android:exported="false" />
 
         <activity
             android:name=".screen.splash.SplashActivity"
-            android:theme="@style/Theme.Eripple.Splash"
-            android:exported="true" >
-
+            android:exported="true"
+            android:theme="@style/Theme.Eripple.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".screen.account.join.termsofuse.TermsOfUseDetailActivity"
@@ -52,28 +60,26 @@
             android:name=".screen.main.MainActivity"
             android:exported="true"
             android:label="@string/title_activity_sample" />
-
         <activity
             android:name=".screen.account.login.LoginActivity"
             android:exported="true">
-            <!--<intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
         <activity
             android:name=".screen.sample.SampleActivity"
-            android:exported="true">
-
-        </activity>
-
+            android:exported="true"/>
         <activity android:name=".screen.account.join.JoinActivity" />
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakaoAppKey" />
-
     </application>
 
 </manifest>

@@ -8,8 +8,8 @@ import com.codebros.eripple.screen.base.BaseViewModel
 import kotlinx.coroutines.launch
 
 class SettingViewModel : BaseViewModel() {
-    private val _accountInfo = MutableLiveData<AccountInfo>()
-    val accountInfo: LiveData<AccountInfo> = _accountInfo
+    private val _accountInfo = MutableLiveData<AccountInfo?>()
+    val accountInfo: LiveData<AccountInfo?> = _accountInfo
 
     fun getAccountInfo(account_idx: Int) = viewModelScope.launch(exceptionhandler) {
         val response = repository.getAccountInfo(account_idx)

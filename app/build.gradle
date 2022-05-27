@@ -47,6 +47,12 @@ android {
             universalApk false
         }
     }
+
+    sourceSets {
+        main{
+            assets.srcDirs = ['src/main/assets']
+        }
+    }
 }
 
 dependencies {

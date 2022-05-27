@@ -2,6 +2,7 @@ package com.codebros.eripple.data.network
 
 import com.codebros.eripple.data.entity.*
 import com.codebros.eripple.model.alarm.AlarmModel
+import com.codebros.eripple.model.bank.Bank
 import com.codebros.eripple.model.sample.Post
 import retrofit2.Response
 import retrofit2.http.*
@@ -33,6 +34,8 @@ interface ApiService {
         @Field("account_phone") phone: String,
         @Field("account_password") password: String,
         @Field("account_email") email: String,
+        @Field("bankAccount") bankAccount: String,
+        @Field("bank_idx") bank_idx: Int,
     ): Response<Int>
 
     @FormUrlEncoded
@@ -135,6 +138,29 @@ interface ApiService {
         @Field("account_idx") account_idx : Int,
         @Field("applier_point") applier_point : Int,
         @Field("setting_point") setting_point : Int
+    ) : Response<Int>
+
+    @FormUrlEncoded
+    @POST("getAccountInfoForChangePsw")
+    suspend fun getAccountInfoForChangePsw(
+        @Field("account_phone") account_phone : String,
+        @Field("account_name") account_name : String
+    ) : Response<Int>
+
+    @FormUrlEncoded
+    @POST("changePsw")
+    suspend fun changePsw(
+        @Field("account_password") account_password : String,
+        @Field("account_idx") account_idx : Int
+    ) : Response<Int>
+
+    @FormUrlEncoded
+    @POST("leaveAccount")
+    suspend fun leaveAccount(
+        @Field("account_idx") account_idx :Int,
+        @Field("account_phone") account_phone :String,
+        @Field("account_password") account_password :String,
+        @Field("account_name") account_name :String,
     ) : Response<Int>
 
 }

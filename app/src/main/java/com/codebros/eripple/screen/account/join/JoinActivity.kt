@@ -1,5 +1,6 @@
 package com.codebros.eripple.screen.account.join
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -7,9 +8,14 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import com.codebros.eripple.R
 import com.codebros.eripple.databinding.ActivityJoinBinding
+import com.codebros.eripple.model.bank.Bank
+import com.codebros.eripple.screen.account.bank.SelectBankActivity
+import com.codebros.eripple.screen.account.bank.SelectBankActivity2
 import com.codebros.eripple.screen.base.BaseActivity
 import java.util.regex.Pattern
 
@@ -21,9 +27,32 @@ class JoinActivity : BaseActivity<JoinViewModel, ActivityJoinBinding>() {
 
     private val pattern = android.util.Patterns.EMAIL_ADDRESS
 
+    private var paramModel: Bank? = null
+    private var bank_idx : Int = 0
+
+    private var fixName = ""
+    private var fixphone = ""
+
     private val spinnerItems = arrayOf("gmail.com", "naver.com", "daum.net", "nate.com")
 
     override fun initViews() = with(binding) {
+
+        val intent = intent
+        val name = intent.getStringExtra("name")
+        val phone = intent.getStringExtra("phone")
+
+        if (!name.isNullOrEmpty()) {
+            fixName = intent.getStringExtra("name").toString()
+            nameEdt.setText(name)
+
+        }
+        if(!phone.isNullOrEmpty()) {
+            fixphone = intent.getStringExtra("phone").toString()
+            phoneEdt.setText(phone)
+        }
+
+        nameEdt.isEnabled = false
+        phoneEdt.isEnabled = false
 
         joinBtn.setOnClickListener {
             availability()
@@ -34,7 +63,7 @@ class JoinActivity : BaseActivity<JoinViewModel, ActivityJoinBinding>() {
         }
 
         selectBankTxv.setOnClickListener {
-
+            getResult.launch(Intent(this@JoinActivity, SelectBankActivity2::class.java))
         }
 
         val adapter = ArrayAdapter(
@@ -47,6 +76,17 @@ class JoinActivity : BaseActivity<JoinViewModel, ActivityJoinBinding>() {
         mailSubSpn.adapter = adapter
 
     }
+
+    private val getResult: ActivityResultLauncher<Intent> =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == RESULT_OK) {
+                paramModel = it.data?.getParcelableExtra("model")
+                paramModel?.let { model ->
+                    showToast("${model.bank_name}을 선택하였습니다.")
+                }
+            }
+        }
+
 
     private fun availability() = with(binding) {
         if (nameEdt.text.toString().isEmpty()) {
@@ -69,12 +109,30 @@ class JoinActivity : BaseActivity<JoinViewModel, ActivityJoinBinding>() {
             showToast("이메일을 정확히 입력해주세요.")
 
         } else {
+            var bankAccount = "0"
+            paramModel?.let {
+                bank_idx = it.bank_idx
+            } ?: kotlin.run {
+                bankAccount = "0"
+            }
+            bankAccount = bankAccountEdt.text.toString().ifEmpty {
+                bank_idx = 0
+                "0"
+            }
+
+            if (paramModel == null || bankAccountEdt.text.toString().isEmpty()) {
+                bank_idx = 0
+                bankAccount = "0"
+            }
+
 
             viewModel.postJoinState(
                 nameEdt.text.toString(),
                 phoneEdt.text.toString(),
                 passwordEdt.text.toString(),
-                emailEdt.text.toString() + "@${mailSubSpn.selectedItem}"
+                emailEdt.text.toString() + "@${mailSubSpn.selectedItem}",
+                bankAccount,
+                bank_idx
             )
         }
 

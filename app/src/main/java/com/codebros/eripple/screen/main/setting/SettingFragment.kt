@@ -22,9 +22,9 @@ class SettingFragment : BaseFragment<SettingViewModel, FragmentSettingBinding>()
 
     override fun observeData() = with(binding) {
         viewModel.accountInfo.observe(this@SettingFragment) { model ->
-            nameTxv.text = model.account_name
+            nameTxv.text = model?.account_name
             phoneTxv.text =
-                PhoneNumberUtils.formatNumber(model.account_phone, Locale.getDefault().country)
+                PhoneNumberUtils.formatNumber(model?.account_phone, Locale.getDefault().country)
 
         }
 

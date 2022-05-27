@@ -530,6 +530,7 @@
 
     <string name="kakaoAppKey">edd624c671b363606c7502a9d09ae6b7</string>
     <string name="kakaoChatId">_xhcvtb</string>
+    <string name="cancel">취소</string>
 
 
 </resources>

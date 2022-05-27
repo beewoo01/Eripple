@@ -29,6 +29,7 @@
         <item name="android:includeFontPadding">false</item>
     </style>
 
+
     <style name="Widget.eripple.Button" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/round_3dp_bg</item>
         <!--<item name="android:background">@drawable/bg_default_button</item>-->
@@ -42,6 +43,29 @@
         <item name="itemTextColor">@color/defaultEditHintColor</item>
         <item name="android:textColor">@color/defaultEditHintColor</item>
 
+    </style>
+
+    <style name="FullScreenDialogStyle" parent="Theme.AppCompat.Dialog">
+
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:textColor">@color/defaultBlackTextColor</item>
+
+        <!-- Set this to true if you want Full Screen without status bar -->
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowIsFloating">false</item>
+
+        <!-- This is important! Don't forget to set window background -->
+        <item name="android:windowBackground">@color/white</item>
+
+        <!-- Additionally if you want animations when dialog opening -->
+        <!--        <item name="android:windowEnterAnimation">@anim/slide_up</item>-->
+        <!--        <item name="android:windowExitAnimation">@anim/slide_down</item>-->
+    </style>
+
+    <style name="AnimationPopupStyle">
+
+        <item name="android:windowEnterAnimation">@anim/dialog_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_fade_out</item>
     </style>
 
 

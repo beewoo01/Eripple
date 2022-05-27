@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import com.codebros.eripple.R
 import com.codebros.eripple.databinding.ActivityTermsOfUseBinding
 import com.codebros.eripple.screen.account.join.JoinActivity
+import com.codebros.eripple.screen.account.join.niceapi.NiceApiActivity
 
 class TermsOfUseActivity : AppCompatActivity() {
 
@@ -70,8 +71,11 @@ class TermsOfUseActivity : AppCompatActivity() {
             return@with
         }
 
-        // TODO: PASS연동 ㄱㄱ
-        startActivity(Intent(this@TermsOfUseActivity, JoinActivity::class.java))
+
+        startActivity(
+            Intent(this@TermsOfUseActivity, NiceApiActivity::class.java)
+                .putExtra("requester", 0)
+        )
         finish()
 
     }

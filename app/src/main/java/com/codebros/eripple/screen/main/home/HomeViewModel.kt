@@ -26,8 +26,8 @@ class HomeViewModel : BaseViewModel() {
     private val _eventList = MutableLiveData<List<EventWithThumbnail>?>()
     val eventList: LiveData<List<EventWithThumbnail>?> = _eventList
 
-    private val _alarmLivaData = MutableLiveData<List<AlarmModel>>()
-    val alarmList : LiveData<List<AlarmModel>> = _alarmLivaData
+    private val _alarmLivaData = MutableLiveData<List<AlarmModel>?>()
+    val alarmList : LiveData<List<AlarmModel>?> = _alarmLivaData
 
 
     fun getMyCurrentPoint(account_idx: Int): Job = viewModelScope.launch {
