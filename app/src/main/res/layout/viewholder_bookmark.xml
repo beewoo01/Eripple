@@ -24,7 +24,7 @@
         app:layout_constraintStart_toStartOf="@id/startViewPad"
         app:layout_constraintTop_toTopOf="@id/startViewPad"
         app:layout_constraintEnd_toEndOf="@id/startViewPad"
-        tools:text="삼락공원 에리플1" />
+        tools:text="삼락공원 우리집재활용1" />
 
     <View
         android:id="@+id/startViewPad"

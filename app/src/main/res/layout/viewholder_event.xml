@@ -47,7 +47,7 @@
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/event_img_imv"
-        tools:text="에리플 클린데이" />
+        tools:text="우리집재활용 클린데이" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

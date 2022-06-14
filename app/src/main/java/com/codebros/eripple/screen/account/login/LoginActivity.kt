@@ -14,6 +14,7 @@ import com.codebros.eripple.screen.account.join.termsofuse.TermsOfUseActivity
 import com.codebros.eripple.screen.base.BaseActivity
 import com.codebros.eripple.screen.main.MainActivity
 import com.codebros.eripple.util.AccountInfoSingleton
+import com.codebros.eripple.util.theme.ThemeManager
 import com.google.firebase.iid.internal.FirebaseInstanceIdInternal
 import com.google.firebase.messaging.FirebaseMessaging
 
@@ -38,11 +39,17 @@ class LoginActivity
             }
         }
 
+        ThemeManager.applyTheme(ThemeManager.ThemeMode.DARK)
+
 
 
         //Log.wtf("deviceToken", )
         initViews()
 
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
     }
 
     override fun initViews() = with(binding) {

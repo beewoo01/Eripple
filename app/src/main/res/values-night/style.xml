@@ -94,8 +94,7 @@
     </style>
 
     <style name="CustomSpinner" parent="Widget.AppCompat.Light.DropDownItem.Spinner">
-        <item name="android:textColor">@color/defaultBlackTextColor</item>
-
+        <item name="tabSelectedTextColor">@color/defaultBlackTextColor</item>
     </style>
 
     <!--<style name="Widget.eripple.Toolbar.WithClose" parent="Widget.eripple.Toolbar">

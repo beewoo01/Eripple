@@ -122,6 +122,8 @@
             android:inputType="date"
             android:paddingStart="14dp"
             android:textSize="15sp"
+            android:textColor="@color/defaultBlackTextColor"
+            android:textColorHint="@color/defaultEditHintColor"
             tools:ignore="RtlSymmetry" />
 
     </LinearLayout>

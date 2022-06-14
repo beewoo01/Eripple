@@ -32,7 +32,7 @@
         app:layout_constraintBottom_toTopOf="@id/point_txv"
         app:layout_constraintStart_toEndOf="@id/more_imb"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="삼락공원 에리플1" />-->
+        tools:text="삼락공원 우리집재활용1" />-->
 
     <TextView
         android:id="@+id/point_txv"

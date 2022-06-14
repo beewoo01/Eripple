@@ -14,8 +14,8 @@
 
         <ImageView
             android:id="@+id/logo_imv"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="@id/end_guidLine"
             app:layout_constraintStart_toStartOf="@id/start_guidLine"
             app:layout_constraintBottom_toTopOf="@id/center_guidLine"
@@ -35,7 +35,8 @@
             android:importantForAutofill="no"
             android:inputType="textEmailAddress"
             android:maxLines="1"
-
+            android:textColor="@color/defaultBlackTextColor"
+            android:textColorHint="@color/defaultEditHintColor"
             android:paddingHorizontal="17dp"
             android:fontFamily="@font/app_font"
             android:textSize="15sp"
@@ -56,6 +57,8 @@
             android:maxLines="1"
             android:paddingHorizontal="17dp"
             android:textSize="15sp"
+            android:textColor="@color/defaultBlackTextColor"
+            android:textColorHint="@color/defaultEditHintColor"
             app:layout_constraintEnd_toEndOf="@id/end_guidLine"
             app:layout_constraintStart_toStartOf="@id/start_guidLine"
             app:layout_constraintTop_toBottomOf="@id/email_edt" />
@@ -75,7 +78,6 @@
             app:layout_constraintTop_toBottomOf="@id/pws_edt"
             />
 
-
         <CheckBox
             android:id="@+id/auto_login_rb"
             android:layout_width="wrap_content"
@@ -94,11 +96,12 @@
         <TextView
             android:id="@+id/changePsw_txv"
             style="@style/Text.Default.Normal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
             android:text="@string/change_psw"
             android:textColor="@color/defaultGrayTextColor"
             android:textSize="15sp"
+            android:gravity="center"
             app:layout_constraintTop_toTopOf="@id/line"
             app:layout_constraintBottom_toBottomOf="@id/line"
             app:layout_constraintEnd_toStartOf="@id/line"
@@ -122,11 +125,12 @@
 
         <TextView
             android:id="@+id/join_txv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
             android:text="@string/join"
             android:textColor="@color/defaultGrayTextColor"
             android:textSize="15sp"
+            android:gravity="center"
             app:layout_constraintTop_toTopOf="@id/line"
             app:layout_constraintEnd_toEndOf="@id/end_guidLine"
             app:layout_constraintHorizontal_chainStyle="packed"

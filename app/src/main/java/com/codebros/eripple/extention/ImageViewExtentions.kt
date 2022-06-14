@@ -40,8 +40,9 @@ fun ImageView.load(
     )
 
     Glide.with(this).load(glideUrl)
-        .placeholder(androidx.constraintlayout.widget.R.drawable.notification_bg_low)
-        .error(androidx.appcompat.R.drawable.tooltip_frame_dark)
+        .placeholder(androidx.constraintlayout.widget.R.drawable.tooltip_frame_dark)
+        .error(R.drawable.noimage)
+        //.error(androidx.appcompat.R.drawable.tooltip_frame_dark)
         .transition(DrawableTransitionOptions.withCrossFade(factory))
         .diskCacheStrategy(DiskCacheStrategy.ALL)
         .apply {
@@ -50,8 +51,8 @@ fun ImageView.load(
                 transform(RoundedCorners(corner.fromDpToPx()))
             }
         }
-
         .into(this)
+
 
 }
 

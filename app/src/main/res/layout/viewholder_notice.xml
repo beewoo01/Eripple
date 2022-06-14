@@ -24,7 +24,7 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/more_imb"
-        tools:text="[공지사항] 에리플 송식 앱이 출시되었습니다!" />
+        tools:text="[공지사항] 우리집재활용 송식 앱이 출시되었습니다!" />
 
 
     <ImageButton
@@ -67,7 +67,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/line"
-        tools:text="에리플 기기와 완벽하게 연동되는 에리플 공식 앱이 출시되었 습니다. 많은 이용 부탁드립니다 :)" />
+        tools:text="우리집재활용 기기와 완벽하게 연동되는 우리집재활용 공식 앱이 출시되었 습니다. 많은 이용 부탁드립니다 :)" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/content_group"

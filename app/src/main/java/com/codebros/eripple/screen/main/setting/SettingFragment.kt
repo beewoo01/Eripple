@@ -1,5 +1,7 @@
 package com.codebros.eripple.screen.main.setting
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.telephony.PhoneNumberUtils
 import android.view.View
@@ -67,12 +69,16 @@ class SettingFragment : BaseFragment<SettingViewModel, FragmentSettingBinding>()
         }
 
         inquiryPhone.setOnClickListener {
-
+            makingPhoneCall()
         }
 
         inquiryKakao.setOnClickListener {
             initKakaoPlusChannel()
         }
+    }
+
+    private fun makingPhoneCall() {
+        startActivity(Intent(Intent.ACTION_DIAL, Uri.parse("tel:051-265-4470")) )
     }
 
     private fun initKakaoPlusChannel(){

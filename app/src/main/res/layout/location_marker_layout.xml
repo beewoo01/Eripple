@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/marker_ball"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/eripple_name_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15sp"
+        android:textColor="@color/defaultBlackTextColor"
+        android:textSize="18sp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="에리플 이름1" />
+
+
+    <TextView
+        android:id="@+id/eripple_address_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/defaultBlackTextColor"
+        android:textSize="15sp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintBottom_toTopOf="@id/address_detail_txv"
+        app:layout_constraintStart_toStartOf="@id/eripple_name_txv"
+        app:layout_constraintTop_toBottomOf="@id/eripple_name_txv"
+        tools:text="부산시 사상구 사상로 330 5층" />
+
+    <TextView
+        android:id="@+id/address_detail_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="12dp"
+        android:textColor="@color/defaultBlackTextColor"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/eripple_address_txv"
+        app:layout_constraintStart_toStartOf="@id/eripple_address_txv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintBottom_toTopOf="@id/eripple_thumbnail_img"
+        tools:text="코드브로스"
+        />
+
+
+    <ImageView
+        android:id="@+id/eripple_thumbnail_img"
+        android:layout_width="250dp"
+        android:layout_height="120dp"
+        android:layout_marginVertical="15dp"
+        android:layout_marginHorizontal="12dp"
+        android:contentDescription="@string/eripple_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/address_detail_txv"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:src="@drawable/event_banner" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

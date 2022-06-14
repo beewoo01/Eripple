@@ -28,6 +28,7 @@ import com.codebros.eripple.util.AccountInfoSingleton
 import com.codebros.eripple.util.GpsTracker
 import com.codebros.eripple.util.provider.DefaultCustomResourcesProvider
 import com.codebros.eripple.widget.adapter.ModelRecyclerAdapter
+import com.codebros.eripple.widget.adapter.kakao.CustomBalloonAdapter
 import com.codebros.eripple.widget.adapter.listener.eripple.ErippleAdapterListener
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
@@ -194,12 +195,18 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
     }
 
     private fun initMapView() {
-        mapView = MapView(requireActivity())
+        if (mapView == null) {
+            Log.wtf("initMapView", "mapview is null!!")
+            mapView = MapView(requireActivity())
 
-        mapView?.zoomIn(true)
-        mapView?.zoomOut(true)
-        binding.mapContainer.addView(mapView)
-        resetMarkers()
+            mapView?.zoomIn(true)
+            mapView?.zoomOut(true)
+            binding.mapContainer.addView(mapView)
+            resetMarkers()
+        } else {
+            Log.wtf("initMapView", "mapview is not null")
+        }
+
     }
 
     private fun search(text: String) {
@@ -256,12 +263,14 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
         val selectedErippleIdx = args.selectedIdx
         mapView?.let {
             it.removePOIItems(it.poiItems)
+            it.setCalloutBalloonAdapter(CustomBalloonAdapter(layoutInflater))
             viewModel.erippleList.value.let { list ->
                 list?.let { erippleList ->
                     val markers = arrayOfNulls<MapPOIItem>(erippleList.size)
                     for ((index, model) in list.withIndex()) {
                         markers[index] = MapPOIItem()
                         markers[index]?.apply {
+                            userObject = model
                             tag = model.eripple_idx
                             mapPoint = MapPoint.mapPointWithGeoCoord(
                                 model.eripple_latitude.toDouble(),

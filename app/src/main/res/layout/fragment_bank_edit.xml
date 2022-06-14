@@ -51,6 +51,8 @@
         android:inputType="number"
         android:paddingStart="17dp"
         android:textSize="15sp"
+        android:textColor="@color/defaultBlackTextColor"
+        android:textColorHint="@color/defaultEditHintColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/account_number"

@@ -52,7 +52,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="에리플 APP 출시 이벤트" />
+                tools:text="우리집재활용 APP 출시 이벤트" />
 
             <ImageView
                 android:id="@+id/thumbnail_imv"

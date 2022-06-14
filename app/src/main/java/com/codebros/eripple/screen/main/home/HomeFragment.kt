@@ -48,6 +48,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
                     //findNavController().navigate(NoticeFragmentDirections.actionNoticeToNoticeDetail(model))
                 }
 
+
                 override fun onHeartClick(model: SimpleErippleInfoWithBookmark) {
                     Log.wtf("adapter onHeartClick Click title", model.eripple_name)
                 }
@@ -108,9 +109,20 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
             it?.let { result ->
 
                 bookMarkAdapter.submitList(result.toMutableList())
-                moreBookmarkTxv.isVisible = result.count() >= 1
+                if (result.isNotEmpty()) {
+                    moreBookmarkTxv.isVisible = true
+                    bookmarkRecyclerView.isVisible = true
+                    haveNoBookmarkTxv.visibility = View.INVISIBLE
+                } else {
+                    moreBookmarkTxv.isVisible = false
+                    bookmarkRecyclerView.visibility = View.INVISIBLE
+                    haveNoBookmarkTxv.visibility = View.VISIBLE
+                }
+
             } ?: kotlin.run {
                 moreBookmarkTxv.isVisible = false
+                bookmarkRecyclerView.visibility = View.INVISIBLE
+                haveNoBookmarkTxv.visibility = View.VISIBLE
                 //BookMark 한게 없거나 오류 발생
             }
         }

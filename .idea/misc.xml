@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../.gradle/caches/transforms-3/9a0788ce434e2d200906b1e53017e1cf/transformed/appcompat-1.4.2/res/drawable/tooltip_frame_dark.xml" value="0.153" />
         <entry key="../../../../.gradle/caches/transforms-3/aec237d7615e5b5f19aac02e97eeb357/transformed/core-1.7.0/res/drawable/notification_bg_low.xml" value="0.1325" />
+        <entry key="../../../../Library/Android/sdk/platforms/android-32/data/res/layout/simple_spinner_item.xml" value="0.13142498955286253" />
         <entry key="../.gradle/caches/transforms-3/234a538a20b20407a3c9b7e7a53bb83d/transformed/core-1.7.0/res/drawable/notification_bg_low.xml" value="0.204" />
         <entry key="../.gradle/caches/transforms-3/b07e2ea96ad9bd2cb8ab939ac9c3a895/transformed/appcompat-1.4.1/res/drawable/abc_btn_check_material.xml" value="0.204" />
         <entry key="../.gradle/caches/transforms-3/b07e2ea96ad9bd2cb8ab939ac9c3a895/transformed/appcompat-1.4.1/res/drawable/abc_edit_text_material.xml" value="0.204" />
@@ -46,13 +48,17 @@
         <entry key="../eripple/app/src/main/res/drawable/ic_faq_icon.xml" value="0.2235" />
         <entry key="../eripple/app/src/main/res/drawable/ic_full_heart.xml" value="0.1325" />
         <entry key="../eripple/app/src/main/res/drawable/ic_history_bottom_nav_icon.xml" value="0.218" />
+        <entry key="../eripple/app/src/main/res/drawable/ic_home_logo.xml" value="0.153" />
         <entry key="../eripple/app/src/main/res/drawable/ic_kakaochat_logo.xml" value="0.4155" />
         <entry key="../eripple/app/src/main/res/drawable/ic_location_icon.xml" value="0.218" />
+        <entry key="../eripple/app/src/main/res/drawable/ic_login_logo_with_txt.xml" value="0.153" />
         <entry key="../eripple/app/src/main/res/drawable/ic_phone_icon.xml" value="0.4155" />
         <entry key="../eripple/app/src/main/res/drawable/ic_point_fab_icon.xml" value="0.335" />
         <entry key="../eripple/app/src/main/res/drawable/ic_right_white_arrow.xml" value="0.222" />
         <entry key="../eripple/app/src/main/res/drawable/ic_sample_arrow_down.xml" value="0.1825" />
         <entry key="../eripple/app/src/main/res/drawable/ic_sample_home.xml" value="0.1705" />
+        <entry key="../eripple/app/src/main/res/drawable/ic_splash_logo.xml" value="0.153" />
+        <entry key="../eripple/app/src/main/res/drawable/marker_ball.xml" value="0.153" />
         <entry key="../eripple/app/src/main/res/drawable/round_3dp_bg.xml" value="0.209" />
         <entry key="../eripple/app/src/main/res/drawable/round_3dp_edit_bg.xml" value="0.268" />
         <entry key="../eripple/app/src/main/res/drawable/round_8dp_edit_bg.xml" value="0.219" />
@@ -68,7 +74,7 @@
         <entry key="../eripple/app/src/main/res/layout/activity_change_password.xml" value="0.165" />
         <entry key="../eripple/app/src/main/res/layout/activity_find_password.xml" value="0.335" />
         <entry key="../eripple/app/src/main/res/layout/activity_join.xml" value="0.25" />
-        <entry key="../eripple/app/src/main/res/layout/activity_login.xml" value="0.335" />
+        <entry key="../eripple/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="../eripple/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="../eripple/app/src/main/res/layout/activity_nice_api.xml" value="0.13994439295644115" />
         <entry key="../eripple/app/src/main/res/layout/activity_sample.xml" value="0.4719965797349295" />
@@ -77,12 +83,12 @@
         <entry key="../eripple/app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="../eripple/app/src/main/res/layout/activity_terms_of_use.xml" value="0.335" />
         <entry key="../eripple/app/src/main/res/layout/activity_terms_of_use_detail.xml" value="0.19804296958094023" />
-        <entry key="../eripple/app/src/main/res/layout/container_eripple_box.xml" value="0.335" />
+        <entry key="../eripple/app/src/main/res/layout/container_eripple_box.xml" value="0.25" />
         <entry key="../eripple/app/src/main/res/layout/dialog_out_account.xml" value="0.335" />
         <entry key="../eripple/app/src/main/res/layout/event_fragment.xml" value="0.335" />
         <entry key="../eripple/app/src/main/res/layout/fragment_account_setting.xml" value="0.335" />
         <entry key="../eripple/app/src/main/res/layout/fragment_alarm.xml" value="0.335" />
-        <entry key="../eripple/app/src/main/res/layout/fragment_apply_exchange.xml" value="0.335" />
+        <entry key="../eripple/app/src/main/res/layout/fragment_apply_exchange.xml" value="0.25" />
         <entry key="../eripple/app/src/main/res/layout/fragment_back_edit.xml" value="0.28131680205215903" />
         <entry key="../eripple/app/src/main/res/layout/fragment_bank_edit.xml" value="0.25" />
         <entry key="../eripple/app/src/main/res/layout/fragment_book_mark.xml" value="0.335" />
@@ -94,13 +100,14 @@
         <entry key="../eripple/app/src/main/res/layout/fragment_f_a_q.xml" value="0.165" />
         <entry key="../eripple/app/src/main/res/layout/fragment_find_password.xml" value="0.25" />
         <entry key="../eripple/app/src/main/res/layout/fragment_history.xml" value="0.25" />
-        <entry key="../eripple/app/src/main/res/layout/fragment_home.xml" value="0.335" />
+        <entry key="../eripple/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="../eripple/app/src/main/res/layout/fragment_my_point.xml" value="0.25" />
         <entry key="../eripple/app/src/main/res/layout/fragment_notice.xml" value="0.28131680205215903" />
         <entry key="../eripple/app/src/main/res/layout/fragment_notice_detail.xml" value="0.165" />
         <entry key="../eripple/app/src/main/res/layout/fragment_out_account.xml" value="0.335" />
         <entry key="../eripple/app/src/main/res/layout/fragment_setting.xml" value="0.45" />
         <entry key="../eripple/app/src/main/res/layout/fragment_test.xml" value="0.29884566053869177" />
+        <entry key="../eripple/app/src/main/res/layout/location_marker_layout.xml" value="0.25" />
         <entry key="../eripple/app/src/main/res/layout/viewholder_alarm.xml" value="0.25" />
         <entry key="../eripple/app/src/main/res/layout/viewholder_bookmark.xml" value="0.28131680205215903" />
         <entry key="../eripple/app/src/main/res/layout/viewholder_eripple.xml" value="0.375" />

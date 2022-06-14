@@ -115,6 +115,7 @@ class SplashActivity : BaseActivity<SplashViewModel, ActivitySplashBinding>() {
 
     private fun moveAct(intent: Intent) {
         startActivity(intent)
+        finish()
     }
 
     private val fadeOutAnimation by lazy {

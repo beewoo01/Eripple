@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="삼락공원 에리플1" />
+        tools:text="삼락공원 우리집재활용1" />
 
 
 

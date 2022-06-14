@@ -1,23 +1,21 @@
 package com.codebros.eripple.screen.account.join
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import com.codebros.eripple.R
 import com.codebros.eripple.databinding.ActivityJoinBinding
 import com.codebros.eripple.model.bank.Bank
-import com.codebros.eripple.screen.account.bank.SelectBankActivity
 import com.codebros.eripple.screen.account.bank.SelectBankActivity2
 import com.codebros.eripple.screen.base.BaseActivity
-import java.util.regex.Pattern
+
 
 class JoinActivity : BaseActivity<JoinViewModel, ActivityJoinBinding>() {
 
@@ -28,7 +26,7 @@ class JoinActivity : BaseActivity<JoinViewModel, ActivityJoinBinding>() {
     private val pattern = android.util.Patterns.EMAIL_ADDRESS
 
     private var paramModel: Bank? = null
-    private var bank_idx : Int = 0
+    private var bank_idx: Int = 0
 
     private var fixName = ""
     private var fixphone = ""
@@ -46,7 +44,7 @@ class JoinActivity : BaseActivity<JoinViewModel, ActivityJoinBinding>() {
             nameEdt.setText(name)
 
         }
-        if(!phone.isNullOrEmpty()) {
+        if (!phone.isNullOrEmpty()) {
             fixphone = intent.getStringExtra("phone").toString()
             phoneEdt.setText(phone)
         }
@@ -73,7 +71,10 @@ class JoinActivity : BaseActivity<JoinViewModel, ActivityJoinBinding>() {
             android.R.layout.simple_spinner_dropdown_item
         )
 
+        //adapter.
+
         mailSubSpn.adapter = adapter
+        mailSubSpn.onItemSelectedListener = onSelectedSpinnerItemListener
 
     }
 
@@ -138,6 +139,20 @@ class JoinActivity : BaseActivity<JoinViewModel, ActivityJoinBinding>() {
 
     }
 
+    private val onSelectedSpinnerItemListener = object : AdapterView.OnItemSelectedListener {
+        override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+            (p0?.getChildAt(0) as TextView).setTextColor(
+                ContextCompat.getColor(
+                    this@JoinActivity,
+                    R.color.defaultBlackTextColor
+                )
+            )
+        }
+
+        override fun onNothingSelected(p0: AdapterView<*>?) = Unit
+
+    }
+
 
     override fun observeData() {
 
@@ -147,7 +162,25 @@ class JoinActivity : BaseActivity<JoinViewModel, ActivityJoinBinding>() {
                 null -> {
                     showToast("회원가입에 실패하였습니다.")
                 }
+
+                -1 -> {
+                    showToast("이미 가입된 메일입니다.")
+                }
+
+                0 -> {
+                    showToast("회원가입에 성공하였습니다.")
+                    finish()
+                }
+
                 1 -> {
+                    showToast("이미 가입된 사용자입니다.")
+                }
+
+                else -> {
+                    showToast("회원가입에 실패하였습니다.")
+                }
+
+                /*1 -> {
                     showToast("회원가입에 성공하였습니다.")
                     finish()
                 }
@@ -156,7 +189,7 @@ class JoinActivity : BaseActivity<JoinViewModel, ActivityJoinBinding>() {
                 }
                 -2 -> {
                     showToast("회원가입에 실패하였습니다.")
-                }
+                }*/
             }
 
         }

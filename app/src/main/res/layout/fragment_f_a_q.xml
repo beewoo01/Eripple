@@ -42,10 +42,12 @@
         android:paddingStart="17dp"
         android:paddingEnd="20dp"
         android:textSize="15sp"
+        android:textColor="@color/defaultBlackTextColor"
+        android:textColorHint="@color/defaultEditHintColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
-        tools:ignore="RtlSymmetry" />
+        tools:ignore="RtlSymmetry,TouchTargetSizeCheck" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_faq"
