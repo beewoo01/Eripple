@@ -11,8 +11,8 @@ import com.codebros.eripple.R
 import com.codebros.eripple.databinding.FragmentSettingBinding
 import com.codebros.eripple.screen.base.BaseFragment
 import com.codebros.eripple.util.AccountInfoSingleton
-import com.kakao.sdk.common.util.KakaoCustomTabsClient
-import com.kakao.sdk.talk.TalkApiClient
+/*import com.kakao.sdk.common.util.KakaoCustomTabsClient
+import com.kakao.sdk.talk.TalkApiClient*/
 import java.util.*
 
 class SettingFragment : BaseFragment<SettingViewModel, FragmentSettingBinding>() {
@@ -83,8 +83,8 @@ class SettingFragment : BaseFragment<SettingViewModel, FragmentSettingBinding>()
 
     private fun initKakaoPlusChannel(){
 
-        val url = TalkApiClient.instance.channelChatUrl(getString(R.string.kakaoChatId))
-        KakaoCustomTabsClient.open(requireContext(), url)
+        /*val url = TalkApiClient.instance.channelChatUrl(getString(R.string.kakaoChatId))
+        KakaoCustomTabsClient.open(requireContext(), url)*/
 
     }
 }

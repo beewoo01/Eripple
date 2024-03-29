@@ -15,9 +15,10 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import com.codebros.eripple.databinding.FragmentTestBinding
 import com.codebros.eripple.screen.base.BaseFragment
+import com.naver.maps.map.MapView
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
-import net.daum.mf.map.api.MapView
+//import net.daum.mf.map.api.MapView
 
 class TestFragment : BaseFragment<TestViewModel, FragmentTestBinding>() {
 
@@ -125,7 +126,7 @@ class TestFragment : BaseFragment<TestViewModel, FragmentTestBinding>() {
     }
 
     private fun setMapView() {
-        mapView = MapView(requireActivity())
+        /*mapView = MapView(requireActivity())
 
         Log.wtf("setMapView", "true")
         mapView.setMapCenterPointAndZoomLevel(
@@ -143,7 +144,7 @@ class TestFragment : BaseFragment<TestViewModel, FragmentTestBinding>() {
         marker.tag = 0
         marker.markerType = MapPOIItem.MarkerType.BluePin
         mapView.addPOIItem(marker)
-        binding.mapLayout.addView(mapView)
+        binding.mapLayout.addView(mapView)*/
     }
 
 

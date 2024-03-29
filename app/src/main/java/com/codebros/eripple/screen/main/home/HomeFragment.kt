@@ -12,6 +12,7 @@ import com.codebros.eripple.databinding.FragmentHomeBinding
 import com.codebros.eripple.model.event.EventWithThumbnail
 import com.codebros.eripple.model.event.SimpleErippleInfoWithBookmark
 import com.codebros.eripple.screen.base.BaseFragment
+import com.codebros.eripple.screen.main.MainActivity
 import com.codebros.eripple.screen.main.setting.notice.NoticeFragmentDirections
 import com.codebros.eripple.util.AccountInfoSingleton
 import com.codebros.eripple.util.provider.DefaultCustomResourcesProvider
@@ -44,7 +45,8 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
                         HomeFragmentDirections.actionHomeToErippleInfo(model.eripple_idx)
                     })*/
 
-                    findNavController().navigate(HomeFragmentDirections.actionHomeToErippleInfo(model.eripple_idx))
+//                    findNavController().navigate(HomeFragmentDirections.actionHomeToErippleInfo(model.eripple_idx))
+                    (requireActivity() as MainActivity).setNavigate(MainActivity.ERIPPLE_INFO, param = model.eripple_idx)
                     //findNavController().navigate(NoticeFragmentDirections.actionNoticeToNoticeDetail(model))
                 }
 
@@ -65,15 +67,17 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
             bookmarkRecyclerView.adapter = bookMarkAdapter
 
             allPointContainer.setOnClickListener {
-                findNavController().navigate(R.id.my_point)
+                (requireActivity() as MainActivity).setNavigate(MainActivity.MY_POINT)
+                //findNavController().navigate(R.id.my_point)
             }
 
             moreBookmarkTxv.setOnClickListener {
-                findNavController().navigate(R.id.action_home_to_bookmark)
+                //findNavController().navigate(R.id.action_home_to_bookmark)
+                (requireActivity() as MainActivity).setNavigate(MainActivity.BOOKMARK)
             }
 
             alarmImb.setOnClickListener {
-                findNavController().navigate(R.id.action_home_to_alarm)
+                (requireActivity() as MainActivity).setNavigate(MainActivity.BOOKMARK)
             }
 
         }
@@ -83,11 +87,13 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        Log.wtf("Home onViewCreated", "${AccountInfoSingleton.account_idx}")
         AccountInfoSingleton.account_idx?.let {
             viewModel.postMyCurrentPoint(it)
             viewModel.postMyBookMarkEripple(it)
             viewModel.getAlarmList(it)
+        } ?: run {
+            Log.wtf("Home onViewCreated","accountIdx is null")
         }
 
         viewModel.postEvent()

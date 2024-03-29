@@ -16,6 +16,8 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment() {
 
     private lateinit var fetchJob : Job
 
+    protected lateinit var bView : View
+
     abstract fun getViewBinding() : VB
 
     override fun onCreateView(
@@ -29,6 +31,7 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        bView = view
         initState()
     }
 

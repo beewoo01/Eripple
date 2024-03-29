@@ -37,7 +37,8 @@ class NiceApiActivity : AppCompatActivity() {
             settings.javaScriptEnabled = true
             addJavascriptInterface(WebAppInterface(), "Android")
             webViewClient = MyWebViewClient()
-            loadUrl("https://melatopia.me/eripple_mobile/getSecretToken")
+            //loadUrl("https://melatopia.me/eripple_mobile/getSecretToken")
+            loadUrl("http://codebrosdev.cafe24.com:8080/eripple_mobile/getSecretToken")
 
         }
     }
@@ -65,7 +66,8 @@ class NiceApiActivity : AppCompatActivity() {
             request: WebResourceRequest?
         ): Boolean {
             val url = Uri.parse(request?.url?.host).toString()
-            return url.startsWith("https://melatopia.me/eripple_mobile/")
+            //return url.startsWith("https://melatopia.me/eripple_mobile/")
+            return url.startsWith("http://codebrosdev.cafe24.com:8080/eripple_mobile/")
 
             //return super.shouldOverrideUrlLoading(view, request)
         }

@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <ImageView
             android:id="@+id/logo_imv"
             android:layout_width="wrap_content"
@@ -169,7 +168,7 @@
             android:nestedScrollingEnabled="false"
             android:overScrollMode="never"
             android:visibility="invisible"
-            tools:visibility="invisible"
+            tools:visibility="visible"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -180,7 +179,7 @@
         <TextView
             android:id="@+id/haveNoBookmark_txv"
             android:layout_width="0dp"
-            android:layout_height="70dp"
+            android:layout_height="85dp"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/round_8dp_graybox_bg"
@@ -196,12 +195,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bookmark" />
 
-        <androidx.constraintlayout.widget.Barrier
+        <!--<androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:constraint_referenced_ids="bookmark_recyclerView"
             app:barrierDirection="bottom"
+            />-->
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/center_guidLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.51"
             />
 
         <TextView
@@ -214,10 +222,10 @@
             android:text="@string/event"
             android:textColor="@color/defaultBlackTextColor"
             android:textSize="18sp"
-            app:layout_constraintVertical_bias="0"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@id/center_guidLine"
             app:layout_constraintBottom_toTopOf="@id/cardView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/barrier"
             app:layout_goneMarginTop="30dp" />
 
         <androidx.cardview.widget.CardView
@@ -226,12 +234,13 @@
             android:layout_height="150dp"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="16dp"
+            app:layout_constraintVertical_chainStyle="packed"
             app:cardCornerRadius="8dp"
             app:cardElevation="0dp"
-            app:layout_constraintBottom_toTopOf="@id/bottom_guid"
+            app:layout_constraintTop_toBottomOf="@id/event_txv"
+            app:layout_constraintBottom_toTopOf="@id/tab_layout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/event_txv"
             >
 
             <androidx.viewpager2.widget.ViewPager2
@@ -251,9 +260,9 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:scrollIndicators="none"
-            app:layout_constraintVertical_bias="0.2"
+            android:layout_marginTop="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardView"
-            app:layout_constraintBottom_toBottomOf="@id/bottom_guid"
             app:layout_constraintEnd_toEndOf="@id/cardView"
             app:layout_constraintStart_toStartOf="@id/cardView"
             app:tabBackground="@drawable/tab_pager_selector"
@@ -263,12 +272,12 @@
             app:tabPaddingEnd="6dp"
             app:tabPaddingStart="6dp" />
 
-        <androidx.constraintlayout.widget.Guideline
+        <!--<androidx.constraintlayout.widget.Guideline
             android:id="@+id/bottom_guid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.95" />
+            app:layout_constraintGuide_percent="0.8" />-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

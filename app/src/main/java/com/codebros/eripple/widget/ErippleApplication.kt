@@ -3,7 +3,8 @@ package com.codebros.eripple.widget
 import android.app.Application
 import android.content.Context
 import com.codebros.eripple.R
-import com.kakao.sdk.common.KakaoSdk
+//import com.kakao.sdk.common.KakaoSdk
+import com.naver.maps.map.NaverMapSdk
 
 class ErippleApplication : Application() {
 
@@ -11,7 +12,8 @@ class ErippleApplication : Application() {
         super.onCreate()
         appContext = this
 
-        KakaoSdk.init(this, getString(R.string.kakaoAppKey))
+        NaverMapSdk.getInstance(this).client = NaverMapSdk.NaverCloudPlatformClient("7uu9b4sb09")
+        //KakaoSdk.init(this, getString(R.string.kakaoAppKey))
     }
 
     override fun onTerminate() {

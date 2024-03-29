@@ -16,7 +16,10 @@
         android:roundIcon="@mipmap/app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Eripple"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m"
+        tools:ignore="RtlEnabled">
+
         <activity
             android:name=".screen.account.join.niceapi.NiceApiActivity"
             android:exported="false" />
@@ -49,10 +52,11 @@
             android:exported="false" />
         <activity
             android:name=".screen.main.MainActivity"
-            android:exported="true"
+            android:exported="false"
             android:label="@string/title_activity_sample" />
         <activity
             android:name=".screen.account.login.LoginActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="true">
         </activity>
         <activity
@@ -63,6 +67,10 @@
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakaoAppKey" />
+
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="7uu9b4sb09" />
     </application>
 
 </manifest>

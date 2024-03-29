@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,16 +8,25 @@
     tools:context=".screen.main.eripple_info.ErippleInfoFragment">
 
 
-
-    <RelativeLayout
+    <!--<RelativeLayout
         android:id="@+id/mapContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"/>-->
+
+    <com.naver.maps.map.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--<androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.naver.maps.map.MapFragment" />-->
 
     <include
         android:id="@+id/eripple_container"
-        layout="@layout/container_eripple_box"/>
-
+        layout="@layout/container_eripple_box" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

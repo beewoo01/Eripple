@@ -2,21 +2,16 @@ package com.codebros.eripple.screen.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
-import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
 import com.codebros.eripple.R
 import com.codebros.eripple.databinding.ActivityMainBinding
-import com.codebros.eripple.screen.base.BaseActivity
 import com.codebros.eripple.screen.main.eripple_info.ErippleInfoFragment
 import com.codebros.eripple.screen.main.history.HistoryFragment
+import com.codebros.eripple.screen.main.home.BookMarkFragment
 import com.codebros.eripple.screen.main.home.HomeFragment
+import com.codebros.eripple.screen.main.home.alarm.AlarmFragment
 import com.codebros.eripple.screen.main.my_point.MyPointFragment
 import com.codebros.eripple.screen.main.setting.SettingFragment
-import com.codebros.eripple.util.KeepStateNavigator
-import com.google.android.material.navigation.NavigationBarView
 
 class MainActivity : AppCompatActivity()/*<MainViewModel, ActivityMainBinding>(),
     NavigationBarView.OnItemSelectedListener*/ {
@@ -25,6 +20,15 @@ class MainActivity : AppCompatActivity()/*<MainViewModel, ActivityMainBinding>()
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
+
+    private val home: Pair<Fragment, String> = Pair(HomeFragment.newInstance(), HOME)
+    private val history: Pair<Fragment, String> = Pair(HistoryFragment(), HISTORY)
+    private val erippleInfo: Pair<Fragment, String> = Pair(ErippleInfoFragment(), ERIPPLE_INFO)
+    private val myPoint: Pair<Fragment, String> = Pair(MyPointFragment(), MY_POINT)
+    private val setting: Pair<Fragment, String> = Pair(SettingFragment(), SETTING)
+
+    private val bookMark: Pair<Fragment, String> = Pair(BookMarkFragment(), BOOKMARK)
+    private val alarm: Pair<Fragment, String> = Pair(AlarmFragment(), ALARM)
 
     /*override val viewModel: MainViewModel by viewModels()
 
@@ -62,14 +66,16 @@ class MainActivity : AppCompatActivity()/*<MainViewModel, ActivityMainBinding>()
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         initViews()
+        showFragment(home)
+    }
+
+    private fun initViews() {
+        setBottomNavigationView()
     }
 
 
-    private fun initViews() {
+    /*private fun initViews() {
         with(binding) {
-            /*bottomNav.setOnItemSelectedListener(this@MainActivity)
-            showFragment(HomeFragment.newInstance(), HomeFragment.TAG)*/
-
             val navHostFragment =
                 supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment
             val navController = navHostFragment.navController
@@ -89,10 +95,44 @@ class MainActivity : AppCompatActivity()/*<MainViewModel, ActivityMainBinding>()
         }
 
 
+    }*/
+
+    private fun setBottomNavigationView() {
+        binding.bottomNav.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.home -> {
+                    showFragment(home)
+                    true
+                }
+
+                R.id.history -> {
+                    showFragment(history)
+                    true
+                }
+
+                R.id.eripple_info -> {
+                    showFragment(erippleInfo)
+                    true
+                }
+
+                R.id.my_point -> {
+                    showFragment(myPoint)
+                    true
+                }
+
+                R.id.setting -> {
+                    showFragment(setting)
+                    true
+                }
+
+                else -> false
+            }
+        }
     }
 
-    private fun showFragment(fragment: Fragment, tag: String) {
-        val findFragment = supportFragmentManager.findFragmentByTag(tag)
+
+    private fun showFragment(pair: Pair<Fragment, String>) {
+        val findFragment = supportFragmentManager.findFragmentByTag(pair.second)
 
         supportFragmentManager.fragments.forEach { fm ->
             supportFragmentManager.beginTransaction().hide(fm).commit()
@@ -102,11 +142,67 @@ class MainActivity : AppCompatActivity()/*<MainViewModel, ActivityMainBinding>()
             supportFragmentManager.beginTransaction().show(it).commit()
         } ?: kotlin.run {
             supportFragmentManager.beginTransaction()
-                .add(R.id.container, fragment, tag)
+                .add(R.id.container, pair.first, pair.second)
                 .commitAllowingStateLoss()
         }
 
         //binding.titleTxv.text =
+    }
+
+    fun setNavigate(tag: String, param: Any? = null) {
+        val result : Pair<Fragment, String> =
+        when (tag) {
+            HOME -> {
+                home
+            }
+
+            HISTORY -> {
+                history
+            }
+
+            ERIPPLE_INFO -> {
+                val bundle = Bundle()
+                bundle.putInt("selected_idx", (param ?: 0) as Int)
+
+                erippleInfo.first.arguments = bundle
+                erippleInfo
+            }
+
+            MY_POINT -> {
+                myPoint
+            }
+
+            SETTING -> {
+                setting
+            }
+
+            BOOKMARK -> {
+                bookMark
+            }
+
+            ALARM -> {
+                alarm
+            }
+
+            else -> {
+                home
+            }
+
+        }
+
+        showFragment(result)
+
+    }
+
+    companion object {
+        const val HOME = "home"
+        const val HISTORY = "history"
+        const val ERIPPLE_INFO = "eripple_info"
+        const val MY_POINT = "my_point"
+        const val SETTING = "setting"
+
+        const val BOOKMARK = "BOOKMARK"
+        const val ALARM = "ALARM"
     }
 
     /*override fun onNavigationItemSelected(item: MenuItem): Boolean {

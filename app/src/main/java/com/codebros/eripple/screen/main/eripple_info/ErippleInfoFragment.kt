@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Context.LOCATION_SERVICE
 import android.content.pm.PackageManager
+import android.health.connect.datatypes.DistanceRecord
 import android.location.Criteria
 import android.location.Location
 import android.location.LocationListener
@@ -24,22 +25,39 @@ import com.codebros.eripple.databinding.FragmentErippleInfoBinding
 import com.codebros.eripple.model.Model
 import com.codebros.eripple.model.eripple.Eripple
 import com.codebros.eripple.screen.base.BaseFragment
+import com.codebros.eripple.screen.main.util.FragmentCommunication
 import com.codebros.eripple.util.AccountInfoSingleton
 import com.codebros.eripple.util.GpsTracker
 import com.codebros.eripple.util.provider.DefaultCustomResourcesProvider
 import com.codebros.eripple.widget.adapter.ModelRecyclerAdapter
 import com.codebros.eripple.widget.adapter.kakao.CustomBalloonAdapter
 import com.codebros.eripple.widget.adapter.listener.eripple.ErippleAdapterListener
-import net.daum.mf.map.api.MapPOIItem
-import net.daum.mf.map.api.MapPoint
-import net.daum.mf.map.api.MapView
+import com.naver.maps.geometry.LatLng
+import com.naver.maps.map.CameraUpdate
+import com.naver.maps.map.MapFragment
+import com.naver.maps.map.MapView
+import com.naver.maps.map.NaverMap
+import com.naver.maps.map.OnMapReadyCallback
+import com.naver.maps.map.overlay.Align
+import com.naver.maps.map.overlay.Marker
+//import net.daum.mf.map.api.MapPOIItem
+//import net.daum.mf.map.api.MapPoint
+//import net.daum.mf.map.api.MapView
 import java.util.*
 
-class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleInfoBinding>() {
+class ErippleInfoFragment(
+    val listener: FragmentCommunication.ErippleInfo = object : FragmentCommunication.ErippleInfo {
+        override fun onClick(idx: Int) {
+            Log.wtf("ErippleInfoFragment", "onClick")
+        }
+
+    }
+) : BaseFragment<ErippleInfoViewModel, FragmentErippleInfoBinding>(),
+    OnMapReadyCallback {
 
     override val viewModel: ErippleInfoViewModel by viewModels()
 
-    private val args: ErippleInfoFragmentArgs by navArgs()
+    //private val args: ErippleInfoFragmentArgs by navArgs()
 
     override fun getViewBinding(): FragmentErippleInfoBinding =
         FragmentErippleInfoBinding.inflate(layoutInflater)
@@ -48,13 +66,14 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
         DefaultCustomResourcesProvider(requireContext())
     }
 
-    private var mapView: MapView? = null
+
+    private lateinit var naverMap: NaverMap
 
     private lateinit var locationManager: LocationManager
     private var preLoc: Location? = null
     private lateinit var bestProvider: String
 
-    //private lateinit var myLocationListener: LocationListener
+    private lateinit var myLocationListener: LocationListener
 
     private var longitude: Double = 0.0
     private var latitude: Double = 0.0
@@ -96,6 +115,10 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
     override fun initViews() {
         with(binding) {
             //getMyLocation()
+            Log.wtf("Eripple", "initViews")
+//            mapView = binding.mapView
+            //mapView = requireActivity().supportFragmentManager.findFragmentById(R.id.mapContainer) as MapFragment
+
             initLocationManager()
             erippleContainer.erippleRecyclerView.adapter = adapter
             erippleContainer.searchEdt.addTextChangedListener(object : TextWatcher {
@@ -122,6 +145,7 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
         }
     }
 
+
     private val locationPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
             val responsePermissions = permissions.entries.filter {
@@ -129,7 +153,7 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
                         || (it.key == Manifest.permission.ACCESS_COARSE_LOCATION)
             }
 
-            if (responsePermissions.filter { it.value == true }.size == locationPermissions.size) {
+            if (responsePermissions.filter { it.value }.size == locationPermissions.size) {
                 Log.wtf("locationPermissionLauncher", "true")
                 initMapView()
                 setMyLocationListener()
@@ -144,7 +168,8 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
             }
         }
 
-    @SuppressLint("MissingPermission")
+    //카카오맵
+    /*@SuppressLint("MissingPermission")
     private fun setMyLocationListener() {
 
         val gpsTracker = GpsTracker(requireContext(), locationManager)
@@ -163,6 +188,21 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
             mapView?.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(latitude, longitude), true)
         }
 
+    }*/
+
+    @SuppressLint("MissingPermission")
+    private fun setMyLocationListener() {
+
+        GpsTracker(requireContext(), locationManager).apply {
+            getLatitude()?.let { latitude = it }
+            getLongitude()?.let { longitude = it }
+        }
+
+
+        if (::naverMap.isInitialized) {
+            naverMap.moveCamera(CameraUpdate.scrollTo(LatLng(latitude, longitude)))
+        }
+
     }
 
     private fun getMyLocation() {
@@ -177,16 +217,35 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        binding.mapView.onStart()
+    }
+
     override fun onResume() {
         super.onResume()
+        Log.wtf("ErippleFragment", "onResume")
+        binding.mapView.onResume()
         getMyLocation()
+        binding.mapView.getMapAsync(this)
 
     }
 
     override fun onPause() {
         super.onPause()
         //locationManager.removeUpdates(myLocationListener)
-        binding.mapContainer.removeAllViews()
+        binding.mapView.onPause()
+        //binding.mapContainer.removeAllViews()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        binding.mapView.onStop()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.mapView.onDestroy()
     }
 
 
@@ -195,13 +254,13 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
     }
 
     private fun initMapView() {
-        if (mapView == null) {
+        if (binding.mapView == null) {
             Log.wtf("initMapView", "mapview is null!!")
-            mapView = MapView(requireActivity())
+            /*mapView = MapView(requireActivity())
 
             mapView?.zoomIn(true)
             mapView?.zoomOut(true)
-            binding.mapContainer.addView(mapView)
+            binding.mapContainer.addView(mapView)*/
             resetMarkers()
         } else {
             Log.wtf("initMapView", "mapview is not null")
@@ -259,9 +318,47 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
         return criteria
     }*/
 
+
     private fun resetMarkers() {
-        val selectedErippleIdx = args.selectedIdx
-        mapView?.let {
+
+        viewModel.erippleList.value.let { list ->
+            list?.let { erippleList ->
+                //val markers = arrayOfNulls<MapPOIItem>(erippleList.size)
+                val markers = arrayOfNulls<Marker>(erippleList.size)
+                for ((index, model) in list.withIndex()) {
+                    val marker = Marker().apply {
+                        position = LatLng(
+                            model.eripple_latitude.toDouble(),
+                            model.eripple_longitude.toDouble()
+                        )
+
+                        captionText = model.eripple_name
+                        setCaptionAligns(Align.Top)
+                    }
+
+                    markers[index] = marker
+                    markers[index]?.map = naverMap
+                }
+
+                val arg: Int = arguments?.getInt("selected_idx") ?: 0
+
+                if (arg > 0) {
+                    erippleList.filter { filterEripple ->
+                        filterEripple.eripple_idx == arg
+                    }.run {
+                        longitude = last().eripple_longitude.toDouble()
+                        latitude = last().eripple_latitude.toDouble()
+                        Log.wtf("last longi", last().eripple_longitude)
+                        Log.wtf("last latit", last().eripple_latitude)
+                        naverMap.moveCamera(CameraUpdate.scrollTo(LatLng(latitude, longitude)))
+                    }
+                }
+
+            }
+        }
+
+        //val selectedErippleIdx = args.selectedIdx
+        /*mapView?.let {
             it.removePOIItems(it.poiItems)
             it.setCalloutBalloonAdapter(CustomBalloonAdapter(layoutInflater))
             viewModel.erippleList.value.let { list ->
@@ -300,8 +397,7 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
                     }
                 }
             }
-
-        }
+        }*/
     }
 
 
@@ -385,5 +481,15 @@ class ErippleInfoFragment : BaseFragment<ErippleInfoViewModel, FragmentErippleIn
             Manifest.permission.ACCESS_COARSE_LOCATION
         )
     }
+
+    override fun onMapReady(p0: NaverMap) {
+        Log.wtf("ErippleFragment", "onMapReady")
+        this.naverMap = p0
+        naverMap.moveCamera(CameraUpdate.scrollTo(LatLng(latitude, longitude)))
+        getMyLocation()
+
+    }
+
+
 
 }
